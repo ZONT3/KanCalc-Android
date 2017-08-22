@@ -45,4 +45,12 @@ public class MainActivity extends AppCompatActivity {
             finish();
         } catch (Exception e) {e.printStackTrace();}
     }
+
+    public void toDrop(View v) {
+        try {
+            Intent i = new Intent(MainActivity.this, DropChanceActivity.class);
+            startActivity(i);
+            finish();
+        } catch (Exception e) {e.printStackTrace();}
+    }
 }

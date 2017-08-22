@@ -4,6 +4,7 @@
     <string name="chance_proke">Chance profit</string>
     <string name="chance">Chance:</string>
     <string name="tries">Tries:</string>
+    <string name="tries_hint">TRIES</string>
     <string name="edit_setup">Edit Setup</string>
     <string name="setup_not_setted_up">Please, set up a setup first!</string>
     <string name="empty_level_field">Please enter level(s)!</string>

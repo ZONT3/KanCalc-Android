@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".ChanceCalcActivity" />
         <activity android:name=".FarmActivity" />
-        <activity android:name=".SetupEditorActivity"></activity>
+        <activity android:name=".SetupEditorActivity" />
+        <activity android:name=".DropChanceActivity"></activity>
     </application>
 
 </manifest>

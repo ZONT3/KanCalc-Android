@@ -12,19 +12,51 @@
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true">
 
-        <Button
-            android:id="@+id/main_bt_proke"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="toCC"
-            android:text="@string/chance_proke" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/main_bt_farm"
+            <Button
+                android:id="@+id/main_bt_farm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="toFarm"
+                android:text="@string/leveling_cost" />
+
+            <Button
+                android:id="@+id/main_bt_proke"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="toCC"
+                android:text="@string/chance_proke" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="toFarm"
-            android:text="@string/leveling_cost" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/main_bt_craft"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:onClick="toCraft"
+                android:text="Craft chance" />
+
+            <Button
+                android:id="@+id/main_bt_drop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="toDrop"
+                android:text="Droplist" />
+        </LinearLayout>
+
     </LinearLayout>
 
     <TextView

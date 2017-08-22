@@ -8,4 +8,5 @@
     <string name="setup_not_setted_up">Сначала установите сетап!</string>
     <string name="empty_level_field">Не указан уровень (уровни)!</string>
     <string name="farm_legend">начальный - целевой ур. | карта | ранг</string>
+    <string name="tries_hint">ПОПЫТКИ</string>
 </resources>
