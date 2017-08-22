@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/lib_sort"
+        android:icon="@drawable/sort"
+        android:title="@string/sort"
+        app:showAsAction="always">
+
+        <menu>
+            <item android:title="@string/sort_by"
+                android:enabled="false"/>
+            <item android:id="@+id/lib_sort_id"
+                android:title="ID"/>
+            <item android:id="@+id/lib_sort_nid"
+                android:title="NID"/>
+            <item android:id="@+id/lib_sort_name"
+                android:title="@string/name"/>
+            <item android:id="@+id/lib_sort_class"
+                android:title="@string/cls"/>
+        </menu>
+    </item>
+
+    <item android:id="@+id/lib_kai"
+        android:title="@string/view_hide_all"
+        android:icon="@drawable/kai_off"
+        app:showAsAction="ifRoom"
+        android:onClick="toggleKai"/>
+
+
+</menu>

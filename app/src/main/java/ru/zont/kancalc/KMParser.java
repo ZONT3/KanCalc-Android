@@ -31,10 +31,6 @@ public class KMParser {
 	public KMParser(Context act) {res = act.getResources();}
 	
 	public ArrayList<Kanmusu> getKMList() throws ParserConfigurationException, SAXException, IOException {
-		return getKMList(false);
-	}
-	
-	public ArrayList<Kanmusu> getKMList(boolean am) throws ParserConfigurationException, SAXException, IOException {
 		db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
 		kmlistFile = db.parse(res.openRawResource(R.raw.kmlist));
 		root = kmlistFile.getDocumentElement();
@@ -45,12 +41,12 @@ public class KMParser {
 		kms = root.getChildNodes();
 		ArrayList<Kanmusu> res = new ArrayList<>();
 		for (int i=0; i<kmNodes.size(); i++)
-			res.add(getKM(i, am));
+			res.add(getKM(i));
 		res.addAll(remodels);
 		return res;
 	}
 
-	private Kanmusu getKM(int i, boolean am) {
+	private Kanmusu getKM(int i) {
 		Node km = kms.item(Integer.valueOf(kmNodes.get(i)));
 		Element kmE = (Element) km;
 		Kanmusu kanmusu = new Kanmusu(kmE.getAttribute("type"));
@@ -112,8 +108,6 @@ public class KMParser {
 					}
 					break;
 				case "remodel":
-					if (!am)
-						break;
 					String type = kanmusu.type;
 					if (kmp.hasAttribute("type"))
 						type = kmp.getAttribute("type");
@@ -124,7 +118,7 @@ public class KMParser {
 					remodel.oname = kanmusu.oname;
 					remodel.type = kanmusu.type;
 					remodel.cls = kanmusu.cls;
-					
+
 					if (kmp.hasAttribute("type"))
 						remodel.type = kmp.getAttribute("type");
 					if (kmp.hasAttribute("class"))
@@ -139,7 +133,7 @@ public class KMParser {
 						
 						switch (rmp.getNodeName()) {
 						case "id":
-							kanmusu.remodels.add(Integer.valueOf(kmp.getAttribute("index")), Integer.valueOf(rmp.getTextContent()));
+							remodel.id = Integer.valueOf(rmp.getTextContent());
 							break;
 						case "name":
 							remodel.name = rmp.getTextContent();
@@ -170,7 +164,9 @@ public class KMParser {
 							break;
 						}
 					}
-					
+
+					kanmusu.remodels.add(Integer.valueOf(kmp.getAttribute("index")), remodel);
+					remodel.remodels = kanmusu.remodels;
 					remodels.add(remodel);
 					break;
 				default:

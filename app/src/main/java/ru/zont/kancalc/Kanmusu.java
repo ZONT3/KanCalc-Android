@@ -16,9 +16,21 @@ public class Kanmusu implements Serializable {
 	boolean gotDrops = false;
 	ArrayList<Map> drops = new ArrayList<>();
 	int minlevel = 0;
-	ArrayList<Integer> remodels = new ArrayList<>();
+	ArrayList<Kanmusu> remodels = new ArrayList<>();
 	ArrayList<Craft> crafts = new ArrayList<>();
 	String image = null;
+
+	int hp;
+	int fp;
+	int tp;
+	int aa;
+	int ar;
+	int eva;
+	int asw;
+	int los;
+	int luk;
+	int rng;
+	int speed;
 
 	int index;
 	int nid;
@@ -26,13 +38,43 @@ public class Kanmusu implements Serializable {
 	int fuel;
 	int ammo;
 	int[] slots;
+
+	public ArrayList<Object> getParcingStats() {
+		ArrayList<Object> res = new ArrayList<>();
+		res.add(name);
+		res.add(jpname);
+		res.add(craft);
+		res.add(fuel);
+		res.add(ammo);
+		res.add(hp);
+		res.add(fp);
+		res.add(tp);
+		res.add(aa);
+		res.add(ar);
+		res.add(eva);
+		res.add(asw);
+		res.add(los);
+		res.add(luk);
+		res.add(rng);
+		res.add(speed);
+		return res;
+	}
+
+	public int getRemodelIndex() {
+		for (int i=0; i<remodels.size(); i++)
+			if (remodels.get(i)==this)
+				return i;
+		return -1;
+	}
+
+	public boolean isBase() {return getRemodelIndex()==0;}
 	
 	Kanmusu(String type) {
 		this.type = type;
 		this.name = "?";
 		this.jpname = "?";
 		this.oname = "?";
-		remodels.add(0, 0);
+		remodels.add(0, this);
 	}
 	
 	Kanmusu(String name, int id, int nid) {
@@ -41,7 +83,7 @@ public class Kanmusu implements Serializable {
 		this.oname = "?";
 		this.id = id;
 		this.nid = nid;
-		remodels.add(0, 0);
+		remodels.add(0, this);
 	}
 	
 	public static class Map {
@@ -52,7 +94,13 @@ public class Kanmusu implements Serializable {
 		public static class Node {
 			String name;
 			double chance;
+
+			@Override
+			public String toString() {return name;}
 		}
+
+		@Override
+		public String toString() {return name;}
 	}
 	
 	public static class Craft {

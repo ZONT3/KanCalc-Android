@@ -1,9 +1,13 @@
 package ru.zont.kancalc;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +23,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if (!hasConnection(this)) {
+            findViewById(R.id.main_bt_drop).setEnabled(false);
+            findViewById(R.id.main_bt_craft).setEnabled(false);
+        }
 
         try {
             Core.init(this);
@@ -52,5 +61,25 @@ public class MainActivity extends AppCompatActivity {
             startActivity(i);
             finish();
         } catch (Exception e) {e.printStackTrace();}
+    }
+
+    public void toLib(View v) {
+        try {
+            Intent i = new Intent(MainActivity.this, LibraryActivity.class);
+            startActivity(i);
+            finish();
+        } catch (Exception e) {e.printStackTrace();}
+    }
+
+    private static boolean hasConnection(final Context context) {
+        ConnectivityManager cm = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo wifiInfo = cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+        if (wifiInfo != null && wifiInfo.isConnected())
+            return true;
+        wifiInfo = cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+        if (wifiInfo != null && wifiInfo.isConnected())
+            return true;
+        wifiInfo = cm.getActiveNetworkInfo();
+        return wifiInfo != null && wifiInfo.isConnected();
     }
 }

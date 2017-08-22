@@ -15,7 +15,7 @@ import ru.zont.kancalc.Kanmusu.Map;
 public class Core {
 	private static int[] diff = new int[99];
 	
-	public static final String version = "Android Port v.1.0";
+	public static final String version = "Android Port v.1.2";
 
 	static boolean craftscheck = false;
 	static boolean nogui = false;
@@ -32,16 +32,25 @@ public class Core {
         prs = new KMParser(act);
 
 		initLevels();
-		kmlist = prs.getKMList();
-		kmlistAM = prs.getKMList(true);
-		kmsort(kmlist);
-		kmsort2(kmlistAM);
+		kmlistAM = prs.getKMList();
+		kmlist = getBaseList(kmlistAM);
+		kmsortNid(kmlist);
+		kmsortName(kmlistAM);
 
 	}
-	
-	
 
-	public static void kmsort(ArrayList<Kanmusu> list) {
+	private static ArrayList<Kanmusu> getBaseList(ArrayList<Kanmusu> kmlistAM) {
+		ArrayList<Kanmusu> res = new ArrayList<>();
+
+		for (Kanmusu kanmusu : kmlistAM)
+			if (kanmusu.isBase())
+				res.add(kanmusu);
+
+		return res;
+	}
+
+
+	public static void kmsortNid(ArrayList<Kanmusu> list) {
         for (int i=list.size()-1; i>=0; i--) {
             for (int j=0; j<i; j++) {
                 if (list.get(j).nid>list.get(j+1).nid) {
@@ -52,8 +61,20 @@ public class Core {
             }
         }
 	}
+
+	public static void kmsortId(ArrayList<Kanmusu> list) {
+		for (int i=list.size()-1; i>=0; i--) {
+			for (int j=0; j<i; j++) {
+				if (list.get(j).id>list.get(j+1).id) {
+					Kanmusu t = list.get(j);
+					list.set(j, list.get(j+1));
+					list.set(j+1, t);
+				}
+			}
+		}
+	}
 	
-	public static void kmsort2(ArrayList<Kanmusu> list) {
+	public static void kmsortName(ArrayList<Kanmusu> list) {
         for (int i=list.size()-1; i>=0; i--) {
             for (int j=0; j<i; j++) {
                 if (list.get(j).name.compareTo(list.get(j+1).name)>0) {
@@ -63,6 +84,18 @@ public class Core {
                 }
             }
         }
+	}
+
+	public static void kmsortClass(ArrayList<Kanmusu> list) {
+		for (int i=list.size()-1; i>=0; i--) {
+			for (int j=0; j<i; j++) {
+				if (list.get(j).cls.compareTo(list.get(j+1).cls)>0) {
+					Kanmusu t = list.get(j);
+					list.set(j, list.get(j+1));
+					list.set(j+1, t);
+				}
+			}
+		}
 	}
 
 
@@ -130,6 +163,7 @@ public class Core {
 		for (int i=0; i<tries-1; i++)
 			chance = (mtch+chance-mtch*chance);
 		chance*=100;
+		chance = Math.rint(chance * 1000.0) / 1000.0;
 		return chance;
 	}
 

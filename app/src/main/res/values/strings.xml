@@ -9,4 +9,19 @@
     <string name="setup_not_setted_up">Please, set up a setup first!</string>
     <string name="empty_level_field">Please enter level(s)!</string>
     <string name="farm_legend">lvl from - lvl to | map | rank</string>
+    <string name="craft_chance">Craft chance</string>
+    <string name="droplist">Droplist</string>
+    <string name="communicating_with_kcdb">Communicating with KCDB..</string>
+    <string name="unexpected_err">Unexpected error</string>
+    <string name="err_com_kcdb">ERROR WITH COMMUNICATING KCDB\nMay be new ships hasn\'t added to DB\nOr server is temprary unavailable</string>
+    <string name="library">Library</string>
+    <string name="best_craft">Best craft:</string>
+    <string name="fuel_cons">Fuel cons.:</string>
+    <string name="ammo_cons">Ammo cons.:</string>
+    <string name="speed">Speed:</string>
+    <string name="sort">Sort</string>
+    <string name="name">Name</string>
+    <string name="cls">Class</string>
+    <string name="view_hide_all">View/hide all</string>
+    <string name="sort_by">Sort by</string>
 </resources>

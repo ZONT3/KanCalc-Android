@@ -9,4 +9,19 @@
     <string name="empty_level_field">Не указан уровень (уровни)!</string>
     <string name="farm_legend">начальный - целевой ур. | карта | ранг</string>
     <string name="tries_hint">ПОПЫТКИ</string>
+    <string name="communicating_with_kcdb">Соединение с KCDB..</string>
+    <string name="craft_chance">Шанс крафта</string>
+    <string name="droplist">Дроплист</string>
+    <string name="err_com_kcdb">ОШИБКА С СОЕДИНЕНИЕМ KCDB\nНовые корабли могли быть еще не довавлены в базу\nИли сервер временно недоступен</string>
+    <string name="unexpected_err">Неизвестная ошибка</string>
+    <string name="library">Библиотека</string>
+    <string name="ammo_cons">"Потр. боеп.: "</string>
+    <string name="best_craft">"Лучший крафт: "</string>
+    <string name="fuel_cons">"Потреб. топл.: "</string>
+    <string name="speed">"Скорость: "</string>
+    <string name="cls">Класс</string>
+    <string name="name">Имя</string>
+    <string name="sort">Сортировка</string>
+    <string name="view_hide_all">Показать/скрыть все</string>
+    <string name="sort_by">Сортировать по</string>
 </resources>

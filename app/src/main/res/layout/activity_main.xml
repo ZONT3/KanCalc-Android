@@ -18,7 +18,23 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/main_bt_library"
+                style="@android:style/Widget.DeviceDefault.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="toLib"
+                android:text="@string/library" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
                 android:id="@+id/main_bt_farm"
+                style="@android:style/Widget.DeviceDefault.Button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -27,6 +43,7 @@
 
             <Button
                 android:id="@+id/main_bt_proke"
+                style="@android:style/Widget.DeviceDefault.Button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -41,20 +58,22 @@
 
             <Button
                 android:id="@+id/main_bt_craft"
+                style="@android:style/Widget.DeviceDefault.Button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:enabled="false"
                 android:onClick="toCraft"
-                android:text="Craft chance" />
+                android:text="@string/craft_chance" />
 
             <Button
                 android:id="@+id/main_bt_drop"
+                style="@android:style/Widget.DeviceDefault.Button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="toDrop"
-                android:text="Droplist" />
+                android:text="@string/droplist" />
         </LinearLayout>
 
     </LinearLayout>

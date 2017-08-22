@@ -78,10 +78,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="onEnter"
                 android:text="ENTER" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/drop_chance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -89,5 +90,24 @@
                 android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large" />
         </LinearLayout>
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/drop_progressBar"
+        style="@android:style/Widget.DeviceDefault.Light.ProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:indeterminate="true" />
+
+    <TextView
+        android:id="@+id/drop_comstate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/drop_progressBar"
+        android:layout_toStartOf="@+id/drop_progressBar"
+        android:text="@string/communicating_with_kcdb" />
 
 </RelativeLayout>
