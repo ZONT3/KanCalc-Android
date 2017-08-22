@@ -36,7 +36,7 @@ public class KMParser {
 	
 	public ArrayList<Kanmusu> getKMList(boolean am) throws ParserConfigurationException, SAXException, IOException {
 		db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-		kmlistFile = db.parse(res.openRawResource(R.raw.kanmusuList));
+		kmlistFile = db.parse(res.openRawResource(R.raw.kmlist));
 		root = kmlistFile.getDocumentElement();
 		kmNodes = new ArrayList<>();
 		for (int j=0; j<root.getChildNodes().getLength(); j++)
@@ -188,7 +188,7 @@ public class KMParser {
 		
 		try {
 			DocumentBuilder db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-			Document doc = db.parse(res.openRawResource(R.raw.kanmusuList));
+			Document doc = db.parse(res.openRawResource(R.raw.ctime));
 			Node root = doc.getDocumentElement();
 			NodeList nodes = root.getChildNodes();
 			ArrayList<Node> ships = new ArrayList<>();

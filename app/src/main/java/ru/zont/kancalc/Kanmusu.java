@@ -1,9 +1,10 @@
 package ru.zont.kancalc;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 @SuppressWarnings({"WeakerAccess", "unused"})
-public class Kanmusu {
+public class Kanmusu implements Serializable {
 	int id = -1;
 	String type = "?";
 	String name;

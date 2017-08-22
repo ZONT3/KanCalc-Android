@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="chance_proke">Прок шанса</string>
+    <string name="leveling_cost">Стоимость фарма</string>
+    <string name="chance">Шанс:</string>
+    <string name="tries">Попытки:</string>
+    <string name="edit_setup">Изменить сетап</string>
+    <string name="setup_not_setted_up">Сначала установите сетап!</string>
+    <string name="empty_level_field">Не указан уровень (уровни)!</string>
+    <string name="farm_legend">начальный - целевой ур. | карта | ранг</string>
+</resources>
