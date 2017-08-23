@@ -146,7 +146,7 @@ public class LibraryActivity extends AppCompatActivity {
             adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, Core.kmlistAM);
         } else {
             item.setIcon(R.drawable.kai_off);
-            adapter = new ArrayAdapter<Kanmusu>(context, android.R.layout.simple_spinner_dropdown_item, Core.kmlist);
+            adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, Core.kmlist);
         }
 
         list.setAdapter(adapter);

@@ -4,16 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 
 import org.xml.sax.SAXException;
@@ -22,6 +20,7 @@ import java.io.IOException;
 
 import javax.xml.parsers.ParserConfigurationException;
 
+@SuppressWarnings("deprecation")
 public class MainActivity extends AppCompatActivity {
 
     @Override
