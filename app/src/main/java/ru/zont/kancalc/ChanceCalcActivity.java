@@ -10,8 +10,11 @@ import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 
 public class ChanceCalcActivity extends AppCompatActivity {
+
+    InterstitialAd interstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +24,7 @@ public class ChanceCalcActivity extends AppCompatActivity {
         AdView av = (AdView)findViewById(R.id.cc_ad);
         AdRequest request = new AdRequest.Builder().build();
         av.loadAd(request);
+        interstitialAd = AdShower.load(this);
     }
 
     public void onEnter(View v) {
@@ -35,10 +39,10 @@ public class ChanceCalcActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-
         try {
             Intent i = new Intent(ChanceCalcActivity.this, MainActivity.class);
             startActivity(i);
+            interstitialAd.show();
             finish();
         } catch (Exception e) {e.printStackTrace();}
     }

@@ -15,7 +15,7 @@ import ru.zont.kancalc.Kanmusu.Map;
 public class Core {
 	private static int[] diff = new int[99];
 	
-	public static final String version = "Android Port v.1.2";
+	public static final String version = "Android Port v.1.2.2";
 
 	static boolean craftscheck = false;
 	static boolean nogui = false;

@@ -7,8 +7,8 @@ android {
         applicationId "ru.zont.kancalc"
         minSdkVersion 16
         targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "1.2.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -27,6 +27,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'org.jsoup:jsoup:1.10.3'
-    testCompile 'junit:junit:4.12'
     compile 'com.google.android.gms:play-services-ads:11.0.4'
+    testCompile 'junit:junit:4.12'
 }

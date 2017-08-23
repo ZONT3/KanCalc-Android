@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -19,6 +20,8 @@ import java.io.ObjectInputStream;
 
 @SuppressWarnings("ResultOfMethodCallIgnored")
 public class FarmActivity extends AppCompatActivity {
+
+    InterstitialAd interstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,7 @@ public class FarmActivity extends AppCompatActivity {
         AdView av = (AdView)findViewById(R.id.farm_ad);
         AdRequest request = new AdRequest.Builder().build();
         av.loadAd(request);
+        interstitialAd = AdShower.load(this);
 
         final Spinner maps = (Spinner)findViewById(R.id.farm_maps);
         final Spinner ranks = (Spinner)findViewById(R.id.farm_ranks);
@@ -84,6 +88,7 @@ public class FarmActivity extends AppCompatActivity {
         try {
             Intent i = new Intent(FarmActivity.this, MainActivity.class);
             startActivity(i);
+            interstitialAd.show();
             finish();
         } catch (Exception e) {e.printStackTrace();}
     }

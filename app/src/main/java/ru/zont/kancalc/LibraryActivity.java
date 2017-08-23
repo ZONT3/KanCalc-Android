@@ -15,11 +15,14 @@ import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 
 import java.util.ArrayList;
 
 @SuppressWarnings("unchecked")
 public class LibraryActivity extends AppCompatActivity {
+
+    InterstitialAd interstitialAd;
 
     final Context context = this;
 
@@ -33,6 +36,7 @@ public class LibraryActivity extends AppCompatActivity {
         AdView av = (AdView)findViewById(R.id.lib_ad);
         AdRequest request = new AdRequest.Builder().build();
         av.loadAd(request);
+        interstitialAd = AdShower.load(this);
 
         final Spinner kmlist = (Spinner)findViewById(R.id.lib_spinner);
         final Spinner models = (Spinner)findViewById(R.id.lib_otherVers);
@@ -155,6 +159,7 @@ public class LibraryActivity extends AppCompatActivity {
         try {
             Intent i = new Intent(LibraryActivity.this, MainActivity.class);
             startActivity(i);
+            interstitialAd.show();
             finish();
         } catch (Exception e) {e.printStackTrace();}
     }

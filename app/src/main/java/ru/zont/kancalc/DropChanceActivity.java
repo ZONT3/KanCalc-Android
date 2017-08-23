@@ -17,10 +17,13 @@ import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 
 import java.util.ArrayList;
 
 public class DropChanceActivity extends AppCompatActivity {
+
+    InterstitialAd interstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,7 @@ public class DropChanceActivity extends AppCompatActivity {
         AdView av = (AdView)findViewById(R.id.drop_ad);
         AdRequest request = new AdRequest.Builder().build();
         av.loadAd(request);
+        interstitialAd = AdShower.load(this);
 
         final Spinner kmlist = (Spinner)findViewById(R.id.drop_kms);
         final Spinner maps = (Spinner)findViewById(R.id.drop_maps);
@@ -73,27 +77,6 @@ public class DropChanceActivity extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {}
         });
-    }
-
-    public void onEnter(View v) {
-        final Spinner nodes = (Spinner)findViewById(R.id.drop_nodes);
-        final EditText triesView = (EditText)findViewById(R.id.drop_tries);
-        final TextView res = (TextView)findViewById(R.id.drop_chance);
-        final double singleChance = ((Kanmusu.Map.Node)nodes.getSelectedItem()).chance;
-        final int tries = Integer.valueOf(triesView.getText().toString());
-
-        res.setText(Core.getSumChance(singleChance, tries)+"%");
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-
-        try {
-            Intent i = new Intent(DropChanceActivity.this, MainActivity.class);
-            startActivity(i);
-            finish();
-        } catch (Exception e) {e.printStackTrace();}
     }
 
     private class GetDrops extends AsyncTask<Context, Void, Boolean> {
@@ -150,5 +133,27 @@ public class DropChanceActivity extends AppCompatActivity {
             pb.setVisibility(ProgressBar.GONE);
             cs.setVisibility(TextView.GONE);
         }
+    }
+
+    public void onEnter(View v) {
+        final Spinner nodes = (Spinner)findViewById(R.id.drop_nodes);
+        final EditText triesView = (EditText)findViewById(R.id.drop_tries);
+        final TextView res = (TextView)findViewById(R.id.drop_chance);
+        final double singleChance = ((Kanmusu.Map.Node)nodes.getSelectedItem()).chance;
+        final int tries = Integer.valueOf(triesView.getText().toString());
+
+        res.setText(Core.getSumChance(singleChance, tries)+"%");
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        try {
+            Intent i = new Intent(DropChanceActivity.this, MainActivity.class);
+            startActivity(i);
+            interstitialAd.show();
+            finish();
+        } catch (Exception e) {e.printStackTrace();}
     }
 }
