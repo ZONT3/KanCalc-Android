@@ -3,8 +3,9 @@ package ru.zont.kancalc;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-@SuppressWarnings({"WeakerAccess", "unused"})
-public class Kanmusu implements Serializable {
+
+@SuppressWarnings({"unused", "WeakerAccess"})
+class Kanmusu implements Serializable {
 	int id = -1;
 	String type = "?";
 	String name;
@@ -12,6 +13,7 @@ public class Kanmusu implements Serializable {
 	String oname;
 	String cls;
 	String craft = "unbuildable";
+	double chance;
 	private double craftchance = -1;
 	boolean gotDrops = false;
 	ArrayList<Map> drops = new ArrayList<>();
@@ -39,7 +41,7 @@ public class Kanmusu implements Serializable {
 	int ammo;
 	int[] slots;
 
-	public ArrayList<Object> getParcingStats() {
+	ArrayList<Object> getParcingStats() {
 		ArrayList<Object> res = new ArrayList<>();
 		res.add(name);
 		res.add(jpname);
@@ -60,14 +62,14 @@ public class Kanmusu implements Serializable {
 		return res;
 	}
 
-	public int getRemodelIndex() {
+	private int getRemodelIndex() {
 		for (int i=0; i<remodels.size(); i++)
 			if (remodels.get(i)==this)
 				return i;
 		return -1;
 	}
 
-	public boolean isBase() {return getRemodelIndex()==0;}
+	boolean isBase() {return getRemodelIndex()==0;}
 	
 	Kanmusu(String type) {
 		this.type = type;
@@ -86,12 +88,12 @@ public class Kanmusu implements Serializable {
 		remodels.add(0, this);
 	}
 	
-	public static class Map {
+	static class Map {
 		String id;
 		String name;
 		ArrayList<Node> nodes = new ArrayList<>();
 		
-		public static class Node {
+		static class Node {
 			String name;
 			double chance;
 
@@ -103,7 +105,7 @@ public class Kanmusu implements Serializable {
 		public String toString() {return name;}
 	}
 	
-	public static class Craft {
+	static class Craft {
 		String reciepe = "0/0/0/0";
 		double chance = 0;
 		int entries = -1;
@@ -114,7 +116,7 @@ public class Kanmusu implements Serializable {
 		return jpname+" ("+name+")";
 	}
 
-	public void setCraft(String craft) {
+	void setCraft(String craft) {
 		this.craft = craft;
 	}
 	

@@ -4,9 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,16 +36,21 @@ public class MainActivity extends AppCompatActivity {
         AdRequest request = new AdRequest.Builder().build();
         av.loadAd(request);
 
-        if (!hasConnection(this)) {
-            findViewById(R.id.main_bt_drop).setEnabled(false);
-            findViewById(R.id.main_bt_craft).setEnabled(false);
-        }
-
         try {
             Core.init(this);
         } catch (IOException | SAXException | ParserConfigurationException e) {
             Toast.makeText(this, "ERROR: "+e.getMessage(), Toast.LENGTH_LONG).show();
         }
+
+        boolean notFirst = getIntent().getBooleanExtra("isFirst", false);
+        if (!hasConnection(this)) {
+            ((TextView)findViewById(R.id.main_concheck)).setText(R.string.err_main_inet);
+            findViewById(R.id.main_pb).setVisibility(View.GONE);
+            findViewById(R.id.main_bt_drop).setEnabled(false);
+            findViewById(R.id.main_bt_craft).setEnabled(false);
+        } else
+            if (!notFirst)
+                new CheckConnect().execute(this);
 
         final TextView ver = (TextView)findViewById(R.id.main_ver);
         ver.setText("KanCalc "+Core.version+" by ZONT_ ©2017");
@@ -80,6 +88,14 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {e.printStackTrace();}
     }
 
+    public void toCraft(View v) {
+        try {
+            Intent i = new Intent(MainActivity.this, CraftActivity.class);
+            startActivity(i);
+            finish();
+        } catch (Exception e) {e.printStackTrace();}
+    }
+
     private static boolean hasConnection(final Context context) {
         ConnectivityManager cm = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo wifiInfo = cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
@@ -90,5 +106,47 @@ public class MainActivity extends AppCompatActivity {
             return true;
         wifiInfo = cm.getActiveNetworkInfo();
         return wifiInfo != null && wifiInfo.isConnected();
+    }
+
+    @SuppressWarnings("ConstantConditions")
+    private class CheckConnect extends AsyncTask<Context, Void, Context> {
+
+        final ProgressBar pb = (ProgressBar)findViewById(R.id.main_pb);
+        final TextView cs = (TextView)findViewById(R.id.main_concheck);
+        final Button craft = (Button)findViewById(R.id.main_bt_craft);
+        final Button drop = (Button)findViewById(R.id.main_bt_drop);
+
+        boolean result = false;
+
+        @Override
+        protected void onPreExecute() {
+            pb.setVisibility(View.VISIBLE);
+            cs.setVisibility(View.VISIBLE);
+            cs.setText(R.string.checking_connection_with_kcdb);
+            craft.setEnabled(false);
+            drop.setEnabled(false);
+        }
+
+        @Override
+        protected Context doInBackground(Context... contexts) {
+            Kanmusu yuu = Core.getKanmusu("Yuudachi", Core.kmlist);
+            try {
+                KCDB.getCC(yuu, yuu.craft);
+            } catch (IOException e) {e.printStackTrace();return contexts[0];}
+            result = true;
+            return contexts[0];
+        }
+
+        @Override
+        protected void onPostExecute(Context context) {
+            pb.setVisibility(View.GONE);
+
+            if (result) {
+                cs.setVisibility(View.GONE);
+                craft.setEnabled(true);
+                drop.setEnabled(true);
+            } else
+                cs.setText(R.string.err_main_kcdb);
+        }
     }
 }

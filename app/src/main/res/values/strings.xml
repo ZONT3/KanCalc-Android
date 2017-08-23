@@ -10,7 +10,7 @@
     <string name="empty_level_field">Please enter level(s)!</string>
     <string name="farm_legend">lvl from - lvl to | map | rank</string>
     <string name="craft_chance">Craft chance</string>
-    <string name="droplist">Droplist</string>
+    <string name="droplist">Maybe, craft \"</string>
     <string name="communicating_with_kcdb">Communicating with KCDB..</string>
     <string name="unexpected_err">Unexpected error</string>
     <string name="err_com_kcdb">ERROR WITH COMMUNICATING KCDB\nMay be new ships hasn\'t added to DB\nOr server is temprary unavailable</string>
@@ -24,4 +24,10 @@
     <string name="cls">Class</string>
     <string name="view_hide_all">View/hide all</string>
     <string name="sort_by">Sort by</string>
+    <string name="craft_iss_1">ERROR WITH COMMUNICATING KCDB\nMaybe, craft \"</string>
+    <string name="craft_iss_2">\" isn\'t valid.\nPlease contact with developer about this issue.</string>
+    <string name="enter">ENTER</string>
+    <string name="checking_connection_with_kcdb">Checking connection with KCDB...</string>
+    <string name="err_main_kcdb">KCDB seems sleepy, some utilities are not available!</string>
+    <string name="err_main_inet">No internet connection, some utilities are not available. If you will turn it on, restart app</string>
 </resources>

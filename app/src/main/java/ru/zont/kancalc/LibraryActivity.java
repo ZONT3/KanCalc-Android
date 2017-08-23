@@ -158,6 +158,7 @@ public class LibraryActivity extends AppCompatActivity {
 
         try {
             Intent i = new Intent(LibraryActivity.this, MainActivity.class);
+            i.putExtra("notFirst", true);
             startActivity(i);
             interstitialAd.show();
             finish();

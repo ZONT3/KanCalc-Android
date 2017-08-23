@@ -10,10 +10,11 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@SuppressWarnings({"WeakerAccess", "unused"})
-public class KCDB {
+
+@SuppressWarnings("unused")
+class KCDB {
 	@SuppressLint("StaticFieldLeak")
-	static Context act;
+	private static Context act;
 
 	public static void init(Context act) {KCDB.act = act;}
 
@@ -39,7 +40,7 @@ public class KCDB {
 		return res;
 	}
 
-	public static ArrayList<Kanmusu.Map> getDrops(Kanmusu kanmusu) throws IOException {
+	static ArrayList<Kanmusu.Map> getDrops(Kanmusu kanmusu) throws IOException {
 		ArrayList<Kanmusu.Map> res = new ArrayList<>();
 		System.out.println("Getting Drops for "+kanmusu+"\tID:"+kanmusu.id);
 		Document inf = Jsoup.connect("http://kancolle-db.net/ship/"+kanmusu.id+".html").get();

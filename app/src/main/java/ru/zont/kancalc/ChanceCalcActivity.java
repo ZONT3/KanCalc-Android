@@ -40,6 +40,7 @@ public class ChanceCalcActivity extends AppCompatActivity {
         super.onBackPressed();
         try {
             Intent i = new Intent(ChanceCalcActivity.this, MainActivity.class);
+            i.putExtra("notFirst", true);
             startActivity(i);
             interstitialAd.show();
             finish();

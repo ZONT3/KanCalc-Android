@@ -11,18 +11,19 @@
         android:layout_gravity="center_vertical"
         android:padding="10dp"
         android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true">
+        android:layout_alignParentLeft="true"
+        android:id="@+id/linearLayout2">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/main_bt_library"
                 style="@android:style/Widget.DeviceDefault.Button"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="toLib"
                 android:text="@string/library" />
@@ -30,14 +31,14 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/main_bt_farm"
                 style="@android:style/Widget.DeviceDefault.Button"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="toFarm"
                 android:text="@string/leveling_cost" />
@@ -46,7 +47,7 @@
                 android:id="@+id/main_bt_proke"
                 style="@android:style/Widget.DeviceDefault.Button"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="toCC"
                 android:text="@string/chance_proke" />
@@ -54,16 +55,15 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/main_bt_craft"
                 style="@android:style/Widget.DeviceDefault.Button"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:enabled="false"
                 android:onClick="toCraft"
                 android:text="@string/craft_chance" />
 
@@ -71,7 +71,7 @@
                 android:id="@+id/main_bt_drop"
                 style="@android:style/Widget.DeviceDefault.Button"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="toDrop"
                 android:text="@string/droplist" />
@@ -94,5 +94,21 @@
         android:layout_centerHorizontal="true"
         ads:adSize="BANNER"
         ads:adUnitId="ca-app-pub-7799305268524604/3071417253"/>
+
+    <TextView
+        android:id="@+id/main_concheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/linearLayout2"
+        android:layout_centerHorizontal="true"
+        android:text="@string/checking_connection_with_kcdb" />
+
+    <ProgressBar
+        android:id="@+id/main_pb"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/main_concheck"
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>

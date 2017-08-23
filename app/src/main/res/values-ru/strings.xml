@@ -15,13 +15,19 @@
     <string name="err_com_kcdb">ОШИБКА С СОЕДИНЕНИЕМ KCDB\nНовые корабли могли быть еще не довавлены в базу\nИли сервер временно недоступен</string>
     <string name="unexpected_err">Неизвестная ошибка</string>
     <string name="library">Библиотека</string>
-    <string name="ammo_cons">"Потр. боеп.: "</string>
-    <string name="best_craft">"Лучший крафт: "</string>
-    <string name="fuel_cons">"Потреб. топл.: "</string>
-    <string name="speed">"Скорость: "</string>
+    <string name="ammo_cons">Потр. боеп.: </string>
+    <string name="best_craft">Лучший крафт: </string>
+    <string name="fuel_cons">Потреб. топл.: </string>
+    <string name="speed">Скорость: </string>
     <string name="cls">Класс</string>
     <string name="name">Имя</string>
     <string name="sort">Сортировка</string>
     <string name="view_hide_all">Показать/скрыть все</string>
     <string name="sort_by">Сортировать по</string>
+    <string name="craft_iss_1">ОШИБКА ПРИ ПОДКЛЮЧЕНИИ К KCDB\nМожет быть, что крафт \"</string>
+    <string name="craft_iss_2">\" не правильный.\nПожалуйста, свяжитесь с разработчиками насчет этой ошибки.</string>
+    <string name="enter">ENTER</string>
+    <string name="checking_connection_with_kcdb">Проверка соединения с KCDB...</string>
+    <string name="err_main_inet">Осутствует интернет-соединение, некоторые функции недоступны. Если включите его, перезапустите приложение</string>
+    <string name="err_main_kcdb">Осутствует соединение с KCDB, некоторые функции недоступны. Такое бывает на эвентах.</string>
 </resources>

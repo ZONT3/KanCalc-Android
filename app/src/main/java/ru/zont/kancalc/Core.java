@@ -11,28 +11,21 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import ru.zont.kancalc.Kanmusu.Map;
 
-@SuppressWarnings({"WeakerAccess", "unused"})
-public class Core {
+class Core {
 	private static int[] diff = new int[99];
 	
-	public static final String version = "Android Port v.1.2.2";
-
-	static boolean craftscheck = false;
-	static boolean nogui = false;
+	public static final String version = "Android Port v.1.3";
 	
-	public static ArrayList<Kanmusu> kmlist = new ArrayList<>();
-	public static ArrayList<Kanmusu> kmlistAM = new ArrayList<>();
+	static ArrayList<Kanmusu> kmlist = new ArrayList<>();
+	static ArrayList<Kanmusu> kmlistAM = new ArrayList<>();
 	
-	public static String[] ranks = {"S", "A", "B", "C", "D"};
-	public static String[] farmMaps = {"1-5", "3-2", "4-3", "5-3"};
+	static String[] ranks = {"S", "A", "B", "C", "D"};
+	static String[] farmMaps = {"1-5", "3-2", "4-3", "5-3"};
 
-    public static KMParser prs;
-	
-	public static void init(Context act) throws IOException, SAXException, ParserConfigurationException {
-        prs = new KMParser(act);
-
+	static void init(Context act) throws IOException, SAXException, ParserConfigurationException {
+		KMParser.init(act);
 		initLevels();
-		kmlistAM = prs.getKMList();
+		kmlistAM = KMParser.getKMList();
 		kmlist = getBaseList(kmlistAM);
 		kmsortNid(kmlist);
 		kmsortName(kmlistAM);
@@ -50,7 +43,7 @@ public class Core {
 	}
 
 
-	public static void kmsortNid(ArrayList<Kanmusu> list) {
+	static void kmsortNid(ArrayList<Kanmusu> list) {
         for (int i=list.size()-1; i>=0; i--) {
             for (int j=0; j<i; j++) {
                 if (list.get(j).nid>list.get(j+1).nid) {
@@ -62,7 +55,7 @@ public class Core {
         }
 	}
 
-	public static void kmsortId(ArrayList<Kanmusu> list) {
+	static void kmsortId(ArrayList<Kanmusu> list) {
 		for (int i=list.size()-1; i>=0; i--) {
 			for (int j=0; j<i; j++) {
 				if (list.get(j).id>list.get(j+1).id) {
@@ -74,7 +67,7 @@ public class Core {
 		}
 	}
 	
-	public static void kmsortName(ArrayList<Kanmusu> list) {
+	static void kmsortName(ArrayList<Kanmusu> list) {
         for (int i=list.size()-1; i>=0; i--) {
             for (int j=0; j<i; j++) {
                 if (list.get(j).name.compareTo(list.get(j+1).name)>0) {
@@ -86,7 +79,7 @@ public class Core {
         }
 	}
 
-	public static void kmsortClass(ArrayList<Kanmusu> list) {
+	static void kmsortClass(ArrayList<Kanmusu> list) {
 		for (int i=list.size()-1; i>=0; i--) {
 			for (int j=0; j<i; j++) {
 				if (list.get(j).cls.compareTo(list.get(j+1).cls)>0) {
@@ -109,7 +102,7 @@ public class Core {
 //		Ui.CCCe();
 //	}
 	
-	public static Kanmusu getKanmusu(String name, ArrayList<Kanmusu> list) {
+	static Kanmusu getKanmusu(String name, ArrayList<Kanmusu> list) {
 		// Хуйня какая-то, не робит
 		// O, заробила, магия
 		for (int i = 0; i<list.size(); i++)
@@ -118,7 +111,7 @@ public class Core {
 		return null;
 	}
 	
-	public static Kanmusu getKanmusu(int id, ArrayList<Kanmusu> list) {
+	static Kanmusu getKanmusu(int id, ArrayList<Kanmusu> list) {
 		for (int i = 0; i<list.size(); i++) {
 			if (list.get(i).id == id)
 				return list.get(i);
@@ -157,7 +150,7 @@ public class Core {
 		diff[98] = 148500;
 	}
 
-	public static double getSumChance(double chance, int tries) {
+	static double getSumChance(double chance, int tries) {
 		chance /= 100;
 		double mtch = chance;
 		for (int i=0; i<tries-1; i++)
@@ -167,7 +160,7 @@ public class Core {
 		return chance;
 	}
 
-	public static int getBattlesLeft(String lvls, String map, String rank) {
+	static int getBattlesLeft(String lvls, String map, String rank) {
 		double basexp = 0;
 		switch (map) {
 		case "3-2":
@@ -226,6 +219,7 @@ public class Core {
 		return (int) ((rxp-cxp)/(basexp*rankmult*3.0))+1;
 	}
 
+	@SuppressWarnings("unused")
 	public static String getPrice(int tries, Kanmusu kanmusu) {
 		if (kanmusu.craft.equals("unbuildable"))
 			return kanmusu.craft;
@@ -254,7 +248,7 @@ public class Core {
 		return -1;
 	}
 	
-	public static class Consumption {
+	static class Consumption {
 		int fuel = 0;
 		int ammo = 0;
 
@@ -264,9 +258,10 @@ public class Core {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	public static Consumption getConsumption(Kanmusu[] setup) {return getConsumption(setup, 1);}
 
-	public static Consumption getConsumption(Kanmusu[] setup, int bs) {
+	static Consumption getConsumption(Kanmusu[] setup, int bs) {
 		Consumption res = new Consumption();
         for (Kanmusu aSetup : setup) {
             res.fuel += aSetup.fuel * 0.2;

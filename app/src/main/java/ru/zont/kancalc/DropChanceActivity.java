@@ -151,6 +151,7 @@ public class DropChanceActivity extends AppCompatActivity {
 
         try {
             Intent i = new Intent(DropChanceActivity.this, MainActivity.class);
+            i.putExtra("notFirst", true);
             startActivity(i);
             interstitialAd.show();
             finish();

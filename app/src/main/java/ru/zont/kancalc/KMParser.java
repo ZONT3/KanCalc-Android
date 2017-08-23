@@ -16,26 +16,24 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-@SuppressWarnings({"WeakerAccess", "unused"})
-public class KMParser {
-	Resources res;
-	
-	DocumentBuilder db;
-	Document kmlistFile;
-	Node root;
-	NodeList kms;
-	ArrayList<String> kmNodes;
-	
-	ArrayList<Kanmusu> remodels = new ArrayList<>();
 
-	public KMParser(Context act) {res = act.getResources();}
+@SuppressWarnings("unused")
+class KMParser {
+	static private Resources res;
+
+	static private NodeList kms;
+	static private ArrayList<String> kmNodes;
+
+	static private ArrayList<Kanmusu> remodels = new ArrayList<>();
+
+	static void init(Context act) {res = act.getResources();}
 	
-	public ArrayList<Kanmusu> getKMList() throws ParserConfigurationException, SAXException, IOException {
-		db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-		kmlistFile = db.parse(res.openRawResource(R.raw.kmlist));
-		root = kmlistFile.getDocumentElement();
+	static ArrayList<Kanmusu> getKMList() throws ParserConfigurationException, SAXException, IOException {
+		DocumentBuilder db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+		Document kmlistFile = db.parse(res.openRawResource(R.raw.kmlist));
+		Node root = kmlistFile.getDocumentElement();
 		kmNodes = new ArrayList<>();
-		for (int j=0; j<root.getChildNodes().getLength(); j++)
+		for (int j = 0; j< root.getChildNodes().getLength(); j++)
 			if (root.getChildNodes().item(j).getNodeName().equals("ship"))
 				kmNodes.add(j+"");
 		kms = root.getChildNodes();
@@ -46,7 +44,7 @@ public class KMParser {
 		return res;
 	}
 
-	private Kanmusu getKM(int i) {
+	private static Kanmusu getKM(int i) {
 		Node km = kms.item(Integer.valueOf(kmNodes.get(i)));
 		Element kmE = (Element) km;
 		Kanmusu kanmusu = new Kanmusu(kmE.getAttribute("type"));
@@ -176,9 +174,9 @@ public class KMParser {
 		}
 		return kanmusu;
 	}
-	
-	
-	public String getConstTime(Kanmusu kanmusu) {
+
+
+	static String getConstTime(Kanmusu kanmusu) {
 		if (kanmusu.craft.equals("unbuildable"))
 			return null;
 		
@@ -216,12 +214,12 @@ public class KMParser {
 		
 		return null;
 	}
-	
-	public String getConstTime(String name) {
+
+	static String getConstTime(String name) {
 		return getConstTime(Core.getKanmusu(name, Core.kmlist));
 	}
-	
-	public String getConstTime(int id) {
+
+	static String getConstTime(int id) {
 		return getConstTime(Core.getKanmusu(id, Core.kmlist));
 	}
 }
