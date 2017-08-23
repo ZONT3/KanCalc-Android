@@ -10,6 +10,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
@@ -21,6 +24,10 @@ public class FarmActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_farm);
+
+        AdView av = (AdView)findViewById(R.id.farm_ad);
+        AdRequest request = new AdRequest.Builder().build();
+        av.loadAd(request);
 
         final Spinner maps = (Spinner)findViewById(R.id.farm_maps);
         final Spinner ranks = (Spinner)findViewById(R.id.farm_ranks);

@@ -15,6 +15,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.util.ArrayList;
 
 public class DropChanceActivity extends AppCompatActivity {
@@ -23,6 +26,10 @@ public class DropChanceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drop_chance);
+
+        AdView av = (AdView)findViewById(R.id.drop_ad);
+        AdRequest request = new AdRequest.Builder().build();
+        av.loadAd(request);
 
         final Spinner kmlist = (Spinner)findViewById(R.id.drop_kms);
         final Spinner maps = (Spinner)findViewById(R.id.drop_maps);

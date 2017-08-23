@@ -8,12 +8,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 public class ChanceCalcActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chance_calc);
+
+        AdView av = (AdView)findViewById(R.id.cc_ad);
+        AdRequest request = new AdRequest.Builder().build();
+        av.loadAd(request);
     }
 
     public void onEnter(View v) {

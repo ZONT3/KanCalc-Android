@@ -13,6 +13,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.util.ArrayList;
 
 @SuppressWarnings("unchecked")
@@ -26,6 +29,10 @@ public class LibraryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_library);
+
+        AdView av = (AdView)findViewById(R.id.lib_ad);
+        AdRequest request = new AdRequest.Builder().build();
+        av.loadAd(request);
 
         final Spinner kmlist = (Spinner)findViewById(R.id.lib_spinner);
         final Spinner models = (Spinner)findViewById(R.id.lib_otherVers);

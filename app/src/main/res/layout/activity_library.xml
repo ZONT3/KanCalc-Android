@@ -487,6 +487,13 @@
 
             </LinearLayout>
 
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/lib_ad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:adSize="BANNER"
+                app:adUnitId="ca-app-pub-7799305268524604/9991392284"/>
+
             <ImageView
                 android:id="@+id/lib_cg"
                 android:layout_width="match_parent"

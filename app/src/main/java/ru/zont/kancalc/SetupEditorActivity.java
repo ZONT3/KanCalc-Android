@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -21,6 +24,10 @@ public class SetupEditorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setup_editor);
+
+        AdView av = (AdView)findViewById(R.id.se_ad);
+        AdRequest request = new AdRequest.Builder().build();
+        av.loadAd(request);
 
         ArrayList<Spinner> setupSpinners = new ArrayList<>();
         final Spinner km1 = (Spinner)findViewById(R.id.se_spinner1); setupSpinners.add(km1);
