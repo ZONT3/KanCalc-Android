@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--suppress ALL -->
+<!--TEST -->
 <ships>
 	<ship type="DD" class="Mutsuki">
 		<id>1</id>
