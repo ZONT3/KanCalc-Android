@@ -425,6 +425,78 @@
 		</remodel>
 	</ship>
 	<ship type="DD" class="Ayanami">
+		<id>13</id>
+		<nid>17</nid>
+		<name>Ayanami</name>
+		<nameJP>綾波</nameJP>
+		<craft>30/30/30/30</craft>
+		<stats>
+			<hp>15</hp><hpM>29</hpM>
+			<fp>29</fp><fpB>10</fpB>
+			<tp>79</tp><tpB>27</tpB>
+			<aa>39</aa><aaB>12</aaB>
+			<ar>19</ar><arB>5</arB>
+			<eva>89</eva><evaB>41</evaB>
+			<asw>49</asw><aswB>20</aswB>
+			<los>19</los><losB>5</losB>
+			<luk>12</luk><lukM>49</lukM>
+			<rng>1</rng>
+			<speed>10</speed>
+			<slots count="2">
+				<slot id="0">0</slot>
+				<slot id="1">0</slot>
+			</slots>
+			<fuel>15</fuel>
+			<ammo>20</ammo>
+		</stats>
+		<remodel index="1" lvl="20">
+			<id>207</id>
+			<hp></hp><hpM></hpM>
+			<fp></fp><fpB></fpB>
+			<tp></tp><tpB></tpB>
+			<aa></aa><aaB></aaB>
+			<ar></ar><arB></arB>
+			<eva></eva><evaB></evaB>
+			<asw></asw><aswB></aswB>
+			<los></los><losB></losB>
+			<luk></luk><lukM></lukM>
+			<rng></rng>
+			<speed></speed>
+			<slots count="3">
+				<slot id="0">0</slot>
+				<slot id="1">0</slot>
+				<slot id="2">0</slot>
+			</slots>
+			<fuel>15</fuel>
+			<ammo>20</ammo>
+			<suffix>Kai</suffix>
+			<suffixJP>改</suffixJP>
+		</remodel>
+		<remodel index="2" lvl="70">
+			<id>195</id>
+			<hp></hp><hpM></hpM>
+			<fp></fp><fpB></fpB>
+			<tp></tp><tpB></tpB>
+			<aa></aa><aaB></aaB>
+			<ar></ar><arB></arB>
+			<eva></eva><evaB></evaB>
+			<asw></asw><aswB></aswB>
+			<los></los><losB></losB>
+			<luk></luk><lukM></lukM>
+			<rng></rng>
+			<speed></speed>
+			<slots count="3">
+				<slot id="0">0</slot>
+				<slot id="1">0</slot>
+				<slot id="2">0</slot>
+			</slots>
+			<fuel>15</fuel>
+			<ammo>20</ammo>
+			<suffix>Kai Ni</suffix>
+			<suffixJP>改二</suffixJP>
+		</remodel>
+	</ship>
+	<ship type="DD" class="Ayanami">
 		<id>14</id>
 		<nid>18</nid>
 		<name>Shikinami</name>
@@ -10020,7 +10092,7 @@
 		<nid>248</nid>
 		<name>Zara</name>
 		<nameJP original="Zara">ザラ</nameJP>
-		<craft>unbuildable</craft>
+		<craft>3000/4500/4500/2000</craft>
 		<stats>
 			<hp></hp><hpM></hpM>
 			<fp></fp><fpB></fpB>
