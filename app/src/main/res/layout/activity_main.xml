@@ -101,6 +101,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/linearLayout2"
         android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
         android:text="@string/checking_connection_with_kcdb" />
 
     <ProgressBar

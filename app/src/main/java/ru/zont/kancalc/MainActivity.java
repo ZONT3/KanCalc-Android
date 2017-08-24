@@ -2,6 +2,7 @@ package ru.zont.kancalc;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -42,18 +43,21 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "ERROR: "+e.getMessage(), Toast.LENGTH_LONG).show();
         }
 
-        boolean notFirst = getIntent().getBooleanExtra("isFirst", false);
+        boolean notFirst = getIntent().getBooleanExtra("notFirst", false);
         if (!hasConnection(this)) {
             ((TextView)findViewById(R.id.main_concheck)).setText(R.string.err_main_inet);
             findViewById(R.id.main_pb).setVisibility(View.GONE);
             findViewById(R.id.main_bt_drop).setEnabled(false);
             findViewById(R.id.main_bt_craft).setEnabled(false);
-        } else
-            if (!notFirst)
-                new CheckConnect().execute(this);
+        } else if (!notFirst)
+            new CheckConnect().execute(this);
+        else {
+            SharedPreferences p = getPreferences(MODE_PRIVATE);
+            showConInfo(p.getBoolean("hasConnection", true));
+        }
 
         final TextView ver = (TextView)findViewById(R.id.main_ver);
-        ver.setText("KanCalc "+Core.version+" by ZONT_ ©2017");
+        ver.setText(getString(R.string.main_copyright_1)+Core.version+getString(R.string.main_copyright_2));
     }
 
     public void toCC(View v) {
@@ -139,14 +143,30 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(Context context) {
-            pb.setVisibility(View.GONE);
 
-            if (result) {
-                cs.setVisibility(View.GONE);
-                craft.setEnabled(true);
-                drop.setEnabled(true);
-            } else
-                cs.setText(R.string.err_main_kcdb);
+            SharedPreferences p = getPreferences(MODE_PRIVATE);
+            p.edit().putBoolean("hasConnection", result).apply();
+
+            showConInfo(result);
+        }
+    }
+
+    private void showConInfo(boolean hasConnection) {
+        final ProgressBar pb = (ProgressBar)findViewById(R.id.main_pb);
+        final TextView cs = (TextView)findViewById(R.id.main_concheck);
+        final Button craft = (Button)findViewById(R.id.main_bt_craft);
+        final Button drop = (Button)findViewById(R.id.main_bt_drop);
+
+        pb.setVisibility(View.GONE);
+
+        if (hasConnection) {
+            cs.setVisibility(View.GONE);
+            craft.setEnabled(true);
+            drop.setEnabled(true);
+        } else {
+            craft.setEnabled(false);
+            drop.setEnabled(false);
+            cs.setText(R.string.err_main_kcdb);
         }
     }
 }

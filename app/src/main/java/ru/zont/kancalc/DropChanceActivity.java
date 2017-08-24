@@ -85,6 +85,8 @@ public class DropChanceActivity extends AppCompatActivity {
         final Spinner maps = (Spinner)findViewById(R.id.drop_maps);
         final ProgressBar pb = (ProgressBar)findViewById(R.id.drop_progressBar);
         final TextView cs = (TextView)findViewById(R.id.drop_comstate);
+        final TextView single = (TextView)findViewById(R.id.drop_singleChance);
+        final TextView res = (TextView)findViewById(R.id.drop_chance);
 
         Context context;
         Kanmusu kanmusu;
@@ -98,6 +100,8 @@ public class DropChanceActivity extends AppCompatActivity {
             cs.setVisibility(TextView.VISIBLE);
             kmlist.setEnabled(false);
             kanmusu = (Kanmusu) kmlist.getSelectedItem();
+            single.setText("..");
+            res.setText("..");
         }
 
         @Override
@@ -116,6 +120,8 @@ public class DropChanceActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Boolean result) {
             if (!result) {
+                single.setText("---");
+                res.setText("ERROR");
                 if (drops == null) {
                     Toast.makeText(context, R.string.err_com_kcdb, Toast.LENGTH_LONG).show();
                     end();

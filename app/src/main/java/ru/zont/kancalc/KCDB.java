@@ -18,7 +18,7 @@ class KCDB {
 
 	public static void init(Context act) {KCDB.act = act;}
 
-	public static double getCC(Kanmusu kanmusu, String craft) throws IOException {
+	static double getCC(Kanmusu kanmusu, String craft) throws IOException {
 		double res = -1;
 		System.out.println("Getting CC for "+kanmusu+"\tID:"+kanmusu.id+"\tC:"+craft);
 		org.jsoup.nodes.Document inf = Jsoup.connect("http://kancolle-db.net/ship/"+kanmusu.id+".html").get();

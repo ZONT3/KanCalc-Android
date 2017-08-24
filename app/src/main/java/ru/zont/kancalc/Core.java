@@ -14,7 +14,7 @@ import ru.zont.kancalc.Kanmusu.Map;
 class Core {
 	private static int[] diff = new int[99];
 	
-	public static final String version = "Android Port v.1.3";
+	public static final String version = "Android Port v.1.3.1";
 	
 	static ArrayList<Kanmusu> kmlist = new ArrayList<>();
 	static ArrayList<Kanmusu> kmlistAM = new ArrayList<>();
@@ -220,7 +220,7 @@ class Core {
 	}
 
 	@SuppressWarnings("unused")
-	public static String getPrice(int tries, Kanmusu kanmusu) {
+	static String getPrice(int tries, Kanmusu kanmusu) {
 		if (kanmusu.craft.equals("unbuildable"))
 			return kanmusu.craft;
 		int i = 0;
