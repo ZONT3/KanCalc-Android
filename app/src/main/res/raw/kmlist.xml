@@ -330,17 +330,17 @@
 		<nameJP>白雪</nameJP>
 		<craft>30/30/30/30</craft>
 		<stats>
-			<hp></hp><hpM></hpM>
-			<fp></fp><fpB></fpB>
-			<tp></tp><tpB></tpB>
-			<aa></aa><aaB></aaB>
-			<ar></ar><arB></arB>
-			<eva></eva><evaB></evaB>
-			<asw></asw><aswB></aswB>
-			<los></los><losB></losB>
-			<luk></luk><lukM></lukM>
-			<rng></rng>
-			<speed></speed>
+			<hp>15</hp><hpM>29</hpM>
+			<fp>29</fp><fpB>10</fpB>
+			<tp>69</tp><tpB>27</tpB>
+			<aa>39</aa><aaB>10</aaB>
+			<ar>19</ar><arB>5</arB>
+			<eva>79</eva><evaB>40</evaB>
+			<asw>49</asw><aswB>20</aswB>
+			<los>19</los><losB>5</losB>
+			<luk>10</luk><lukM>49</lukM>
+			<rng>1</rng>
+			<speed>10</speed>
 			<slots count="2">
 				<slot id="0">0</slot>
 				<slot id="1">0</slot>
@@ -381,17 +381,17 @@
 		<nameJP>磯波</nameJP>
 		<craft>30/30/30/30</craft>
 		<stats>
-			<hp></hp><hpM></hpM>
-			<fp></fp><fpB></fpB>
-			<tp></tp><tpB></tpB>
-			<aa></aa><aaB></aaB>
-			<ar></ar><arB></arB>
-			<eva></eva><evaB></evaB>
-			<asw></asw><aswB></aswB>
-			<los></los><losB></losB>
-			<luk></luk><lukM></lukM>
-			<rng></rng>
-			<speed></speed>
+			<hp>15</hp><hpM>29</hpM>
+			<fp>29</fp><fpB>10</fpB>
+			<tp>69</tp><tpB>27</tpB>
+			<aa>39</aa><aaB>10</aaB>
+			<ar>19</ar><arB>5</arB>
+			<eva>79</eva><evaB>40</evaB>
+			<asw>49</asw><aswB>20</aswB>
+			<los>19</los><losB>5</losB>
+			<luk>10</luk><lukM>49</lukM>
+			<rng>1</rng>
+			<speed>10</speed>
 			<slots count="2">
 				<slot id="0">0</slot>
 				<slot id="1">0</slot>
