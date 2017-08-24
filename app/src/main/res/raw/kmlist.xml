@@ -8,17 +8,17 @@
 		<nameJP>睦月</nameJP>
 		<craft>30/30/30/30</craft>
 		<stats>
-			<hp></hp><hpM></hpM>
-			<fp></fp><fpB></fpB>
-			<tp></tp><tpB></tpB>
-			<aa></aa><aaB></aaB>
-			<ar></ar><arB></arB>
-			<eva></eva><evaB></evaB>
-			<asw></asw><aswB></aswB>
-			<los></los><losB></losB>
-			<luk></luk><lukM></lukM>
-			<rng></rng>
-			<speed></speed>
+			<hp>13</hp><hpM>24</hpM>
+			<fp>29</fp><fpB>6</fpB>
+			<tp>59</tp><tpB>18</tpB>
+			<aa>29</aa><aaB>7</aaB>
+			<ar>18</ar><arB>5</arB>
+			<eva>79</eva><evaB>37</evaB>
+			<asw>39</asw><aswB>16</aswB>
+			<los>17</los><losB>4</losB>
+			<luk>12</luk><lukM>49</lukM>
+			<rng>1</rng>
+			<speed>10</speed>
 			<slots count="2">
 				<slot id="0">0</slot>
 				<slot id="1">0</slot>
@@ -29,7 +29,7 @@
 		<remodel index="1" lvl="20">
 			<id>254</id>
 			<nid>1354</nid>
-			<hp></hp><hpM></hpM>
+			<hp>24</hp><hpM>39</hpM>
 			<fp></fp><fpB></fpB>
 			<tp></tp><tpB></tpB>
 			<aa></aa><aaB></aaB>
@@ -82,17 +82,17 @@
 		<nameJP>如月</nameJP>
 		<craft>30/30/30/30</craft>
 		<stats>
-			<hp></hp><hpM></hpM>
-			<fp></fp><fpB></fpB>
-			<tp></tp><tpB></tpB>
-			<aa></aa><aaB></aaB>
-			<ar></ar><arB></arB>
-			<eva></eva><evaB></evaB>
-			<asw></asw><aswB></aswB>
-			<los></los><losB></losB>
-			<luk></luk><lukM></lukM>
-			<rng></rng>
-			<speed></speed>
+			<hp>13</hp><hpM>24</hpM>
+			<fp>29</fp><fpB>6</fpB>
+			<tp>49</tp><tpB>18</tpB>
+			<aa>29</aa><aaB>7</aaB>
+			<ar>18</ar><arB>5</arB>
+			<eva>69</eva><evaB>37</evaB>
+			<asw>39</asw><aswB>16</aswB>
+			<los>17</los><losB>4</losB>
+			<luk>10</luk><lukM>49</lukM>
+			<rng>1</rng>
+			<speed>10</speed>
 			<slots count="2">
 				<slot id="0">0</slot>
 				<slot id="1">0</slot>
@@ -156,17 +156,17 @@
 		<nameJP>長月</nameJP>
 		<craft>30/30/30/30</craft>
 		<stats>
-			<hp></hp><hpM></hpM>
-			<fp></fp><fpB></fpB>
-			<tp></tp><tpB></tpB>
-			<aa></aa><aaB></aaB>
-			<ar></ar><arB></arB>
-			<eva></eva><evaB></evaB>
-			<asw></asw><aswB></aswB>
-			<los></los><losB></losB>
-			<luk></luk><lukM></lukM>
-			<rng></rng>
-			<speed></speed>
+			<hp>13</hp><hpM>24</hpM>
+			<fp>29</fp><fpB>6</fpB>
+			<tp>49</tp><tpB>18</tpB>
+			<aa>29</aa><aaB>7</aaB>
+			<ar>18</ar><arB>5</arB>
+			<eva>69</eva><evaB>37</evaB>
+			<asw>39</asw><aswB>16</aswB>
+			<los>17</los><losB>4</losB>
+			<luk>15</luk><lukM>69</lukM>
+			<rng>1</rng>
+			<speed>10</speed>
 			<slots count="2">
 				<slot id="0">0</slot>
 				<slot id="1">0</slot>
@@ -206,17 +206,17 @@
 		<nameJP>三日月</nameJP>
 		<craft>30/30/30/30</craft>
 		<stats>
-			<hp></hp><hpM></hpM>
-			<fp></fp><fpB></fpB>
-			<tp></tp><tpB></tpB>
-			<aa></aa><aaB></aaB>
-			<ar></ar><arB></arB>
-			<eva></eva><evaB></evaB>
-			<asw></asw><aswB></aswB>
-			<los></los><losB></losB>
-			<luk></luk><lukM></lukM>
-			<rng></rng>
-			<speed></speed>
+			<hp>13</hp><hpM>24</hpM>
+			<fp>29</fp><fpB>6</fpB>
+			<tp>49</tp><tpB>18</tpB>
+			<aa>29</aa><aaB>7</aaB>
+			<ar>18</ar><arB>5</arB>
+			<eva>69</eva><evaB>37</evaB>
+			<asw>39</asw><aswB>16</aswB>
+			<los>17</los><losB>4</losB>
+			<luk>15</luk><lukM>69</lukM>
+			<rng>1</rng>
+			<speed>10</speed>
 			<slots count="2">
 				<slot id="0">0</slot>
 				<slot id="1">0</slot>
@@ -256,17 +256,17 @@
 		<nameJP>吹雪</nameJP>
 		<craft>30/30/30/30</craft>
 		<stats>
-			<hp></hp><hpM></hpM>
-			<fp></fp><fpB></fpB>
-			<tp></tp><tpB></tpB>
-			<aa></aa><aaB></aaB>
-			<ar></ar><arB></arB>
-			<eva></eva><evaB></evaB>
-			<asw></asw><aswB></aswB>
-			<los></los><losB></losB>
-			<luk></luk><lukM></lukM>
-			<rng></rng>
-			<speed></speed>
+			<hp>15</hp><hpM>29</hpM>
+			<fp>29</fp><fpB>10</fpB>
+			<tp>79</tp><tpB>27</tpB>
+			<aa>39</aa><aaB>10</aaB>
+			<ar>19</ar><arB>5</arB>
+			<eva>89</eva><evaB>40</evaB>
+			<asw>49</asw><aswB>20</aswB>
+			<los>19</los><losB>5</losB>
+			<luk>17</luk><lukM>49</lukM>
+			<rng>1</rng>
+			<speed>10</speed>
 			<slots count="2">
 				<slot id="0">0</slot>
 				<slot id="1">0</slot>
