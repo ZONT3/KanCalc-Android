@@ -17,7 +17,7 @@ class Kanmusu implements Serializable {
 	private double craftchance = -1;
 	boolean gotDrops = false;
 	ArrayList<Map> drops = new ArrayList<>();
-	int minlevel = 0;
+	int level = 0;
 	ArrayList<Kanmusu> remodels = new ArrayList<>();
 	ArrayList<Craft> crafts = new ArrayList<>();
 
@@ -42,8 +42,6 @@ class Kanmusu implements Serializable {
 
 	ArrayList<Stats> getParcingStats() {
 		ArrayList<Stats> res = new ArrayList<>();
-		res.add(Stats.getStat(name, "name"));
-		res.add(Stats.getStat(jpname, "jpname"));
 		res.add(Stats.getStat(craft, "craft"));
 		res.add(Stats.getStat(fuel, "fuel"));
 		res.add(Stats.getStat(ammo, "ammo"));

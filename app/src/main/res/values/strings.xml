@@ -10,10 +10,10 @@
     <string name="empty_level_field">Please enter level(s)!</string>
     <string name="farm_legend">lvl from - lvl to | map | rank</string>
     <string name="craft_chance">Craft chance</string>
-    <string name="droplist">Maybe, craft \"</string>
+    <string name="droplist">Drop chance</string>
     <string name="communicating_with_kcdb">Communicating with KCDB..</string>
     <string name="unexpected_err">Unexpected error</string>
-    <string name="err_com_kcdb">ERROR WITH COMMUNICATING KCDB\nMay be new ships hasn\'t added to DB\nOr server is temprary unavailable</string>
+    <string name="err_com_kcdb">ERROR WITH COMMUNICATING KCDB\nMay be new ships hasn\'t added to DB\nOr server is temporary unavailable</string>
     <string name="library">Library</string>
     <string name="best_craft">Best craft: </string>
     <string name="fuel_cons">Fuel cons.: </string>
@@ -27,7 +27,7 @@
     <string name="craft_iss_1">ERROR WITH COMMUNICATING KCDB\nMaybe, craft \"</string>
     <string name="craft_iss_2">\" isn\'t valid.\nPlease contact with developer about this issue.</string>
     <string name="enter" translatable="false">ENTER</string>
-    <string name="checking_connection_with_kcdb">Checking connection with KCDB...</string>
+    <string name="checking_connection_with_kcdb">Checking connection with KCDB…</string>
     <string name="err_main_kcdb">KCDB seems sleepy, some utilities are not available!</string>
     <string name="err_main_inet">No internet connection, some utilities are not available. If you will turn it on, restart app</string>
     <string name="main_copyright_1" translatable="false">"KanCalc "</string>
@@ -36,6 +36,6 @@
     <string name="slots">Slots:</string>
     <string name="drop">Drop</string>
     <string name="craft">Craft</string>
-    <string name="show_chance">Show chance...</string>
+    <string name="show_chance">Show chance…</string>
     <string name="lib_unbuildable">This kanmusu is unbuildable!</string>
 </resources>

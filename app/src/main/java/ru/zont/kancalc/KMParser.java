@@ -198,6 +198,8 @@ class KMParser {
 						remodel.type = kmp.getAttribute("type");
 					if (kmp.hasAttribute("class"))
 						remodel.cls = kmp.getAttribute("class");
+					if (kmp.hasAttribute("lvl"))
+						remodel.level = Integer.valueOf(kmp.getAttribute("lvl"));
 					
 					
 					NodeList rmps = kmp.getChildNodes();

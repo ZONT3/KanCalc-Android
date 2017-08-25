@@ -31,6 +31,8 @@ public class LibraryActivity extends AppCompatActivity {
 
     boolean enableKai = false;
 
+    private ArrayList<ImageView> auxCgs = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,7 +104,6 @@ public class LibraryActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        Kanmusu kanmusu = (Kanmusu)((Spinner)findViewById(R.id.lib_otherVers)).getSelectedItem();
         MenuInflater i = getMenuInflater();
         i.inflate(R.menu.library, menu);
         return true;
@@ -112,8 +113,8 @@ public class LibraryActivity extends AppCompatActivity {
         ArrayList<TextView> arr = new ArrayList<>();
         final TextView id = (TextView)findViewById(R.id.lib_id);
         final TextView nid = (TextView)findViewById(R.id.lib_nid);
-        final TextView name = (TextView)findViewById(R.id.lib_name); arr.add(name);
-        final TextView jpname = (TextView)findViewById(R.id.lib_jpname); arr.add(jpname);
+        final TextView name = (TextView)findViewById(R.id.lib_name);
+        final TextView jpname = (TextView)findViewById(R.id.lib_jpname);
         final TextView craft = (TextView)findViewById(R.id.lib_craft); arr.add(craft);
         final TextView fuel = (TextView)findViewById(R.id.lib_fuel); arr.add(fuel);
         final TextView ammo = (TextView)findViewById(R.id.lib_ammo); arr.add(ammo);
@@ -130,12 +131,17 @@ public class LibraryActivity extends AppCompatActivity {
         final TextView speed = (TextView)findViewById(R.id.lib_speed); arr.add(speed);
         final TextView slots = (TextView)findViewById(R.id.lib_slots);
 
+        LinearLayout mainLayout = (LinearLayout)findViewById(R.id.lib_mainLayout);
         final ImageView preview = (ImageView)findViewById(R.id.lib_preview);
         final ImageView cg = (ImageView)findViewById(R.id.lib_cg);
         final ImageView cgD = (ImageView)findViewById(R.id.lib_cg_d);
 
         id.setText(kanmusu.id+"");
         nid.setText(kanmusu.nid+"");
+        name.setText(kanmusu.type+" "+kanmusu.name);
+        jpname.setText(kanmusu.jpname);
+        if (!kanmusu.isBase())
+            jpname.setText(jpname.getText()+" (Lv."+kanmusu.level+")");
 
         ArrayList<Kanmusu.Stats> stats = kanmusu.getParcingStats();
         for (int i=0; i<arr.size(); i++) {
@@ -185,15 +191,17 @@ public class LibraryActivity extends AppCompatActivity {
         else
             cgD.setImageResource(R.drawable.logo);
 
+        for (ImageView v : auxCgs) mainLayout.removeView(v);
+        auxCgs = new ArrayList<>();
+
         int i=0;
         int auxCgId = getResources().getIdentifier("cga_"+kanmusu.id+"_"+i, "drawable", getPackageName());
         while (auxCgId!=0) {
-            LinearLayout mainLayout = (LinearLayout)findViewById(R.id.lib_mainLayout);
-
             ImageView auxCg = new ImageView(this);
             auxCg.setLayoutParams(cg.getLayoutParams());
             auxCg.setImageResource(auxCgId);
             mainLayout.addView(auxCg);
+            auxCgs.add(auxCg);
 
             i++;
             auxCgId = getResources().getIdentifier("cga_"+kanmusu.id+"_"+i, "drawable", getPackageName());
