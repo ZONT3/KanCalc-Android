@@ -1,6 +1,7 @@
 package ru.zont.kancalc;
 
 import android.content.Context;
+import android.widget.Spinner;
 
 import org.xml.sax.SAXException;
 
@@ -14,7 +15,7 @@ import ru.zont.kancalc.Kanmusu.Map;
 class Core {
 	private static int[] diff = new int[99];
 	
-	public static final String version = "Android Port v.1.3.1";
+	public static final String version = "Android Port v.1.4";
 	
 	static ArrayList<Kanmusu> kmlist = new ArrayList<>();
 	static ArrayList<Kanmusu> kmlistAM = new ArrayList<>();
@@ -247,8 +248,15 @@ class Core {
 		}
 		return -1;
 	}
-	
-	static class Consumption {
+
+	static int findKmPos(int id, Spinner spinner) {
+		for (int i=0; i<spinner.getCount(); i++)
+			if (id==((Kanmusu)spinner.getItemAtPosition(i)).id)
+				return i;
+		return -1;
+	}
+
+    static class Consumption {
 		int fuel = 0;
 		int ammo = 0;
 

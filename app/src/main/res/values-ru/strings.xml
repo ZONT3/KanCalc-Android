@@ -29,4 +29,10 @@
     <string name="checking_connection_with_kcdb">Проверка соединения с KCDB…</string>
     <string name="err_main_inet">Осутствует интернет-соединение, некоторые функции недоступны. Если включите его, перезапустите приложение</string>
     <string name="err_main_kcdb">Осутствует соединение с KCDB, некоторые функции недоступны. Такое бывает на эвентах.</string>
+    <string name="lib_warning">Некоторые статы неизвестны, потому что это пиздец сложно заполнять этот ебаный лист.</string>
+    <string name="slots">Слоты:</string>
+    <string name="craft">Крафт</string>
+    <string name="drop">Дроп</string>
+    <string name="lib_unbuildable">Эта канмусу не крафтится!</string>
+    <string name="show_chance">Показать шанс...</string>
 </resources>

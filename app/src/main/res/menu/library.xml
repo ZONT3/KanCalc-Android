@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/lib_goto"
+        android:icon="@drawable/percent"
+        android:title="@string/show_chance"
+        app:showAsAction="always">
+
+        <menu>
+            <item android:title="@string/show_chance"
+                android:enabled="false"/>
+            <item android:id="@+id/lib_goto_craft"
+                android:title="@string/craft"
+                android:onClick="gotoCraft"/>
+            <item android:id="@+id/lib_goto_drop"
+                android:title="@string/drop"
+                android:onClick="gotoDrop"/>
+        </menu>
+    </item>
+
     <item android:id="@+id/lib_sort"
         android:icon="@drawable/sort"
         android:title="@string/sort"
@@ -23,7 +41,7 @@
     <item android:id="@+id/lib_kai"
         android:title="@string/view_hide_all"
         android:icon="@drawable/kai_off"
-        app:showAsAction="ifRoom"
+        app:showAsAction="always"
         android:onClick="toggleKai"/>
 
 

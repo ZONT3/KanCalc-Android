@@ -40,6 +40,12 @@ public class CraftActivity extends AppCompatActivity {
         final Spinner kmlist = (Spinner)findViewById(R.id.craft_kmlist);
         ArrayAdapter<Kanmusu> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Core.kmlist);
         kmlist.setAdapter(adapter);
+        int selectid = getIntent().getIntExtra("select", -1);
+        if (selectid!=-1)
+            kmlist.setSelection(Core.findKmPos(selectid, kmlist));
+        else
+            kmlist.setSelection(Core.findKmPos(45, kmlist));
+
         kmlist.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {

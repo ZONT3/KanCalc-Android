@@ -20,19 +20,18 @@ class Kanmusu implements Serializable {
 	int minlevel = 0;
 	ArrayList<Kanmusu> remodels = new ArrayList<>();
 	ArrayList<Craft> crafts = new ArrayList<>();
-	String image = null;
 
-	int hp;
-	int fp;
-	int tp;
-	int aa;
-	int ar;
-	int eva;
-	int asw;
-	int los;
-	int luk;
-	int rng;
-	int speed;
+	Stats hp = new Stats();
+	Stats fp = new Stats();
+	Stats tp = new Stats();
+	Stats aa = new Stats();
+	Stats ar = new Stats();
+	Stats eva = new Stats();
+	Stats asw = new Stats();
+	Stats los = new Stats();
+	Stats luk = new Stats();
+	Stats rng = new Stats();
+	Stats speed = new Stats();
 
 	int index;
 	int nid;
@@ -41,13 +40,13 @@ class Kanmusu implements Serializable {
 	int ammo;
 	int[] slots;
 
-	ArrayList<Object> getParcingStats() {
-		ArrayList<Object> res = new ArrayList<>();
-		res.add(name);
-		res.add(jpname);
-		res.add(craft);
-		res.add(fuel);
-		res.add(ammo);
+	ArrayList<Stats> getParcingStats() {
+		ArrayList<Stats> res = new ArrayList<>();
+		res.add(Stats.getStat(name, "name"));
+		res.add(Stats.getStat(jpname, "jpname"));
+		res.add(Stats.getStat(craft, "craft"));
+		res.add(Stats.getStat(fuel, "fuel"));
+		res.add(Stats.getStat(ammo, "ammo"));
 		res.add(hp);
 		res.add(fp);
 		res.add(tp);
@@ -62,6 +61,34 @@ class Kanmusu implements Serializable {
 		return res;
 	}
 
+	static class Stats {
+
+		String name = null;
+		private String minValue = null;
+		private String maxValue = null;
+
+		public void setMin(String minValue) {
+            if (!minValue.equals(""))
+                this.minValue = minValue;
+		}
+
+		public void setMax(String maxValue) {
+			if (!maxValue.equals(""))
+				this.maxValue = maxValue;
+		}
+
+		public static Stats getStat(Object stat, String name) {
+			Stats res = new Stats();
+			res.name = name;
+			res.minValue = stat.toString();
+			return res;
+		}
+
+		@Override
+		public String toString() {return maxValue!=null && !maxValue.equals("0") ? minValue+"-"+maxValue : minValue;}
+	}
+
+
 	private int getRemodelIndex() {
 		for (int i=0; i<remodels.size(); i++)
 			if (remodels.get(i)==this)
@@ -70,6 +97,8 @@ class Kanmusu implements Serializable {
 	}
 
 	boolean isBase() {return getRemodelIndex()==0;}
+
+    Kanmusu getBase() {return remodels.get(0);}
 	
 	Kanmusu(String type) {
 		this.type = type;

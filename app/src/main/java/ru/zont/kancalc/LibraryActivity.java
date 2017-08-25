@@ -2,16 +2,19 @@ package ru.zont.kancalc;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -42,6 +45,7 @@ public class LibraryActivity extends AppCompatActivity {
         final Spinner models = (Spinner)findViewById(R.id.lib_otherVers);
         ArrayAdapter<Kanmusu> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Core.kmlist);
         kmlist.setAdapter(adapter);
+        kmlist.setSelection(Core.findKmPos(45, kmlist));
 
         kmlist.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -98,6 +102,7 @@ public class LibraryActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        Kanmusu kanmusu = (Kanmusu)((Spinner)findViewById(R.id.lib_otherVers)).getSelectedItem();
         MenuInflater i = getMenuInflater();
         i.inflate(R.menu.library, menu);
         return true;
@@ -123,16 +128,75 @@ public class LibraryActivity extends AppCompatActivity {
         final TextView luk = (TextView)findViewById(R.id.lib_luk); arr.add(luk);
         final TextView rng = (TextView)findViewById(R.id.lib_rng); arr.add(rng);
         final TextView speed = (TextView)findViewById(R.id.lib_speed); arr.add(speed);
+        final TextView slots = (TextView)findViewById(R.id.lib_slots);
+
+        final ImageView preview = (ImageView)findViewById(R.id.lib_preview);
+        final ImageView cg = (ImageView)findViewById(R.id.lib_cg);
+        final ImageView cgD = (ImageView)findViewById(R.id.lib_cg_d);
 
         id.setText(kanmusu.id+"");
         nid.setText(kanmusu.nid+"");
 
-        ArrayList<Object> stats = kanmusu.getParcingStats();
+        ArrayList<Kanmusu.Stats> stats = kanmusu.getParcingStats();
         for (int i=0; i<arr.size(); i++) {
-            if (stats.get(i)!=null && !stats.get(i).toString().equals("0"))
+            if (stats.get(i).toString()!=null)
                 arr.get(i).setText(stats.get(i).toString());
-            else
+            else {
                 arr.get(i).setText("??");
+                if (getPreferences(MODE_PRIVATE).getBoolean("libWarn", true)) {
+                    Toast.makeText(this, R.string.lib_warning, Toast.LENGTH_LONG).show();
+                    getPreferences(MODE_PRIVATE).edit().putBoolean("libWarn", false).apply();
+                }
+            }
+        }
+
+        slots.setText("");
+        if (kanmusu.slots!=null)
+            for (int s : kanmusu.slots) slots.setText(slots.getText()+" ["+s+"]");
+        else
+            slots.setText("---");
+
+
+
+        int pwId = getResources().getIdentifier("pw_"+kanmusu.id, "drawable", getPackageName());
+        int pwIdB = getResources().getIdentifier("pw_"+kanmusu.getBase().id, "drawable", getPackageName());
+        if (pwId!=0)
+            preview.setImageResource(pwId);
+        else if (pwIdB!=0)
+            preview.setImageResource(pwIdB);
+        else
+            preview.setImageResource(R.drawable.logo);
+
+        int cgId = getResources().getIdentifier("cg_"+kanmusu.id, "drawable", getPackageName());
+        int cgIdB = getResources().getIdentifier("cg_"+kanmusu.getBase().id, "drawable", getPackageName());
+        if (cgId!=0)
+            cg.setImageResource(cgId);
+        else if (cgIdB!=0)
+            cg.setImageResource(cgIdB);
+        else
+            cg.setImageResource(R.drawable.logo);
+
+        int dCgId = getResources().getIdentifier("cgd_"+kanmusu.id, "drawable", getPackageName());
+        int dCgIdB = getResources().getIdentifier("cgd_"+kanmusu.getBase().id, "drawable", getPackageName());
+        if (dCgId!=0)
+            cgD.setImageResource(dCgId);
+        else if (dCgIdB!=0)
+            cgD.setImageResource(dCgIdB);
+        else
+            cgD.setImageResource(R.drawable.logo);
+
+        int i=0;
+        int auxCgId = getResources().getIdentifier("cga_"+kanmusu.id+"_"+i, "drawable", getPackageName());
+        while (auxCgId!=0) {
+            LinearLayout mainLayout = (LinearLayout)findViewById(R.id.lib_mainLayout);
+
+            ImageView auxCg = new ImageView(this);
+            auxCg.setLayoutParams(cg.getLayoutParams());
+            auxCg.setImageResource(auxCgId);
+            mainLayout.addView(auxCg);
+
+            i++;
+            auxCgId = getResources().getIdentifier("cga_"+kanmusu.id+"_"+i, "drawable", getPackageName());
         }
     }
 
@@ -150,6 +214,25 @@ public class LibraryActivity extends AppCompatActivity {
         }
 
         list.setAdapter(adapter);
+    }
+
+    public void gotoDrop(MenuItem item) {
+        Intent i = new Intent(LibraryActivity.this, DropChanceActivity.class);
+        i.putExtra("select", ((Kanmusu)((Spinner)findViewById(R.id.lib_otherVers)).getSelectedItem()).getBase().id);
+        startActivity(i);
+        finish();
+    }
+
+    public void gotoCraft(MenuItem item) {
+        if (((Kanmusu)((Spinner)findViewById(R.id.lib_otherVers)).getSelectedItem()).getBase().craft.equals("unbuildable")) {
+            Toast.makeText(this, R.string.lib_unbuildable, Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        Intent i = new Intent(LibraryActivity.this, CraftActivity.class);
+        i.putExtra("select", ((Kanmusu)((Spinner)findViewById(R.id.lib_otherVers)).getSelectedItem()).getBase().id);
+        startActivity(i);
+        finish();
     }
 
     @Override

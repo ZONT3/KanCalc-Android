@@ -17,8 +17,8 @@
 			<asw>39</asw><aswB>16</aswB>
 			<los>17</los><losB>4</losB>
 			<luk>12</luk><lukM>49</lukM>
-			<rng>1</rng>
-			<speed>10</speed>
+			<rng>Close</rng>
+			<speed>Fast</speed>
 			<slots count="2">
 				<slot id="0">0</slot>
 				<slot id="1">0</slot>
@@ -92,7 +92,7 @@
 			<los>17</los><losB>4</losB>
 			<luk>10</luk><lukM>49</lukM>
 			<rng>1</rng>
-			<speed>10</speed>
+			<speed>Fast</speed>
 			<slots count="2">
 				<slot id="0">0</slot>
 				<slot id="1">0</slot>
@@ -2418,17 +2418,17 @@
 		<nameJP>夕立</nameJP>
 		<craft>30/30/30/30</craft>
 		<stats>
-			<hp></hp><hpM></hpM>
-			<fp></fp><fpB></fpB>
-			<tp></tp><tpB></tpB>
-			<aa></aa><aaB></aaB>
-			<ar></ar><arB></arB>
-			<eva></eva><evaB></evaB>
-			<asw></asw><aswB></aswB>
-			<los></los><losB></losB>
-			<luk></luk><lukM></lukM>
-			<rng></rng>
-			<speed></speed>
+			<hp>16</hp><hpM>20</hpM>
+			<fp>29</fp><fpB>10</fpB>
+			<tp>69</tp><tpB>24</tpB>
+			<aa>39</aa><aaB>9</aaB>
+			<ar>19</ar><arB>6</arB>
+			<eva>79</eva><evaB>43</evaB>
+			<asw>49</asw><aswB>21</aswB>
+			<los>19</los><losB>5</losB>
+			<luk>10</luk><lukM>49</lukM>
+			<rng>Short</rng>
+			<speed>Fast</speed>
 			<slots count="2">
 				<slot id="0">0</slot>
 				<slot id="1">0</slot>
@@ -2439,15 +2439,15 @@
 		<remodel index="1" lvl="20">
 			<id>245</id>
 			<nid>1345</nid>
-			<hp></hp><hpM></hpM>
-			<fp></fp><fpB></fpB>
-			<tp></tp><tpB></tpB>
-			<aa></aa><aaB></aaB>
-			<ar></ar><arB></arB>
-			<eva></eva><evaB></evaB>
-			<asw></asw><aswB></aswB>
-			<los></los><losB></losB>
-			<luk></luk><lukM></lukM>
+			<hp>30</hp><hpM>35</hpM>
+			<fp>49</fp><fpB>12</fpB>
+			<tp>79</tp><tpB>28</tpB>
+			<aa>49</aa><aaB>15</aaB>
+			<ar>49</ar><arB>14</arB>
+			<eva>89</eva><evaB>45</evaB>
+			<asw>59</asw><aswB>24</aswB>
+			<los>39</los><losB>7</losB>
+			<luk>12</luk><lukM>59</lukM>
 			<rng></rng>
 			<speed></speed>
 			<slots count="3">
@@ -2463,17 +2463,17 @@
 		<remodel index="2" lvl="55">
 			<id>144</id>
 			<nid>144</nid>
-			<hp></hp><hpM></hpM>
-			<fp></fp><fpB></fpB>
-			<tp></tp><tpB></tpB>
-			<aa></aa><aaB></aaB>
-			<ar></ar><arB></arB>
-			<eva></eva><evaB></evaB>
-			<asw></asw><aswB></aswB>
-			<los></los><losB></losB>
-			<luk></luk><lukM></lukM>
-			<rng></rng>
-			<speed></speed>
+			<hp>31</hp><hpM>36</hpM>
+			<fp>73</fp><fpB>17</fpB>
+			<tp>93</tp><tpB>37</tpB>
+			<aa>59</aa><aaB>16</aaB>
+			<ar>52</ar><arB>14</arB>
+			<eva>89</eva><evaB>46</evaB>
+			<asw>69</asw><aswB>28</aswB>
+			<los>49</los><losB>12</losB>
+			<luk>20</luk><lukM>59</lukM>
+			<rng>Short</rng>
+			<speed>Fast</speed>
 			<slots count="3">
 				<slot id="0">0</slot>
 				<slot id="1">0</slot>
@@ -3970,7 +3970,7 @@
 			<slots count="4">
 				<slot id="0">5</slot>
 				<slot id="1">6</slot>
-				<slot id="2"></slot>
+				<slot id="2">5</slot>
 				<slot id="3">11</slot>
 			</slots>
 			<fuel>50</fuel>
@@ -4529,17 +4529,17 @@
 		<nameJP>長門</nameJP>
 		<craft>4000/7000/7000/2000</craft>
 		<stats>
-			<hp></hp><hpM></hpM>
-			<fp></fp><fpB></fpB>
-			<tp></tp><tpB></tpB>
-			<aa></aa><aaB></aaB>
-			<ar></ar><arB></arB>
-			<eva></eva><evaB></evaB>
-			<asw></asw><aswB></aswB>
-			<los></los><losB></losB>
-			<luk></luk><lukM></lukM>
-			<rng></rng>
-			<speed></speed>
+			<hp>80</hp><hpM>88</hpM>
+			<fp>99</fp><fpB>82</fpB>
+			<tp>0</tp><tpB>0</tpB>
+			<aa>89</aa><aaB>31</aaB>
+			<ar>89</ar><arB>75</arB>
+			<eva>49</eva><evaB>24</evaB>
+			<asw>0</asw><aswB>0</aswB>
+			<los>12</los><losB>39</losB>
+			<luk>20</luk><lukM>79</lukM>
+			<rng>Long</rng>
+			<speed>Slow</speed>
 			<slots count="4">
 				<slot id="0">3</slot>
 				<slot id="1">3</slot>
@@ -4577,17 +4577,17 @@
 		<remodel index="2" lvl="88">
 			<id>341</id>
 			<nid>341</nid>
-			<hp></hp><hpM></hpM>
-			<fp></fp><fpB></fpB>
-			<tp></tp><tpB></tpB>
-			<aa></aa><aaB></aaB>
-			<ar></ar><arB></arB>
-			<eva></eva><evaB></evaB>
-			<asw></asw><aswB></aswB>
-			<los></los><losB></losB>
-			<luk></luk><lukM></lukM>
-			<rng></rng>
-			<speed></speed>
+			<hp>91</hp><hpM>100</hpM>
+			<fp>118</fp><fpB>91</fpB>
+			<tp>0</tp><tpB>0</tpB>
+			<aa>100</aa><aaB>40</aaB>
+			<ar>110</ar><arB>88</arB>
+			<eva>70</eva><evaB>25</evaB>
+			<asw>0</asw><aswB>0</aswB>
+			<los>55</los><losB>50</losB>
+			<luk>108</luk><lukM></lukM>
+			<rng>Long</rng>
+			<speed>Slow</speed>
 			<slots count="4">
 				<slot id="0">3</slot>
 				<slot id="1">3</slot>
@@ -5788,7 +5788,7 @@
 			<slots count="3">
 				<slot id="0">1</slot>
 				<slot id="1">1</slot>
-				<slot id="3">1</slot>
+				<slot id="2">1</slot>
 			</slots>
 			<fuel>25</fuel>
 			<ammo>30</ammo>
@@ -5862,7 +5862,7 @@
 			<slots count="3">
 				<slot id="0">12</slot>
 				<slot id="1">6</slot>
-				<slot id="3">6</slot>
+				<slot id="2">6</slot>
 			</slots>
 			<fuel>35</fuel>
 			<ammo>40</ammo>
@@ -6012,7 +6012,7 @@
 			<slots count="3">
 				<slot id="0">12</slot>
 				<slot id="1">6</slot>
-				<slot id="3">6</slot>
+				<slot id="2">6</slot>
 			</slots>
 			<fuel>35</fuel>
 			<ammo>40</ammo>
@@ -6764,17 +6764,17 @@
 		<nameJP>鈴谷</nameJP>
 		<craft>400/100/600/30</craft>
 		<stats>
-			<hp></hp><hpM></hpM>
-			<fp></fp><fpB></fpB>
-			<tp></tp><tpB></tpB>
-			<aa></aa><aaB></aaB>
-			<ar></ar><arB></arB>
-			<eva></eva><evaB></evaB>
-			<asw></asw><aswB></aswB>
-			<los></los><losB></losB>
-			<luk></luk><lukM></lukM>
-			<rng></rng>
-			<speed></speed>
+			<hp>40</hp><hpM>46</hpM>
+			<fp>59</fp><fpB>40</fpB>
+			<tp>69</tp><tpB>18</tpB>
+			<aa>59</aa><aaB>18</aaB>
+			<ar>59</ar><arB>30</arB>
+			<eva>62</eva><evaB>31</evaB>
+			<asw>0</asw><aswB>0</aswB>
+			<los>39</los><losB>14</losB>
+			<luk>5</luk><lukM>49</lukM>
+			<rng>Medium</rng>
+			<speed>Fast</speed>
 			<slots count="3">
 				<slot id="0">2</slot>
 				<slot id="1">2</slot>
@@ -6786,17 +6786,17 @@
 		<remodel index="1" lvl="35" type="CAV">
 			<id>129</id>
 			<nid>129</nid>
-			<hp></hp><hpM></hpM>
-			<fp></fp><fpB></fpB>
-			<tp></tp><tpB></tpB>
-			<aa></aa><aaB></aaB>
-			<ar></ar><arB></arB>
-			<eva></eva><evaB></evaB>
-			<asw></asw><aswB></aswB>
-			<los></los><losB></losB>
-			<luk></luk><lukM></lukM>
-			<rng></rng>
-			<speed></speed>
+			<hp>50</hp><hpM>57</hpM>
+			<fp>75</fp><fpB>24</fpB>
+			<tp>69</tp><tpB>18</tpB>
+			<aa>59</aa><aaB>20</aaB>
+			<ar>72</ar><arB>37</arB>
+			<eva>69</eva><evaB>34</evaB>
+			<asw>0</asw><aswB>0</aswB>
+			<los>59</los><losB>22</losB>
+			<luk>10</luk><lukM>69</lukM>
+			<rng>Medium</rng>
+			<speed>Fast</speed>
 			<slots count="4">
 				<slot id="0">5</slot>
 				<slot id="1">6</slot>
@@ -6811,17 +6811,17 @@
 		<remodel index="2" lvl="84" type="CAV">
 			<id>503</id>
 			<nid>303</nid>
-			<hp></hp><hpM></hpM>
-			<fp></fp><fpB></fpB>
-			<tp></tp><tpB></tpB>
-			<aa></aa><aaB></aaB>
-			<ar></ar><arB></arB>
-			<eva></eva><evaB></evaB>
-			<asw></asw><aswB></aswB>
-			<los></los><losB></losB>
-			<luk></luk><lukM></lukM>
-			<rng></rng>
-			<speed></speed>
+			<hp>61</hp><hpM>68</hpM>
+			<fp>76</fp><fpB>30</fpB>
+			<tp>88</tp><tpB>40</tpB>
+			<aa>85</aa><aaB>30</aaB>
+			<ar>74</ar><arB>42</arB>
+			<eva>82</eva><evaB>??</evaB>
+			<asw>0</asw><aswB>0</aswB>
+			<los>83</los><losB>??</losB>
+			<luk>14</luk><lukM>74</lukM>
+			<rng>Medium</rng>
+			<speed>Fast</speed>
 			<slots count="4">
 				<slot id="0">3</slot>
 				<slot id="1">3</slot>
@@ -6837,17 +6837,17 @@
 			<id>508</id>
 			<nid>308</nid>
 			<name>Suzuya-Kou</name>
-			<hp></hp><hpM></hpM>
-			<fp></fp><fpB></fpB>
-			<tp></tp><tpB></tpB>
-			<aa></aa><aaB></aaB>
-			<ar></ar><arB></arB>
-			<eva></eva><evaB></evaB>
-			<asw></asw><aswB></aswB>
-			<los></los><losB></losB>
-			<luk></luk><lukM></lukM>
-			<rng></rng>
-			<speed></speed>
+			<hp>61</hp><hpM>68</hpM>
+			<fp>56</fp><fpB>0</fpB>
+			<tp>0</tp><tpB>0</tpB>
+			<aa>87</aa><aaB>33</aaB>
+			<ar>74</ar><arB>42</arB>
+			<eva>83</eva><evaB>??</evaB>
+			<asw>0</asw><aswB>0</aswB>
+			<los>85</los><losB>??</losB>
+			<luk>13</luk><lukM>74</lukM>
+			<rng>Medium</rng>
+			<speed>Fast</speed>
 			<slots count="4">
 				<slot id="0">15</slot>
 				<slot id="1">12</slot>
@@ -7758,7 +7758,7 @@
 			<luk></luk><lukM></lukM>
 			<rng></rng>
 			<speed></speed>
-			<slots count="3">
+			<slots count="4">
 				<slot id="0">2</slot>
 				<slot id="1">2</slot>
 				<slot id="2">2</slot>
@@ -7886,8 +7886,6 @@
 			<luk></luk><lukM></lukM>
 			<rng></rng>
 			<speed></speed>
-			<slots count="0">
-			</slots>
 			<fuel>10</fuel>
 			<ammo>5</ammo>
 		</stats>

@@ -18,6 +18,7 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:id="@+id/lib_mainLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -76,7 +77,7 @@
 
             <ImageView
                 android:id="@+id/lib_preview"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/logo" />
 
@@ -354,6 +355,7 @@
                             android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
 
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
@@ -487,22 +489,48 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="@string/slots"
+                    android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+
+                <TextView
+                    android:id="@+id/lib_slots"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="0 0 0"
+                    android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+
+            </LinearLayout>
+
             <com.google.android.gms.ads.AdView
                 android:id="@+id/lib_ad"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:adSize="BANNER"
-                app:adUnitId="ca-app-pub-7799305268524604/9991392284"/>
+                app:adUnitId="ca-app-pub-7799305268524604/9991392284" />
 
             <ImageView
                 android:id="@+id/lib_cg"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/logo" />
 
             <ImageView
                 android:id="@+id/lib_cg_d"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/logo" />
 

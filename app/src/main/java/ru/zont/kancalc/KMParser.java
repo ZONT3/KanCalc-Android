@@ -75,32 +75,109 @@ class KMParser {
 				case "craft":
 					kanmusu.setCraft(kmp.getTextContent());
 					break;
-				case "img":
-					kanmusu.image = kmp.getTextContent();
-					break;
 				case "stats":
 					for (int k = 0; k<kmp.getChildNodes().getLength(); k++) {
 						if (kmp.getChildNodes().item(k).getNodeType() == Node.ELEMENT_NODE) {
 							Element kmpst = (Element) kmp.getChildNodes().item(k);
 							switch (kmpst.getNodeName()) {
-							case "fuel":
-								kanmusu.fuel = Integer.valueOf(kmpst.getTextContent());
-								break;
-							case "ammo":
-								kanmusu.ammo = Integer.valueOf(kmpst.getTextContent());
-								break;
-							case "slots":
-								kanmusu.slots = new int[Integer.valueOf(kmpst.getAttribute("count"))];
-								for (int l = 0; l < kmpst.getChildNodes().getLength(); l++) {
-									if (kmpst.getChildNodes().item(l).getNodeType() == Node.ELEMENT_NODE) {
-										Element kmsl = (Element) kmpst.getChildNodes().item(l);
-										if (kmsl.getNodeName().equals("slot"))
-											kanmusu.slots[Integer.valueOf(kmsl.getAttribute("id"))] = Integer.valueOf(kmsl.getTextContent());
+								case "fuel":
+									kanmusu.fuel = Integer.valueOf(kmpst.getTextContent());
+									break;
+								case "ammo":
+									kanmusu.ammo = Integer.valueOf(kmpst.getTextContent());
+									break;
+								case "slots":
+									kanmusu.slots = new int[Integer.valueOf(kmpst.getAttribute("count"))];
+									for (int l = 0; l < kmpst.getChildNodes().getLength(); l++) {
+										if (kmpst.getChildNodes().item(l).getNodeType() == Node.ELEMENT_NODE) {
+											Element kmsl = (Element) kmpst.getChildNodes().item(l);
+											if (kmsl.getNodeName().equals("slot"))
+												kanmusu.slots[Integer.valueOf(kmsl.getAttribute("id"))] = Integer.valueOf(kmsl.getTextContent());
+										}
 									}
-								}
-								break;
-							default:
-								break;
+									break;
+								case "hp":
+									kanmusu.hp.name="hp";
+									kanmusu.hp.setMin(kmpst.getTextContent());
+									break;
+								case "fp":
+									kanmusu.fp.name="fp";
+									kanmusu.fp.setMax(kmpst.getTextContent());
+									break;
+								case "tp":
+									kanmusu.tp.name="tp";
+									kanmusu.tp.setMax(kmpst.getTextContent());
+									break;
+								case "aa":
+									kanmusu.aa.name="aa";
+									kanmusu.aa.setMax(kmpst.getTextContent());
+									break;
+								case "ar":
+									kanmusu.ar.name="ar";
+									kanmusu.ar.setMax(kmpst.getTextContent());
+									break;
+								case "eva":
+									kanmusu.eva.name="eva";
+									kanmusu.eva.setMax(kmpst.getTextContent());
+									break;
+								case "asw":
+									kanmusu.asw.name="asw";
+									kanmusu.asw.setMax(kmpst.getTextContent());
+									break;
+								case "los":
+									kanmusu.los.name="los";
+									kanmusu.los.setMax(kmpst.getTextContent());
+									break;
+								case "luk":
+									kanmusu.luk.name="luk";
+									kanmusu.luk.setMin(kmpst.getTextContent());
+									break;
+								case "rng":
+									kanmusu.rng.name="rng";
+									kanmusu.rng.setMin(kmpst.getTextContent());
+									break;
+								case "speed":
+									kanmusu.speed.name="speed";
+									kanmusu.speed.setMin(kmpst.getTextContent());
+									break;
+                                case "hpM":
+                                    kanmusu.hp.name="hp";
+                                    kanmusu.hp.setMax(kmpst.getTextContent());
+                                    break;
+                                case "fpB":
+                                    kanmusu.fp.name="fp";
+                                    kanmusu.fp.setMin(kmpst.getTextContent());
+                                    break;
+                                case "tpB":
+                                    kanmusu.tp.name="tp";
+                                    kanmusu.tp.setMin(kmpst.getTextContent());
+                                    break;
+                                case "aaB":
+                                    kanmusu.aa.name="aa";
+                                    kanmusu.aa.setMin(kmpst.getTextContent());
+                                    break;
+                                case "arB":
+                                    kanmusu.ar.name="ar";
+                                    kanmusu.ar.setMin(kmpst.getTextContent());
+                                    break;
+                                case "evaB":
+                                    kanmusu.eva.name="eva";
+                                    kanmusu.eva.setMin(kmpst.getTextContent());
+                                    break;
+                                case "aswB":
+                                    kanmusu.asw.name="asw";
+                                    kanmusu.asw.setMin(kmpst.getTextContent());
+                                    break;
+                                case "losB":
+                                    kanmusu.los.name="los";
+                                    kanmusu.los.setMin(kmpst.getTextContent());
+                                    break;
+                                case "lukM":
+                                    kanmusu.luk.name="luk";
+                                    kanmusu.luk.setMax(kmpst.getTextContent());
+                                    break;
+								default:
+									break;
 							}
 						}
 					}
@@ -116,7 +193,7 @@ class KMParser {
 					remodel.oname = kanmusu.oname;
 					remodel.type = kanmusu.type;
 					remodel.cls = kanmusu.cls;
-
+                    
 					if (kmp.hasAttribute("type"))
 						remodel.type = kmp.getAttribute("type");
 					if (kmp.hasAttribute("class"))
@@ -130,34 +207,127 @@ class KMParser {
 						Element rmp = (Element) rmps.item(k);
 						
 						switch (rmp.getNodeName()) {
-						case "id":
-							remodel.id = Integer.valueOf(rmp.getTextContent());
-							break;
-						case "name":
-							remodel.name = rmp.getTextContent();
-							break;
-						case "nameJP":
-							remodel.jpname = rmp.getTextContent();
-							remodel.oname = remodel.jpname;
-							if (rmp.hasAttribute("original"))
-								remodel.oname = rmp.getAttribute("original");
-							break;
-						case "fuel":
-							remodel.fuel = Integer.valueOf(rmp.getTextContent());
-							break;
-						case "ammo":
-							remodel.ammo = Integer.valueOf(rmp.getTextContent());
-							break;
-						case "suffix":
-							remodel.name = remodel.name+" "+rmp.getTextContent();
-							break;
-						case "suffixJP":
-							remodel.jpname = remodel.jpname+rmp.getTextContent();
-							if (rmp.getTextContent().equals("改"))
-								remodel.oname = remodel.oname+rmp.getTextContent();
-							else
-								remodel.oname = remodel.oname+"・"+rmp.getTextContent();
-							break;
+                            case "id":
+                                remodel.id = Integer.valueOf(rmp.getTextContent());
+                                break;
+                            case "nid":
+                                remodel.nid = Integer.valueOf(rmp.getTextContent());
+                                break;
+                            case "name":
+                                remodel.name = rmp.getTextContent();
+                                break;
+                            case "nameJP":
+                                remodel.jpname = rmp.getTextContent();
+                                remodel.oname = remodel.jpname;
+                                if (rmp.hasAttribute("original"))
+                                    remodel.oname = rmp.getAttribute("original");
+                                break;
+                            case "fuel":
+                                remodel.fuel = Integer.valueOf(rmp.getTextContent());
+                                break;
+                            case "ammo":
+                                remodel.ammo = Integer.valueOf(rmp.getTextContent());
+                                break;
+                            case "suffix":
+                                remodel.name = remodel.name+" "+rmp.getTextContent();
+                                break;
+                            case "suffixJP":
+                                remodel.jpname = remodel.jpname+rmp.getTextContent();
+                                if (rmp.getTextContent().equals("改"))
+                                    remodel.oname = remodel.oname+rmp.getTextContent();
+                                else
+                                    remodel.oname = remodel.oname+"・"+rmp.getTextContent();
+                                break;
+                            case "slots":
+                                remodel.slots = new int[Integer.valueOf(rmp.getAttribute("count"))];
+                                for (int l = 0; l < rmp.getChildNodes().getLength(); l++) {
+                                    if (rmp.getChildNodes().item(l).getNodeType() == Node.ELEMENT_NODE) {
+                                        Element kmsl = (Element) rmp.getChildNodes().item(l);
+                                        if (kmsl.getNodeName().equals("slot"))
+                                            remodel.slots[Integer.valueOf(kmsl.getAttribute("id"))] = Integer.valueOf(kmsl.getTextContent());
+                                    }
+                                }
+                                break;
+                            case "hp":
+                                remodel.hp.name="hp";
+                                remodel.hp.setMin(rmp.getTextContent());
+                                break;
+                            case "fp":
+                                remodel.fp.name="fp";
+                                remodel.fp.setMax(rmp.getTextContent());
+                                break;
+                            case "tp":
+                                remodel.tp.name="tp";
+                                remodel.tp.setMax(rmp.getTextContent());
+                                break;
+                            case "aa":
+                                remodel.aa.name="aa";
+                                remodel.aa.setMax(rmp.getTextContent());
+                                break;
+                            case "ar":
+                                remodel.ar.name="ar";
+                                remodel.ar.setMax(rmp.getTextContent());
+                                break;
+                            case "eva":
+                                remodel.eva.name="eva";
+                                remodel.eva.setMax(rmp.getTextContent());
+                                break;
+                            case "asw":
+                                remodel.asw.name="asw";
+                                remodel.asw.setMax(rmp.getTextContent());
+                                break;
+                            case "los":
+                                remodel.los.name="los";
+                                remodel.los.setMax(rmp.getTextContent());
+                                break;
+                            case "luk":
+                                remodel.luk.name="luk";
+                                remodel.luk.setMin(rmp.getTextContent());
+                                break;
+                            case "rng":
+                                remodel.rng.name="rng";
+                                remodel.rng.setMin(rmp.getTextContent());
+                                break;
+                            case "speed":
+                                remodel.speed.name="speed";
+                                remodel.speed.setMin(rmp.getTextContent());
+                                break;
+                            case "hpM":
+                                remodel.hp.name="hp";
+                                remodel.hp.setMax(rmp.getTextContent());
+                                break;
+                            case "fpB":
+                                remodel.fp.name="fp";
+                                remodel.fp.setMin(rmp.getTextContent());
+                                break;
+                            case "tpB":
+                                remodel.tp.name="tp";
+                                remodel.tp.setMin(rmp.getTextContent());
+                                break;
+                            case "aaB":
+                                remodel.aa.name="aa";
+                                remodel.aa.setMin(rmp.getTextContent());
+                                break;
+                            case "arB":
+                                remodel.ar.name="ar";
+                                remodel.ar.setMin(rmp.getTextContent());
+                                break;
+                            case "evaB":
+                                remodel.eva.name="eva";
+                                remodel.eva.setMin(rmp.getTextContent());
+                                break;
+                            case "aswB":
+                                remodel.asw.name="asw";
+                                remodel.asw.setMin(rmp.getTextContent());
+                                break;
+                            case "losB":
+                                remodel.los.name="los";
+                                remodel.los.setMin(rmp.getTextContent());
+                                break;
+                            case "lukM":
+                                remodel.luk.name="luk";
+                                remodel.luk.setMax(rmp.getTextContent());
+                                break;
 						default:
 							break;
 						}

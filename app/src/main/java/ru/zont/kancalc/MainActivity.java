@@ -56,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
             showConInfo(p.getBoolean("hasConnection", true));
         }
 
+        if (!notFirst)
+            getPreferences(MODE_PRIVATE).edit().putBoolean("libWarn", true).apply();
+
         final TextView ver = (TextView)findViewById(R.id.main_ver);
         ver.setText(getString(R.string.main_copyright_1)+Core.version+getString(R.string.main_copyright_2));
     }

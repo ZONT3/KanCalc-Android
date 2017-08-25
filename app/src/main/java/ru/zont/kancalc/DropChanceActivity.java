@@ -43,6 +43,11 @@ public class DropChanceActivity extends AppCompatActivity {
 
         ArrayAdapter<Kanmusu> kmadapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, Core.kmlist);
         kmlist.setAdapter(kmadapter);
+        int selectid = getIntent().getIntExtra("select", -1);
+        if (selectid!=-1)
+            kmlist.setSelection(Core.findKmPos(selectid, kmlist));
+        else
+            kmlist.setSelection(Core.findKmPos(45, kmlist));
 
         kmlist.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

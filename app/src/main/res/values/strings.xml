@@ -15,10 +15,10 @@
     <string name="unexpected_err">Unexpected error</string>
     <string name="err_com_kcdb">ERROR WITH COMMUNICATING KCDB\nMay be new ships hasn\'t added to DB\nOr server is temprary unavailable</string>
     <string name="library">Library</string>
-    <string name="best_craft">Best craft:</string>
-    <string name="fuel_cons">Fuel cons.:</string>
-    <string name="ammo_cons">Ammo cons.:</string>
-    <string name="speed">Speed:</string>
+    <string name="best_craft">Best craft: </string>
+    <string name="fuel_cons">Fuel cons.: </string>
+    <string name="ammo_cons">Ammo cons.: </string>
+    <string name="speed">Speed: </string>
     <string name="sort">Sort</string>
     <string name="name">Name</string>
     <string name="cls">Class</string>
@@ -30,6 +30,12 @@
     <string name="checking_connection_with_kcdb">Checking connection with KCDB...</string>
     <string name="err_main_kcdb">KCDB seems sleepy, some utilities are not available!</string>
     <string name="err_main_inet">No internet connection, some utilities are not available. If you will turn it on, restart app</string>
-    <string name="main_copyright_1" translatable="false">KanCalc</string>
-    <string name="main_copyright_2" translatable="false">by ZONT_ ©2017</string>
+    <string name="main_copyright_1" translatable="false">"KanCalc "</string>
+    <string name="main_copyright_2" translatable="false">" by ZONT_ ©2017"</string>
+    <string name="lib_warning">Some stats are unknown.  Because it\'s not easy to fill that huge list</string>
+    <string name="slots">Slots:</string>
+    <string name="drop">Drop</string>
+    <string name="craft">Craft</string>
+    <string name="show_chance">Show chance...</string>
+    <string name="lib_unbuildable">This kanmusu is unbuildable!</string>
 </resources>
