@@ -53,4 +53,13 @@
     <string name="type_ss">Submarine [SS(V)]</string>
     <string name="type_de">Destroyer Escort [DE]</string>
     <string name="type_aux">Aux [AR][AO][AV][LHA][AS]</string>
+    <string name="t_lib">Library</string>
+    <string name="t_farm">Farm calculator</string>
+    <string name="t_drop">Drop chance</string>
+    <string name="t_craft">Craft chance</string>
+    <string name="t_setup">Edit setup</string>
+    <string name="ds_s_model">Select model</string>
+    <string name="ds_s_ship">Select ship</string>
+    <string name="ds_s_class">Select class</string>
+    <string name="ds_s_type">Select type</string>
 </resources>

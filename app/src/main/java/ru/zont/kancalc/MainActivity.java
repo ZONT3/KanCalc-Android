@@ -90,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
     public void toLib(View v) {
         try {
             Intent i = new Intent(MainActivity.this, LibraryActivity.class);
+            i.putExtra("select", 144);
             startActivity(i);
             finish();
         } catch (Exception e) {e.printStackTrace();}

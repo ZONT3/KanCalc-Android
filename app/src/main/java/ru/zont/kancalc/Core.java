@@ -15,7 +15,7 @@ import ru.zont.kancalc.Kanmusu.Map;
 class Core {
 	private static int[] diff = new int[99];
 	
-	public static final String version = "Android Port v.1.4";
+	public static final String version = "Android Port v.1.5";
 	
 	static ArrayList<Kanmusu> kmlist = new ArrayList<>();
 	static ArrayList<Kanmusu> kmlistAM = new ArrayList<>();
@@ -85,6 +85,18 @@ class Core {
 			for (int j=0; j<i; j++) {
 				if (list.get(j).cls.compareTo(list.get(j+1).cls)>0) {
 					Kanmusu t = list.get(j);
+					list.set(j, list.get(j+1));
+					list.set(j+1, t);
+				}
+			}
+		}
+	}
+
+	static void sortString(ArrayList<String> list) {
+		for (int i=list.size()-1; i>=0; i--) {
+			for (int j=0; j<i; j++) {
+				if (list.get(j).compareTo(list.get(j+1))>0) {
+					String t = list.get(j);
 					list.set(j, list.get(j+1));
 					list.set(j+1, t);
 				}
@@ -252,9 +264,25 @@ class Core {
 	static ArrayList<String> getTypes(ArrayList<Kanmusu> list) {
 		ArrayList<String> res = new ArrayList<>();
 
-		for (Kanmusu kanmusu : list)
-			if (!res.contains(kanmusu.type))
-				res.add(kanmusu.type);
+		res.add("DE");
+		res.add("DD");
+		res.add("CL");
+		res.add("CLT");
+		res.add("CA");
+		res.add("CAV");
+		res.add("BB");
+		res.add("FBB");
+		res.add("BBV");
+		res.add("CV");
+		res.add("CVL");
+		res.add("CVB");
+		res.add("SS");
+		res.add("SSV");
+		res.add("AR");
+		res.add("AO");
+		res.add("AS");
+		res.add("AV");
+		res.add("LHA");
 
 		return res;
 	}
@@ -267,6 +295,7 @@ class Core {
 				if (!res.contains(kanmusu.cls))
 					res.add(kanmusu.cls);
 
+		sortString(res);
 		return res;
 	}
 
@@ -278,6 +307,7 @@ class Core {
 				if (!res.contains(kanmusu))
 					res.add(kanmusu);
 
+		kmsortNid(res);
 		return res;
 	}
 

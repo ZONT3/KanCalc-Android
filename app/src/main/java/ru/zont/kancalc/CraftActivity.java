@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -29,6 +30,8 @@ public class CraftActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_craft);
+        ActionBar ab = getSupportActionBar();
+        if (ab != null) ab.setTitle(R.string.t_craft);
 
         AdView ad = (AdView)findViewById(R.id.craft_ad);
         AdRequest request = new AdRequest.Builder().build();
@@ -71,6 +74,7 @@ public class CraftActivity extends AppCompatActivity {
         private TextView cs = (TextView)findViewById(R.id.craft_constate);
 
         private Spinner kmlist = (Spinner)findViewById(R.id.craft_kmlist);
+        private Button ds = (Button)findViewById(R.id.craft_ds);
         private TextView single = (TextView)findViewById(R.id.craft_single);
         private TextView timeV = (TextView)findViewById(R.id.craft_time);
         private TextView res = (TextView)findViewById(R.id.craft_result);
@@ -87,6 +91,7 @@ public class CraftActivity extends AppCompatActivity {
             cs.setVisibility(TextView.VISIBLE);
             kanmusu = (Kanmusu) kmlist.getSelectedItem();
             kmlist.setEnabled(false);
+            ds.setEnabled(false);
             res.setText("..");
             timeV.setText("..");
             single.setText("..");
@@ -107,6 +112,7 @@ public class CraftActivity extends AppCompatActivity {
             pb.setVisibility(View.GONE);
             cs.setVisibility(View.GONE);
             kmlist.setEnabled(true);
+            ds.setEnabled(true);
 
             if (chance == -1) {
                 Toast.makeText(context, getString(R.string.craft_iss_1)+craft
@@ -123,6 +129,15 @@ public class CraftActivity extends AppCompatActivity {
             timeV.setText(time);
             kanmusu.chance = chance;
         }
+    }
+
+    public void toDS(View v) {
+        try {
+            Intent i = new Intent(CraftActivity.this, SelecterActivity.class);
+            i.putExtra("from", "craft");
+            startActivity(i);
+            finish();
+        } catch (Exception e) {e.printStackTrace();}
     }
 
     @Override

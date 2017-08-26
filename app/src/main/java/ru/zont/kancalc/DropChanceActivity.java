@@ -5,10 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
@@ -29,6 +31,8 @@ public class DropChanceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drop_chance);
+        ActionBar ab = getSupportActionBar();
+        if (ab != null) ab.setTitle(R.string.t_drop);
 
         AdView av = (AdView)findViewById(R.id.drop_ad);
         AdRequest request = new AdRequest.Builder().build();
@@ -86,12 +90,13 @@ public class DropChanceActivity extends AppCompatActivity {
 
     private class GetDrops extends AsyncTask<Context, Void, Boolean> {
 
-        final Spinner kmlist = (Spinner)findViewById(R.id.drop_kms);
-        final Spinner maps = (Spinner)findViewById(R.id.drop_maps);
-        final ProgressBar pb = (ProgressBar)findViewById(R.id.drop_progressBar);
-        final TextView cs = (TextView)findViewById(R.id.drop_comstate);
-        final TextView single = (TextView)findViewById(R.id.drop_singleChance);
-        final TextView res = (TextView)findViewById(R.id.drop_chance);
+        private final Spinner kmlist = (Spinner)findViewById(R.id.drop_kms);
+        private final Button ds = (Button)findViewById(R.id.drop_ds);
+        private final Spinner maps = (Spinner)findViewById(R.id.drop_maps);
+        private final ProgressBar pb = (ProgressBar)findViewById(R.id.drop_progressBar);
+        private final TextView cs = (TextView)findViewById(R.id.drop_comstate);
+        private final TextView single = (TextView)findViewById(R.id.drop_singleChance);
+        private final TextView res = (TextView)findViewById(R.id.drop_chance);
 
         Context context;
         Kanmusu kanmusu;
@@ -104,6 +109,7 @@ public class DropChanceActivity extends AppCompatActivity {
             pb.setVisibility(ProgressBar.VISIBLE);
             cs.setVisibility(TextView.VISIBLE);
             kmlist.setEnabled(false);
+            ds.setEnabled(false);
             kanmusu = (Kanmusu) kmlist.getSelectedItem();
             single.setText("..");
             res.setText("..");
@@ -138,6 +144,7 @@ public class DropChanceActivity extends AppCompatActivity {
             end();
             maps.setAdapter(adapter);
             kmlist.setEnabled(true);
+            ds.setEnabled(true);
         }
 
         private void end() {
@@ -154,6 +161,15 @@ public class DropChanceActivity extends AppCompatActivity {
         final int tries = Integer.valueOf(triesView.getText().toString());
 
         res.setText(Core.getSumChance(singleChance, tries)+"%");
+    }
+
+    public void toDS(View v) {
+        try {
+            Intent i = new Intent(DropChanceActivity.this, SelecterActivity.class);
+            i.putExtra("from", "drop");
+            startActivity(i);
+            finish();
+        } catch (Exception e) {e.printStackTrace();}
     }
 
     @Override

@@ -2,6 +2,7 @@ package ru.zont.kancalc;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
@@ -19,6 +20,8 @@ public class ChanceCalcActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chance_calc);
+        ActionBar ab = getSupportActionBar();
+        if (ab != null) ab.setTitle("Chance profit");
 
         AdView av = (AdView)findViewById(R.id.cc_ad);
         AdRequest request = new AdRequest.Builder().build();

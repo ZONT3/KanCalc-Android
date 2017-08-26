@@ -13,16 +13,25 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:orientation="horizontal">
 
             <Spinner
                 android:id="@+id/drop_kms"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:spinnerMode="dialog" />
+
+            <Button
+                android:id="@+id/drop_ds"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="toDS"
+                android:text="..." />
         </LinearLayout>
 
         <LinearLayout

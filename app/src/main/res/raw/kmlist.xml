@@ -4600,7 +4600,7 @@
 			<suffixJP>改二</suffixJP>
 		</remodel>
 	</ship>
-	<ship type="BB" class="Mutsu">
+	<ship type="BB" class="Nagato">
 		<id>81</id>
 		<nid>2</nid>
 		<name>Mutsu</name>
@@ -9884,7 +9884,7 @@
 			<ammo>170</ammo>
 		</remodel>
 	</ship>
-	<ship type="FBB" class="Vittorio Veneta">
+	<ship type="FBB" class="Vittorio Veneto">
 		<id>442</id>
 		<nid>242</nid>
 		<name>Roma</name>

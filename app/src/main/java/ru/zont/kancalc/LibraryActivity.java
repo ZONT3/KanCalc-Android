@@ -3,6 +3,7 @@ package ru.zont.kancalc;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -22,7 +23,7 @@ import com.google.android.gms.ads.InterstitialAd;
 
 import java.util.ArrayList;
 
-@SuppressWarnings("unchecked")
+@SuppressWarnings({"unchecked", "ConstantConditions"})
 public class LibraryActivity extends AppCompatActivity {
 
     InterstitialAd interstitialAd;
@@ -30,6 +31,8 @@ public class LibraryActivity extends AppCompatActivity {
     final Context context = this;
 
     boolean enableKai = false;
+    boolean selectKai = false;
+    int selectid;
 
     private ArrayList<ImageView> auxCgs = new ArrayList<>();
 
@@ -37,6 +40,8 @@ public class LibraryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_library);
+        ActionBar ab = getSupportActionBar();
+        if (ab != null) ab.setTitle(R.string.t_lib);
 
         AdView av = (AdView)findViewById(R.id.lib_ad);
         AdRequest request = new AdRequest.Builder().build();
@@ -47,14 +52,26 @@ public class LibraryActivity extends AppCompatActivity {
         final Spinner models = (Spinner)findViewById(R.id.lib_otherVers);
         ArrayAdapter<Kanmusu> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Core.kmlist);
         kmlist.setAdapter(adapter);
-        kmlist.setSelection(Core.findKmPos(45, kmlist));
+        selectid = getIntent().getIntExtra("select", -1);
+        if (selectid!=-1) {
+            int pos = Core.findKmPos(selectid, kmlist);
+            if (pos>=0) kmlist.setSelection(pos);
+            else {
+                Kanmusu k = Core.getKanmusu(selectid, Core.kmlistAM).getBase();
+                kmlist.setSelection(Core.findKmPos(k.id, kmlist));
+                selectKai = true;
+            }
+        }
 
         kmlist.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 Kanmusu kanmusu = (Kanmusu) kmlist.getSelectedItem();
                 ArrayAdapter<Kanmusu> adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, kanmusu.remodels);
-                models.setAdapter(adapter);
+                if (!enableKai) models.setAdapter(adapter);
+                else parseInfo(kanmusu);
+
+                if (selectKai) models.setSelection(Core.findKmPos(selectid, models));
             }
 
             @Override
@@ -157,10 +174,11 @@ public class LibraryActivity extends AppCompatActivity {
         }
 
         slots.setText("");
-        if (kanmusu.slots!=null)
-            for (int s : kanmusu.slots) slots.setText(slots.getText()+" ["+s+"]");
-        else
-            slots.setText("---");
+        if (kanmusu.slots!=null) {
+            int total = 0;
+            for (int s : kanmusu.slots) {slots.setText(slots.getText() + " [" + s + "]");total+=s;}
+            slots.setText(slots.getText()+" = "+total);
+        } else slots.setText("---");
 
 
 
@@ -210,15 +228,18 @@ public class LibraryActivity extends AppCompatActivity {
 
     public void toggleKai(MenuItem item) {
         final Spinner list = (Spinner)findViewById(R.id.lib_spinner);
+        final Spinner mods = (Spinner)findViewById(R.id.lib_otherVers);
         ArrayAdapter<Kanmusu> adapter;
 
-        enableKai = !enableKai;
+        enableKai=!enableKai;
         if (enableKai) {
             item.setIcon(R.drawable.kai);
             adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, Core.kmlistAM);
+            mods.setVisibility(View.GONE);
         } else {
             item.setIcon(R.drawable.kai_off);
             adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, Core.kmlist);
+            mods.setVisibility(View.VISIBLE);
         }
 
         list.setAdapter(adapter);
@@ -241,6 +262,16 @@ public class LibraryActivity extends AppCompatActivity {
         i.putExtra("select", ((Kanmusu)((Spinner)findViewById(R.id.lib_otherVers)).getSelectedItem()).getBase().id);
         startActivity(i);
         finish();
+    }
+
+    public void toDS(View v) {
+        try {
+            Intent i = new Intent(LibraryActivity.this, SelecterActivity.class);
+            i.putExtra("from", "lib");
+            i.putExtra("kai", true);
+            startActivity(i);
+            finish();
+        } catch (Exception e) {e.printStackTrace();}
     }
 
     @Override
