@@ -38,4 +38,19 @@
     <string name="craft">Craft</string>
     <string name="show_chance">Show chance…</string>
     <string name="lib_unbuildable">This kanmusu is unbuildable!</string>
+    <string name="main_droplist">Map Droplist</string>
+    <string name="type_dd">Destroyer [DD]</string>
+    <string name="type_cl">Light Cruiser [CL]</string>
+    <string name="type_ca">Heavy Cruiser [CA]</string>
+    <string name="type_bb">Battleship [BB]</string>
+    <string name="type_clt">Torpedo Cruiser [CLT]</string>
+    <string name="type_cav">Aviation Cruiser [CAV]</string>
+    <string name="type_bbv">Aviation Battleship [BBV]</string>
+    <string name="type_fbb">Fast Battleship [FBB]</string>
+    <string name="type_cv">Aircraft Carrier [CV]</string>
+    <string name="type_cvl">Light Aircraft Carrier [CVL]</string>
+    <string name="type_cvb">Armored Aircraft Carrier [CVB]</string>
+    <string name="type_ss">Submarine [SS(V)]</string>
+    <string name="type_de">Destroyer Escort [DE]</string>
+    <string name="type_aux">Aux [AR][AO][AV][LHA][AS]</string>
 </resources>

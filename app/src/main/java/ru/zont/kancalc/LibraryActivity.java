@@ -191,7 +191,7 @@ public class LibraryActivity extends AppCompatActivity {
         else
             cgD.setImageResource(R.drawable.logo);
 
-        for (ImageView v : auxCgs) mainLayout.removeView(v);
+        for (ImageView v : auxCgs) {mainLayout.removeView(v); v.destroyDrawingCache();}
         auxCgs = new ArrayList<>();
 
         int i=0;

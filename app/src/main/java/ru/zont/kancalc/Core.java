@@ -249,6 +249,38 @@ class Core {
 		return -1;
 	}
 
+	static ArrayList<String> getTypes(ArrayList<Kanmusu> list) {
+		ArrayList<String> res = new ArrayList<>();
+
+		for (Kanmusu kanmusu : list)
+			if (!res.contains(kanmusu.type))
+				res.add(kanmusu.type);
+
+		return res;
+	}
+
+	static ArrayList<String> getClasses(String type, ArrayList<Kanmusu> list) {
+		ArrayList<String> res = new ArrayList<>();
+
+		for (Kanmusu kanmusu : list)
+			if (kanmusu.type.equals(type))
+				if (!res.contains(kanmusu.cls))
+					res.add(kanmusu.cls);
+
+		return res;
+	}
+
+	static ArrayList<Kanmusu> getKmsByClass(String cls, ArrayList<Kanmusu> list) {
+		ArrayList<Kanmusu> res = new ArrayList<>();
+
+		for (Kanmusu kanmusu : list)
+			if (kanmusu.cls.equals(cls))
+				if (!res.contains(kanmusu))
+					res.add(kanmusu);
+
+		return res;
+	}
+
 	static int findKmPos(int id, Spinner spinner) {
 		for (int i=0; i<spinner.getCount(); i++)
 			if (id==((Kanmusu)spinner.getItemAtPosition(i)).id)

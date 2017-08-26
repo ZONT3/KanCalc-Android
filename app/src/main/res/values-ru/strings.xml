@@ -35,4 +35,5 @@
     <string name="drop">Дроп</string>
     <string name="lib_unbuildable">Эта канмусу не крафтится!</string>
     <string name="show_chance">Показать шанс...</string>
+    <string name="type_dd">Эсминец [DD]</string>
 </resources>

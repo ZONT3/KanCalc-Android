@@ -8,6 +8,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 
@@ -60,41 +61,6 @@ class KCDB {
 							(0, tr.get(i).getElementsContainingText("%").get(1).text().length()-1));
 				System.out.println("MID:"+drop.id+"\tM:\""+drop.name+"\"\tN:\""+node.name+"\"\tC:"+node.chance);
 				res.get(Core.mapPresent(drop, res)).nodes.add(node);
-			}
-		}
-		System.out.println();
-		return res;
-	}
-
-	public static ArrayList<Kanmusu> getCraftDrops(String craft) throws IOException {
-		ArrayList<Kanmusu> res = new ArrayList<>();
-		System.out.println("Getting CraftDrops for "+craft);
-		Document doc;
-		doc = Jsoup.connect("http://kancolle-db.net/ship/"+craft.replace('/', '-')+".html").get();
-		Elements tr = doc.getElementsByTag("tr");
-		for (int i=0; i<tr.size(); i++) {
-			if (tr.get(i).getElementsByAttributeValue("class", "ship").size()==1) {
-				String name = tr.get(i).getElementsByAttributeValue("class", "ship").text();
-				int id = Integer.valueOf(tr.get(i).getElementsByAttributeValue("class", "ship").attr("id"));
-				Kanmusu kanmusu = Core.getKanmusu(id, Core.kmlist);
-				if (kanmusu == null) {
-					kanmusu = new Kanmusu("??");
-					kanmusu.jpname = name;
-					kanmusu.oname = name;
-					kanmusu.name = "ID"+id;
-					kanmusu.id = id;
-				}
-				Kanmusu.Craft ncr = new Kanmusu.Craft();
-				if (tr.get(i).getElementsContainingText("%").size()>=1) {
-					ncr.reciepe = craft;
-					ncr.chance = Double.valueOf(tr.get(i).getElementsContainingText("%").get(1).text().substring
-							(0, tr.get(i).getElementsContainingText("%").get(1).text().length()-1));
-				}
-				if (tr.get(i).getElementsByTag("td").size()>0)
-					ncr.entries = Integer.valueOf(tr.get(i).getElementsByTag("td").get(1).text());
-				System.out.println("SID:"+id+"\tSN:\""+name+"\"\tC:"+ncr.chance+"\tE:"+ncr.entries);
-				kanmusu.crafts.add(ncr);
-				res.add(kanmusu);
 			}
 		}
 		System.out.println();
