@@ -11,47 +11,131 @@
         android:layout_centerVertical="true"
         android:orientation="vertical">
 
-        <Spinner
-            android:id="@+id/se_spinner1"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:spinnerMode="dialog" />
+            android:orientation="horizontal">
 
-        <Spinner
-            android:id="@+id/se_spinner2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:spinnerMode="dialog" />
+            <Spinner
+                android:id="@+id/se_spinner1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:spinnerMode="dialog" />
 
-        <Spinner
-            android:id="@+id/se_spinner3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:spinnerMode="dialog" />
+            <Button
+                android:id="@+id/se_ds1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="..." />
+        </LinearLayout>
 
-        <Spinner
-            android:id="@+id/se_spinner4"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:spinnerMode="dialog" />
+            android:orientation="horizontal">
 
-        <Spinner
-            android:id="@+id/se_spinner5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:spinnerMode="dialog" />
+            <Spinner
+                android:id="@+id/se_spinner2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:spinnerMode="dialog" />
 
-        <Spinner
-            android:id="@+id/se_spinner6"
+            <Button
+                android:id="@+id/se_ds2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="..." />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:spinnerMode="dialog" />
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/se_spinner3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:spinnerMode="dialog" />
+
+            <Button
+                android:id="@+id/se_ds3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="..." />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/se_spinner4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:spinnerMode="dialog" />
+
+            <Button
+                android:id="@+id/se_ds4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="..." />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/se_spinner5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:spinnerMode="dialog" />
+
+            <Button
+                android:id="@+id/se_ds5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="..." />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/se_spinner6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:spinnerMode="dialog" />
+
+            <Button
+                android:id="@+id/se_ds6"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="..." />
+        </LinearLayout>
 
         <Button
             android:id="@+id/button"

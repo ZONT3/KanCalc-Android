@@ -38,9 +38,8 @@
     <string name="craft">Craft</string>
     <string name="show_chance">Show chance…</string>
     <string name="lib_unbuildable">This kanmusu is unbuildable!</string>
-    <string name="main_droplist">Map Droplist</string>
     <string name="type_dd">Destroyer [DD]</string>
-    <string name="type_cl">Light Cruiser [CL]</string>
+    <string name="type_cl">Light Cruiser [CL][CT]</string>
     <string name="type_ca">Heavy Cruiser [CA]</string>
     <string name="type_bb">Battleship [BB]</string>
     <string name="type_clt">Torpedo Cruiser [CLT]</string>
@@ -62,4 +61,6 @@
     <string name="ds_s_ship">Select ship</string>
     <string name="ds_s_class">Select class</string>
     <string name="ds_s_type">Select type</string>
+    <string name="lib_type">Type</string>
+    <string name="initializing_core" translatable="false">Initializing core...</string>
 </resources>

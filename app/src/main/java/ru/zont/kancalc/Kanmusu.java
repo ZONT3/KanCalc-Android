@@ -6,6 +6,9 @@ import java.util.ArrayList;
 
 @SuppressWarnings({"unused", "WeakerAccess"})
 class Kanmusu implements Serializable {
+	enum AdditionalInf {CLASS, TYPE, NONE}
+	AdditionalInf ai = AdditionalInf.NONE;
+
 	int id = -1;
 	String type = "?";
 	String name;
@@ -59,7 +62,7 @@ class Kanmusu implements Serializable {
 		return res;
 	}
 
-	static class Stats {
+	static class Stats implements Serializable {
 
 		String name = null;
 		private String minValue = null;
@@ -115,7 +118,7 @@ class Kanmusu implements Serializable {
 		remodels.add(0, this);
 	}
 	
-	static class Map {
+	static class Map implements Serializable {
 		String id;
 		String name;
 		ArrayList<Node> nodes = new ArrayList<>();
@@ -140,7 +143,11 @@ class Kanmusu implements Serializable {
 
 	@Override
 	public String toString() {
-		return jpname+" ("+name+")";
+		switch (ai) {
+			case CLASS: return jpname+" ("+name+") ["+cls+"]";
+			case TYPE: return jpname+" ("+name+") ["+type+"]";
+			default: return jpname+" ("+ name+")";
+		}
 	}
 
 	void setCraft(String craft) {

@@ -92,13 +92,13 @@
 
     <ProgressBar
         android:id="@+id/craft_pb"
-        style="@android:style/Widget.DeviceDefault.Light.ProgressBar"
+        style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Inverse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:indeterminate="true"
-        android:visibility="gone"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"/>
+        android:layout_alignParentTop="true"
+        android:indeterminate="true"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/craft_constate"

@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -20,6 +19,7 @@ import com.google.android.gms.ads.MobileAds;
 
 import org.xml.sax.SAXException;
 
+import java.io.File;
 import java.io.IOException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -32,18 +32,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //resetSetups();
+
         MobileAds.initialize(this, "ca-app-pub-7799305268524604~4205778796");
         AdView av = (AdView)findViewById(R.id.main_ad);
         AdRequest request = new AdRequest.Builder().build();
         av.loadAd(request);
 
-        try {
-            Core.init(this);
-        } catch (IOException | SAXException | ParserConfigurationException e) {
-            Toast.makeText(this, "ERROR: "+e.getMessage(), Toast.LENGTH_LONG).show();
-        }
-
         boolean notFirst = getIntent().getBooleanExtra("notFirst", false);
+        if (!notFirst)
+            new CoreInit().execute(this);
         if (!hasConnection(this)) {
             ((TextView)findViewById(R.id.main_concheck)).setText(R.string.err_main_inet);
             findViewById(R.id.main_pb).setVisibility(View.GONE);
@@ -116,6 +114,47 @@ public class MainActivity extends AppCompatActivity {
         return wifiInfo != null && wifiInfo.isConnected();
     }
 
+    private class CoreInit extends AsyncTask<Context, Void, Context> {
+        ProgressBar pb = (ProgressBar)findViewById(R.id.main_pbi);
+        TextView tw = (TextView)findViewById(R.id.main_initst);
+        final Button craft = (Button)findViewById(R.id.main_bt_craft);
+        final Button drop = (Button)findViewById(R.id.main_bt_drop);
+        final Button chance = (Button)findViewById(R.id.main_bt_proke);
+        final Button farm = (Button)findViewById(R.id.main_bt_farm);
+        final Button lib = (Button)findViewById(R.id.main_bt_library);
+
+        @Override
+        protected void onPreExecute() {
+            pb.setVisibility(View.VISIBLE);
+            tw.setVisibility(View.VISIBLE);
+            craft.setEnabled(false);
+            drop.setEnabled(false);
+            chance.setEnabled(false);
+            farm.setEnabled(false);
+            lib.setEnabled(false);
+        }
+
+        @Override
+        protected Context doInBackground(Context... contexts) {
+            try {
+                Core.init(contexts[0]);
+            } catch (IOException | ParserConfigurationException | SAXException e) {
+                e.printStackTrace();
+            }
+
+            return contexts[0];
+        }
+
+        @Override
+        protected void onPostExecute(Context context) {
+            pb.setVisibility(View.GONE);
+            tw.setVisibility(View.GONE);
+            chance.setEnabled(true);
+            farm.setEnabled(true);
+            lib.setEnabled(true);
+        }
+    }
+
     @SuppressWarnings("ConstantConditions")
     private class CheckConnect extends AsyncTask<Context, Void, Context> {
 
@@ -137,6 +176,12 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected Context doInBackground(Context... contexts) {
+            while (!Core.inited) {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {e.printStackTrace();}
+            }
+
             Kanmusu yuu = Core.getKanmusu("Yuudachi", Core.kmlist);
             try {
                 KCDB.getCC(yuu, yuu.craft);
@@ -153,6 +198,14 @@ public class MainActivity extends AppCompatActivity {
 
             showConInfo(result);
         }
+    }
+
+    @SuppressWarnings({"ResultOfMethodCallIgnored", "unused"})
+    private void resetSetups() {
+        File f = new File(getFilesDir(), "last.ss");
+        f.delete();
+        f = new File(getFilesDir(), "last.sskm");
+        f.delete();
     }
 
     private void showConInfo(boolean hasConnection) {

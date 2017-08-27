@@ -21,6 +21,13 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 @SuppressWarnings({"unchecked", "ConstantConditions"})
@@ -97,18 +104,26 @@ public class LibraryActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        ArrayList<Kanmusu> list = (ArrayList<Kanmusu>) (enableKai ? Core.kmlistAM : Core.kmlist).clone();
+        ArrayList<Kanmusu> list;
         switch (item.getItemId()) {
+            case R.id.lib_sort_type:
+                list = (ArrayList<Kanmusu>) cloneList(enableKai ? Core.kmlistAM : Core.kmlist);
+                Core.kmsortType(list);
+                break;
             case R.id.lib_sort_class:
+                list = (ArrayList<Kanmusu>) cloneList(enableKai ? Core.kmlistAM : Core.kmlist);
                 Core.kmsortClass(list);
                 break;
             case R.id.lib_sort_name:
+                list = (ArrayList<Kanmusu>) cloneList(enableKai ? Core.kmlistAM : Core.kmlist);
                 Core.kmsortName(list);
                 break;
             case R.id.lib_sort_id:
+                list = (ArrayList<Kanmusu>) cloneList(enableKai ? Core.kmlistAM : Core.kmlist);
                 Core.kmsortId(list);
                 break;
             case R.id.lib_sort_nid:
+                list = (ArrayList<Kanmusu>) cloneList(enableKai ? Core.kmlistAM : Core.kmlist);
                 Core.kmsortNid(list);
                 break;
             default:
@@ -117,6 +132,24 @@ public class LibraryActivity extends AppCompatActivity {
         ArrayAdapter<Kanmusu> adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, list);
         ((Spinner)findViewById(R.id.lib_spinner)).setAdapter(adapter);
         return true;
+    }
+
+    private Object cloneList(ArrayList<Kanmusu> list) {
+        Object res = null;
+        try {
+            File f = new File(getCacheDir(), "clone");
+            FileOutputStream out = new FileOutputStream(f);
+            ObjectOutputStream oos = new ObjectOutputStream(out);
+            oos.writeObject(list);
+            oos.flush();
+            oos.close();
+            FileInputStream in = new FileInputStream(f);
+            ObjectInputStream oin = new ObjectInputStream(in);
+            res = oin.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return res;
     }
 
     @Override

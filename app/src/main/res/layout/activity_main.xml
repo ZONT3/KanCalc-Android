@@ -102,14 +102,35 @@
         android:layout_above="@+id/linearLayout2"
         android:layout_centerHorizontal="true"
         android:gravity="center_horizontal"
-        android:text="@string/checking_connection_with_kcdb" />
+        android:text="@string/checking_connection_with_kcdb"
+        android:visibility="gone" />
 
     <ProgressBar
         android:id="@+id/main_pb"
-        style="?android:attr/progressBarStyle"
+        style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Inverse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/main_concheck"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/main_initst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout2"
+        android:layout_centerHorizontal="true"
+        android:text="@string/initializing_core"
+        android:visibility="gone" />
+
+    <ProgressBar
+        android:id="@+id/main_pbi"
+        style="@android:style/Widget.DeviceDefault.Light.ProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/main_initst"
+        android:layout_centerHorizontal="true"
+        android:indeterminate="true"
+        android:visibility="gone" />
 
 </RelativeLayout>

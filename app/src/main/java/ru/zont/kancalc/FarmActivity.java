@@ -59,7 +59,7 @@ public class FarmActivity extends AppCompatActivity {
 
         Kanmusu[] setup = null;
         try {
-            File setupFile = new File(getCacheDir(), "setup");
+            File setupFile = new File(getFilesDir(), "last.sskm");
             FileInputStream in = new FileInputStream(setupFile);
             ObjectInputStream ois = new ObjectInputStream(in);
             setup = (Kanmusu[]) ois.readObject();
@@ -90,6 +90,7 @@ public class FarmActivity extends AppCompatActivity {
 
         try {
             Intent i = new Intent(FarmActivity.this, MainActivity.class);
+            i.putExtra("notFirst", true);
             startActivity(i);
             interstitialAd.show();
             finish();

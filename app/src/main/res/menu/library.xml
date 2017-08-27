@@ -35,6 +35,8 @@
                 android:title="@string/name"/>
             <item android:id="@+id/lib_sort_class"
                 android:title="@string/cls"/>
+            <item android:id="@+id/lib_sort_type"
+                android:title="@string/lib_type"/>
         </menu>
     </item>
 

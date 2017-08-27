@@ -1,6 +1,7 @@
 package ru.zont.kancalc;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.Spinner;
 
 import org.xml.sax.SAXException;
@@ -23,6 +24,8 @@ class Core {
 	static String[] ranks = {"S", "A", "B", "C", "D"};
 	static String[] farmMaps = {"1-5", "3-2", "4-3", "5-3"};
 
+	static boolean inited = false;
+
 	static void init(Context act) throws IOException, SAXException, ParserConfigurationException {
 		KMParser.init(act);
 		initLevels();
@@ -31,6 +34,7 @@ class Core {
 		kmsortNid(kmlist);
 		kmsortName(kmlistAM);
 
+		inited = true;
 	}
 
 	private static ArrayList<Kanmusu> getBaseList(ArrayList<Kanmusu> kmlistAM) {
@@ -54,6 +58,7 @@ class Core {
                 }
             }
         }
+		for (Kanmusu km : list) km.ai= Kanmusu.AdditionalInf.NONE;
 	}
 
 	static void kmsortId(ArrayList<Kanmusu> list) {
@@ -66,6 +71,7 @@ class Core {
 				}
 			}
 		}
+		for (Kanmusu km : list) km.ai= Kanmusu.AdditionalInf.NONE;
 	}
 	
 	static void kmsortName(ArrayList<Kanmusu> list) {
@@ -78,6 +84,7 @@ class Core {
                 }
             }
         }
+		for (Kanmusu km : list) km.ai= Kanmusu.AdditionalInf.NONE;
 	}
 
 	static void kmsortClass(ArrayList<Kanmusu> list) {
@@ -90,9 +97,23 @@ class Core {
 				}
 			}
 		}
+		for (Kanmusu km : list) km.ai= Kanmusu.AdditionalInf.CLASS;
 	}
 
-	static void sortString(ArrayList<String> list) {
+	static void kmsortType(ArrayList<Kanmusu> list) {
+		for (int i=list.size()-1; i>=0; i--) {
+			for (int j=0; j<i; j++) {
+				if (list.get(j).type.compareTo(list.get(j+1).type)>0) {
+					Kanmusu t = list.get(j);
+					list.set(j, list.get(j+1));
+					list.set(j+1, t);
+				}
+			}
+		}
+		for (Kanmusu km : list) km.ai= Kanmusu.AdditionalInf.TYPE;
+	}
+
+	private static void sortString(ArrayList<String> list) {
 		for (int i=list.size()-1; i>=0; i--) {
 			for (int j=0; j<i; j++) {
 				if (list.get(j).compareTo(list.get(j+1))>0) {
@@ -261,7 +282,7 @@ class Core {
 		return -1;
 	}
 
-	static ArrayList<String> getTypes(ArrayList<Kanmusu> list) {
+	static ArrayList<String> getTypes() {
 		ArrayList<String> res = new ArrayList<>();
 
 		res.add("DE");
@@ -312,9 +333,11 @@ class Core {
 	}
 
 	static int findKmPos(int id, Spinner spinner) {
-		for (int i=0; i<spinner.getCount(); i++)
-			if (id==((Kanmusu)spinner.getItemAtPosition(i)).id)
+		for (int i=0; i<spinner.getCount(); i++) {
+			if (id == ((Kanmusu) spinner.getItemAtPosition(i)).id)
 				return i;
+			Log.d("findKmPos", spinner.getItemAtPosition(i) +" is not id"+id);
+		}
 		return -1;
 	}
 

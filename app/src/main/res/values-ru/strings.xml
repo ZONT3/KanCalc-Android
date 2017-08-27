@@ -2,7 +2,6 @@
 <resources>
     <string name="chance_proke">Прок шанса</string>
     <string name="leveling_cost">Стоимость фарма</string>
-    <string name="chance">Шанс:</string>
     <string name="tries">Попытки:</string>
     <string name="edit_setup">Изменить сетап</string>
     <string name="setup_not_setted_up">Сначала установите сетап!</string>
@@ -36,4 +35,28 @@
     <string name="lib_unbuildable">Эта канмусу не крафтится!</string>
     <string name="show_chance">Показать шанс...</string>
     <string name="type_dd">Эсминец [DD]</string>
+    <string name="ds_s_class">Выберите класс</string>
+    <string name="ds_s_model">Выберите модель</string>
+    <string name="ds_s_ship">Выберите корабь</string>
+    <string name="ds_s_type">Выберите тип</string>
+    <string name="chance">"Шанс: "</string>
+    <string name="t_craft">Шанс крафта</string>
+    <string name="t_drop">Шанс дропа</string>
+    <string name="t_farm">Калькулятор фарма</string>
+    <string name="t_lib">Библиотека</string>
+    <string name="t_setup">Изменить сетап</string>
+    <string name="type_aux">Ост. [AR][AO][AS][AV][LHA]</string>
+    <string name="type_bb">Линкор [BB]</string>
+    <string name="type_bbv">Авианесущ. Линкор [BBV]</string>
+    <string name="type_ca">Тяжелый крейсер [CA]</string>
+    <string name="type_cav">Авианесущ. К. [CAV]</string>
+    <string name="type_cl">Легкий крейсер [CL][CT]</string>
+    <string name="type_clt">Торп. Крейсер [CLT]</string>
+    <string name="type_cv">Авианосец [CV]</string>
+    <string name="type_cvb">Бронепалубн. Авианосец [CVB]</string>
+    <string name="type_cvl">Легк. Авианосец [CVL]</string>
+    <string name="type_de">Кайбокан [DE]</string>
+    <string name="type_fbb">Линейный крейсер [FBB]</string>
+    <string name="type_ss">Субмарина [SS]</string>
+    <string name="lib_type">Тип</string>
 </resources>

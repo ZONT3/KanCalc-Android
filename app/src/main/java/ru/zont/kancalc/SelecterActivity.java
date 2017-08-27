@@ -32,7 +32,6 @@ public class SelecterActivity extends AppCompatActivity {
     
     private enum Menu {types, classes, ships, models}
     private Menu menu;
-    private String tmp;
 
     ArrayList<LinearLayout> louts = new ArrayList<>();
 
@@ -73,7 +72,7 @@ public class SelecterActivity extends AppCompatActivity {
         Button sample = (Button)findViewById(R.id.as_sample);
         TextView tsample = (TextView)findViewById(R.id.as_tsample);
         LinearLayout lsample = (LinearLayout)findViewById(R.id.as_lsample);
-        ArrayList<String> types = Core.getTypes(Core.kmlistAM);
+        ArrayList<String> types = Core.getTypes();
 
         for (final String type : types) {
             final Button button = new Button(this);
@@ -84,6 +83,7 @@ public class SelecterActivity extends AppCompatActivity {
             tw.setTypeface(tsample.getTypeface());
             tw.setLayoutParams(tsample.getLayoutParams());
             tw.setGravity(tsample.getGravity());
+            tw.setPadding(0,0,4,0);
             l.setLayoutParams(lsample.getLayoutParams());
             l.setGravity(Gravity.CENTER_HORIZONTAL);
             l.setOrientation(LinearLayout.HORIZONTAL);
@@ -226,6 +226,7 @@ public class SelecterActivity extends AppCompatActivity {
             tw.setTypeface(tsample.getTypeface());
             tw.setLayoutParams(tsample.getLayoutParams());
             tw.setGravity(tsample.getGravity());
+            tw.setPadding(0,0,4,0);
             l.setLayoutParams(lsample.getLayoutParams());
             l.setGravity(Gravity.CENTER_HORIZONTAL);
             l.setOrientation(LinearLayout.HORIZONTAL);
@@ -240,7 +241,6 @@ public class SelecterActivity extends AppCompatActivity {
             l.addView(button);
             lay.addView(l);
 
-            tmp = tw.getText().toString();
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {tw.callOnClick();}
@@ -276,6 +276,7 @@ public class SelecterActivity extends AppCompatActivity {
             tw.setTypeface(tsample.getTypeface());
             tw.setLayoutParams(tsample.getLayoutParams());
             tw.setGravity(tsample.getGravity());
+            tw.setPadding(0,0,4,0);
             l.setLayoutParams(lsample.getLayoutParams());
             l.setGravity(Gravity.CENTER_HORIZONTAL);
             l.setOrientation(LinearLayout.HORIZONTAL);
@@ -290,7 +291,6 @@ public class SelecterActivity extends AppCompatActivity {
             l.addView(button);
             lay.addView(l);
 
-            tmp = tw.getText().toString();
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {tw.callOnClick();}
@@ -334,6 +334,7 @@ public class SelecterActivity extends AppCompatActivity {
             tw.setTypeface(tsample.getTypeface());
             tw.setLayoutParams(tsample.getLayoutParams());
             tw.setGravity(tsample.getGravity());
+            tw.setPadding(0,0,4,0);
             l.setLayoutParams(lsample.getLayoutParams());
             l.setGravity(Gravity.CENTER_HORIZONTAL);
             l.setOrientation(LinearLayout.HORIZONTAL);
@@ -348,7 +349,6 @@ public class SelecterActivity extends AppCompatActivity {
             l.addView(button);
             lay.addView(l);
 
-            tmp = tw.getText().toString();
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {tw.callOnClick();}
@@ -407,6 +407,15 @@ public class SelecterActivity extends AppCompatActivity {
             case "craft":
                 try {
                     Intent i = new Intent(SelecterActivity.this, CraftActivity.class);
+                    i.putExtra("select", kanmusu.id);
+                    startActivity(i);
+                    finish();
+                } catch (Exception e) {e.printStackTrace();}
+                break;
+            case "se":
+                try {
+                    Intent i = new Intent(SelecterActivity.this, SetupEditorActivity.class);
+                    i.putExtra("slot", getIntent().getIntExtra("slot", 0));
                     i.putExtra("select", kanmusu.id);
                     startActivity(i);
                     finish();
