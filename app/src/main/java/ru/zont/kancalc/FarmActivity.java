@@ -44,37 +44,40 @@ public class FarmActivity extends AppCompatActivity {
         ranks.setAdapter(ranksAdapter);
         maps.setSelection(1);
     }
-
     public void onEnter(View v) {
-        final EditText lvls = (EditText)findViewById(R.id.farm_lvls);
-        final EditText lvle = (EditText)findViewById(R.id.farm_lvle);
-        final Spinner map = (Spinner)findViewById(R.id.farm_maps);
-        final Spinner rank = (Spinner)findViewById(R.id.farm_ranks);
-        final TextView res = (TextView)findViewById(R.id.farm_result);
-
-        if (lvls.getText().toString().isEmpty() || lvle.getText().toString().isEmpty()) {
-            Toast.makeText(this, R.string.empty_level_field, Toast.LENGTH_LONG).show();
-            return;
-        }
-
-        Kanmusu[] setup = null;
         try {
-            File setupFile = new File(getFilesDir(), "last.sskm");
-            FileInputStream in = new FileInputStream(setupFile);
-            ObjectInputStream ois = new ObjectInputStream(in);
-            setup = (Kanmusu[]) ois.readObject();
-            ois.close();
-        } catch (Exception e) {e.printStackTrace();}
+            final EditText lvls = (EditText)findViewById(R.id.farm_lvls);
+            final EditText lvle = (EditText)findViewById(R.id.farm_lvle);
+            final Spinner map = (Spinner)findViewById(R.id.farm_maps);
+            final Spinner rank = (Spinner)findViewById(R.id.farm_ranks);
+            final TextView res = (TextView)findViewById(R.id.farm_result);
 
-        if (setup == null) {
-            Toast.makeText(this, R.string.setup_not_setted_up, Toast.LENGTH_LONG).show();
-            editSetup(null);
-            return;
+            if (lvls.getText().toString().isEmpty() || lvle.getText().toString().isEmpty()) {
+                Toast.makeText(this, R.string.iinpt, Toast.LENGTH_LONG).show();
+                return;
+            }
+
+            Kanmusu[] setup = null;
+            try {
+                File setupFile = new File(getFilesDir(), "last.sskm");
+                FileInputStream in = new FileInputStream(setupFile);
+                ObjectInputStream ois = new ObjectInputStream(in);
+                setup = (Kanmusu[]) ois.readObject();
+                ois.close();
+            } catch (Exception e) {e.printStackTrace();}
+
+            if (setup == null) {
+                Toast.makeText(this, R.string.setup_not_setted_up, Toast.LENGTH_LONG).show();
+                editSetup(null);
+                return;
+            }
+
+            int battles = Core.getBattlesLeft(lvls.getText()+"-"+lvle.getText(), (String)map.getSelectedItem(), (String)rank.getSelectedItem());
+            Core.Consumption consumption = Core.getConsumption(setup, battles);
+            res.setText(battles+" bs | "+consumption+" F/A");
+        } catch (Exception e) {
+            Toast.makeText(this, R.string.iinpt, Toast.LENGTH_SHORT).show();
         }
-
-        int battles = Core.getBattlesLeft(lvls.getText()+"-"+lvle.getText(), (String)map.getSelectedItem(), (String)rank.getSelectedItem());
-        Core.Consumption consumption = Core.getConsumption(setup, battles);
-        res.setText(battles+" bs | "+consumption+" F/A");
     }
 
     public void editSetup(View v) {

@@ -30,12 +30,16 @@ public class ChanceCalcActivity extends AppCompatActivity {
     }
 
     public void onEnter(View v) {
-        final EditText chance = (EditText)findViewById(R.id.cc_chance);
-        final EditText tries = (EditText)findViewById(R.id.cc_tries);
-        final TextView result = (TextView)findViewById(R.id.cc_result);
+        try {
+            final EditText chance = (EditText)findViewById(R.id.cc_chance);
+            final EditText tries = (EditText)findViewById(R.id.cc_tries);
+            final TextView result = (TextView)findViewById(R.id.cc_result);
 
-        result.setText(Core.getSumChance(Double.parseDouble(chance.getText().toString()),
+            result.setText(Core.getSumChance(Double.parseDouble(chance.getText().toString()),
                 Integer.parseInt(tries.getText().toString()))+"%");
+        catch (Exception e) {
+            Toast.makeText(this, R.string.iinpt, Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override

@@ -154,13 +154,17 @@ public class DropChanceActivity extends AppCompatActivity {
     }
 
     public void onEnter(View v) {
-        final Spinner nodes = (Spinner)findViewById(R.id.drop_nodes);
-        final EditText triesView = (EditText)findViewById(R.id.drop_tries);
-        final TextView res = (TextView)findViewById(R.id.drop_chance);
-        final double singleChance = ((Kanmusu.Map.Node)nodes.getSelectedItem()).chance;
-        final int tries = Integer.valueOf(triesView.getText().toString());
+        try {
+            final Spinner nodes = (Spinner)findViewById(R.id.drop_nodes);
+            final EditText triesView = (EditText)findViewById(R.id.drop_tries);
+            final TextView res = (TextView)findViewById(R.id.drop_chance);
+            final double singleChance = ((Kanmusu.Map.Node)nodes.getSelectedItem()).chance;
+            final int tries = Integer.valueOf(triesView.getText().toString());
 
-        res.setText(Core.getSumChance(singleChance, tries)+"%");
+            res.setText(Core.getSumChance(singleChance, tries)+"%");
+        catch (Exception e) {
+            Toast.makeText(this, R.string.iinpt, Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void toDS(View v) {

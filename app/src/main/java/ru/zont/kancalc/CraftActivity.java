@@ -61,11 +61,16 @@ public class CraftActivity extends AppCompatActivity {
     }
 
     public void onEnter(View v) {
-        TextView res = (TextView)findViewById(R.id.craft_result);
-        int tries = Integer.valueOf(((TextView)findViewById(R.id.craft_tries)).getText().toString());
-        Kanmusu kanmusu = (Kanmusu)((Spinner)findViewById(R.id.craft_kmlist)).getSelectedItem();
+        try {
+            TextView res = (TextView)findViewById(R.id.craft_result);
+            int tries = Integer.valueOf(((TextView)findViewById(R.id.craft_tries)).getText().toString());
+            Kanmusu kanmusu = (Kanmusu)((Spinner)findViewById(R.id.craft_kmlist)).getSelectedItem();
 
-        res.setText(Core.getPrice(tries, kanmusu)+" - "+Core.getSumChance(kanmusu.chance, tries)+"%");
+            res.setText(Core.getPrice(tries, kanmusu)+" - "+Core.getSumChance(kanmusu.chance, tries)+"%");
+        } catch (Exception e) {
+            Toast.makeText(this, R.string.iinpt, Toast.LENGTH_SHORT).show();
+            return;
+        }
     }
 
     private class GetCC extends AsyncTask<Context, Void, Context> {
