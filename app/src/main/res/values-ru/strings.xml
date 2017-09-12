@@ -59,4 +59,8 @@
     <string name="type_fbb">Линейный крейсер [FBB]</string>
     <string name="type_ss">Субмарина [SS]</string>
     <string name="lib_type">Тип</string>
+    <string name="se_add_rules">НЕ использ.: \\ | / . , \' \" : ;</string>
+    <string name="se_create">Новый сетап...</string>
+    <string name="se_delete">Удалить сетапы</string>
+    <string name="se_name">Название</string>
 </resources>

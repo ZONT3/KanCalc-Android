@@ -63,7 +63,7 @@
     <string name="ds_s_type">Select type</string>
     <string name="lib_type">Type</string>
     <string name="initializing_core" translatable="false">Initializing core...</string>
-    <string name="iinpt">Invalid input</string>
+    <string name="iinpt" translatable="false">Invalid input</string>
     <string name="se_create">Create new setup..</string>
     <string name="se_name">Name</string>
     <string name="se_add_rules">DO NOT use: \\ \| / . , \' \" : ;</string>
