@@ -20,7 +20,7 @@ class Kanmusu implements Serializable {
 	private double craftchance = -1;
 	boolean gotDrops = false;
 	ArrayList<Map> drops = new ArrayList<>();
-	int level = 0;
+	int level = 1;
 	ArrayList<Kanmusu> remodels = new ArrayList<>();
 	ArrayList<Craft> crafts = new ArrayList<>();
 
@@ -90,11 +90,16 @@ class Kanmusu implements Serializable {
 	}
 
 
-	private int getRemodelIndex() {
+	int getRemodelIndex() {
 		for (int i=0; i<remodels.size(); i++)
 			if (remodels.get(i)==this)
 				return i;
 		return -1;
+	}
+
+	Kanmusu getRemodel() {
+		if (getRemodelIndex()<remodels.size()-1) return remodels.get(getRemodelIndex()+1);
+		return null;
 	}
 
 	boolean isBase() {return getRemodelIndex()==0;}

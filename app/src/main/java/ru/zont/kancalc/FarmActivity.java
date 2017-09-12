@@ -72,6 +72,11 @@ public class FarmActivity extends AppCompatActivity {
                 return;
             }
 
+            Kanmusu kekan = setup[0];
+            Kanmusu remodel = kekan.getRemodel();
+            if (remodel!=null) lvle.setText(remodel.level);
+            lvls.setText(kekan.level);
+
             int battles = Core.getBattlesLeft(lvls.getText()+"-"+lvle.getText(), (String)map.getSelectedItem(), (String)rank.getSelectedItem());
             Core.Consumption consumption = Core.getConsumption(setup, battles);
             res.setText(battles+" bs | "+consumption+" F/A");
