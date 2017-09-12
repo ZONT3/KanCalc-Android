@@ -1,13 +1,21 @@
 package ru.zont.kancalc;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -21,6 +29,12 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class SetupEditorActivity extends AppCompatActivity {
+    private static final String setupsDirStr = "setups";
+
+    private Menu optionsMenu;
+    private ArrayList<MenuItem> setupItems = new ArrayList<>();
+
+    ArrayList<Spinner> setupSpinners;
 
     @SuppressWarnings("unchecked")
     @Override
@@ -34,7 +48,10 @@ public class SetupEditorActivity extends AppCompatActivity {
         AdRequest request = new AdRequest.Builder().build();
         av.loadAd(request);
 
-        ArrayList<Spinner> setupSpinners = new ArrayList<>();
+        File f = new File(getFilesDir(), setupsDirStr);
+        if (!f.exists()) f.mkdir();
+
+        setupSpinners = new ArrayList<>();
         final Spinner km1 = (Spinner)findViewById(R.id.se_spinner1); setupSpinners.add(km1);
         final Spinner km2 = (Spinner)findViewById(R.id.se_spinner2); setupSpinners.add(km2);
         final Spinner km3 = (Spinner)findViewById(R.id.se_spinner3); setupSpinners.add(km3);
@@ -42,12 +59,7 @@ public class SetupEditorActivity extends AppCompatActivity {
         final Spinner km5 = (Spinner)findViewById(R.id.se_spinner5); setupSpinners.add(km5);
         final Spinner km6 = (Spinner)findViewById(R.id.se_spinner6); setupSpinners.add(km6);
         ArrayAdapter<Kanmusu> a = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Core.kmlistAM);
-        km1.setAdapter(a);
-        km2.setAdapter(a);
-        km3.setAdapter(a);
-        km4.setAdapter(a);
-        km5.setAdapter(a);
-        km6.setAdapter(a);
+        for (Spinner s : setupSpinners) s.setAdapter(a);
 
         File savedSetup = new File(getFilesDir(), "last.ss");
         if (savedSetup.exists()) {
@@ -137,14 +149,6 @@ public class SetupEditorActivity extends AppCompatActivity {
     }
 
     private void saveSetup() {
-        ArrayList<Spinner> setupSpinners = new ArrayList<>();
-        final Spinner km1 = (Spinner)findViewById(R.id.se_spinner1); setupSpinners.add(km1);
-        final Spinner km2 = (Spinner)findViewById(R.id.se_spinner2); setupSpinners.add(km2);
-        final Spinner km3 = (Spinner)findViewById(R.id.se_spinner3); setupSpinners.add(km3);
-        final Spinner km4 = (Spinner)findViewById(R.id.se_spinner4); setupSpinners.add(km4);
-        final Spinner km5 = (Spinner)findViewById(R.id.se_spinner5); setupSpinners.add(km5);
-        final Spinner km6 = (Spinner)findViewById(R.id.se_spinner6); setupSpinners.add(km6);
-
         try {
             ArrayList<Integer> composition = new ArrayList<>();
             for (int i=0; i<setupSpinners.size(); i++)
@@ -167,6 +171,136 @@ public class SetupEditorActivity extends AppCompatActivity {
             oos2.close();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    private boolean loadSetup(File save) {
+        Kanmusu[] setup = null;
+        try {
+            FileInputStream in = new FileInputStream(save);
+            ObjectInputStream ois = new ObjectInputStream(in);
+            setup = (Kanmusu[]) ois.readObject();
+            ois.close();
+        } catch (Exception e) {e.printStackTrace();}
+        if (setup==null) return false;
+
+        try {
+            for (int i = 0; i < setup.length; i++)
+                setupSpinners.get(i).setSelection(Core.findKmPos(setup[i].id, setupSpinners.get(i)));
+        } catch (Exception e) {e.printStackTrace(); return false;}
+        return true;
+    }
+
+    private void addSetup(File file, Menu menu) {
+        MenuItem item = menu.add(file.getName().substring(0, file.getName().length()-6));
+        final File save = file;
+
+        item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {return loadSetup(save);}
+        });
+        item.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+        setupItems.add(item);
+    }
+
+    private boolean createSetup() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(SetupEditorActivity.this);
+        View view = LayoutInflater.from(SetupEditorActivity.this).inflate(R.layout.dialog_setup_editor, null);
+        final EditText name = (EditText) view.findViewById(R.id.se_add_name);
+
+        final Kanmusu[] setup = new Kanmusu[6];
+        for (int i=0; i<setupSpinners.size(); i++)
+            setup[i] = (Kanmusu) setupSpinners.get(i).getSelectedItem();
+
+        builder.setTitle(R.string.se_create)
+                .setIcon(R.drawable.plus)
+                .setCancelable(true)
+                .setView(view)
+                .setPositiveButton(R.string.enter, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        try {
+                            String na = name.getText().toString();
+                            if (na.contains("\\") || na.contains(":") || na.contains("\'") || na.contains("\"")
+                                    || na.contains("|") || na.contains("/") || na.contains(";") || na.contains(".")
+                                    || na.contains(",") || na.equals("")) {
+                                Toast.makeText(SetupEditorActivity.this, R.string.iinpt, Toast.LENGTH_LONG).show();
+                                return;
+                            }
+
+                            File file = new File(getFilesDir(), setupsDirStr+"/"+na+".setup");
+                            FileOutputStream out = new FileOutputStream(file);
+                            ObjectOutputStream oout = new ObjectOutputStream(out);
+                            oout.writeObject(setup);
+                            oout.flush();
+                            oout.close();
+                            addSetup(file, optionsMenu);
+                        } catch (Exception e) {e.printStackTrace();}
+                    }});
+
+        builder.create().show();
+        return true;
+    }
+
+    private boolean deleteSetup() {
+        if (setupItems==null) return false;
+        if (setupItems.size()==0) return false;
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(SetupEditorActivity.this);
+        final boolean[] checkStates = new boolean[setupItems.size()];
+        final String[] setupStrs = new String[setupItems.size()];
+
+        for (boolean b : checkStates) b = false;
+        for (int i=0; i<setupStrs.length; i++) setupStrs[i] = setupItems.get(i).getTitle().toString();
+
+        builder.setTitle(R.string.se_delete)
+                .setCancelable(true)
+                .setMultiChoiceItems(setupStrs, checkStates, new DialogInterface.OnMultiChoiceClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i, boolean b) {checkStates[i] = b;}})
+                .setPositiveButton(R.string.enter, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        for (int j=0; j<checkStates.length; j++) {
+                            if (checkStates[j]) {
+                                File file = new File(getFilesDir(), setupsDirStr+"/"+setupStrs[j]+".setup");
+                                file.delete();
+                                for (int k=0; k<optionsMenu.size(); k++)
+                                    if (optionsMenu.getItem(k)==setupItems.get(j))
+                                        optionsMenu.removeItem(k);
+                            }
+                        }
+                    }
+                });
+
+        builder.create().show();
+        return true;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        try {
+            File setupsDir = new File(getFilesDir(), setupsDirStr);
+            File[] setups = setupsDir.listFiles();
+
+            for (File file : setups) {
+                addSetup(file, menu);
+            }
+        } catch (Exception e) {e.printStackTrace();}
+
+        MenuInflater i = getMenuInflater();
+        i.inflate(R.menu.setup, menu);
+        optionsMenu = menu;
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.se_add: return createSetup();
+            case R.id.se_delete: return deleteSetup();
+            default: return super.onOptionsItemSelected(item);
         }
     }
 }

@@ -4030,7 +4030,7 @@
 			<suffix>Kai</suffix>
 			<suffixJP>改</suffixJP>
 		</remodel>
-		<remodel index="2" lvl="65" type="CAV">
+		<remodel index="2" lvl="70" type="CAV">
 			<id>188</id>
 			<nid>188</nid>
 			<hp></hp><hpM></hpM>
@@ -4107,7 +4107,7 @@
 			<suffix>Kai</suffix>
 			<suffixJP>改</suffixJP>
 		</remodel>
-		<remodel index="2" lvl="65" type="CAV">
+		<remodel index="2" lvl="70" type="CAV">
 			<id>189</id>
 			<nid>189</nid>
 			<hp></hp><hpM></hpM>

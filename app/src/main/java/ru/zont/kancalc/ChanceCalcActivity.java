@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -31,13 +32,13 @@ public class ChanceCalcActivity extends AppCompatActivity {
 
     public void onEnter(View v) {
         try {
-            final EditText chance = (EditText)findViewById(R.id.cc_chance);
-            final EditText tries = (EditText)findViewById(R.id.cc_tries);
-            final TextView result = (TextView)findViewById(R.id.cc_result);
+            final EditText chance = (EditText) findViewById(R.id.cc_chance);
+            final EditText tries = (EditText) findViewById(R.id.cc_tries);
+            final TextView result = (TextView) findViewById(R.id.cc_result);
 
             result.setText(Core.getSumChance(Double.parseDouble(chance.getText().toString()),
-                Integer.parseInt(tries.getText().toString()))+"%");
-        catch (Exception e) {
+                    Integer.parseInt(tries.getText().toString())) + "%");
+        } catch (Exception e) {
             Toast.makeText(this, R.string.iinpt, Toast.LENGTH_SHORT).show();
         }
     }

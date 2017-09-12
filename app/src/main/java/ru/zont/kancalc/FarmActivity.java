@@ -24,6 +24,8 @@ public class FarmActivity extends AppCompatActivity {
 
     InterstitialAd interstitialAd;
 
+    Kanmusu[] setup = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,18 +33,34 @@ public class FarmActivity extends AppCompatActivity {
         ActionBar ab = getSupportActionBar();
         if (ab != null) ab.setTitle(R.string.t_farm);
 
-        AdView av = (AdView)findViewById(R.id.farm_ad);
+        final EditText lvls = (EditText)findViewById(R.id.farm_lvls);
+        final EditText lvle = (EditText)findViewById(R.id.farm_lvle);
+        final Spinner maps = (Spinner)findViewById(R.id.farm_maps);
+        final Spinner ranks = (Spinner)findViewById(R.id.farm_ranks);
+        final AdView av = (AdView)findViewById(R.id.farm_ad);
+
         AdRequest request = new AdRequest.Builder().build();
         av.loadAd(request);
         interstitialAd = AdShower.load(this);
 
-        final Spinner maps = (Spinner)findViewById(R.id.farm_maps);
-        final Spinner ranks = (Spinner)findViewById(R.id.farm_ranks);
         ArrayAdapter<String> mapsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Core.farmMaps);
         ArrayAdapter<String> ranksAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Core.ranks);
         maps.setAdapter(mapsAdapter);
         ranks.setAdapter(ranksAdapter);
         maps.setSelection(1);
+
+        try {
+            File setupFile = new File(getFilesDir(), "last.sskm");
+            FileInputStream in = new FileInputStream(setupFile);
+            ObjectInputStream ois = new ObjectInputStream(in);
+            setup = (Kanmusu[]) ois.readObject();
+            ois.close();
+        } catch (Exception e) {e.printStackTrace();}
+
+        Kanmusu kekan = setup[0];
+        Kanmusu remodel = kekan.getRemodel();
+        if (remodel!=null) lvle.setText(remodel.level+"");
+        lvls.setText(kekan.level+"");
     }
     public void onEnter(View v) {
         try {
@@ -57,25 +75,11 @@ public class FarmActivity extends AppCompatActivity {
                 return;
             }
 
-            Kanmusu[] setup = null;
-            try {
-                File setupFile = new File(getFilesDir(), "last.sskm");
-                FileInputStream in = new FileInputStream(setupFile);
-                ObjectInputStream ois = new ObjectInputStream(in);
-                setup = (Kanmusu[]) ois.readObject();
-                ois.close();
-            } catch (Exception e) {e.printStackTrace();}
-
             if (setup == null) {
                 Toast.makeText(this, R.string.setup_not_setted_up, Toast.LENGTH_LONG).show();
                 editSetup(null);
                 return;
             }
-
-            Kanmusu kekan = setup[0];
-            Kanmusu remodel = kekan.getRemodel();
-            if (remodel!=null) lvle.setText(remodel.level);
-            lvls.setText(kekan.level);
 
             int battles = Core.getBattlesLeft(lvls.getText()+"-"+lvle.getText(), (String)map.getSelectedItem(), (String)rank.getSelectedItem());
             Core.Consumption consumption = Core.getConsumption(setup, battles);

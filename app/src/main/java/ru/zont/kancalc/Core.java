@@ -16,7 +16,7 @@ import ru.zont.kancalc.Kanmusu.Map;
 class Core {
 	private static int[] diff = new int[99];
 	
-	public static final String version = "Android Port v.1.5";
+	public static final String version = "1.5.2";
 	
 	static ArrayList<Kanmusu> kmlist = new ArrayList<>();
 	static ArrayList<Kanmusu> kmlistAM = new ArrayList<>();

@@ -30,7 +30,7 @@
     <string name="checking_connection_with_kcdb">Checking connection with KCDB…</string>
     <string name="err_main_kcdb">KCDB seems sleepy, some utilities are not available!</string>
     <string name="err_main_inet">No internet connection, some utilities are not available. If you will turn it on, restart app</string>
-    <string name="main_copyright_1" translatable="false">"KanCalc "</string>
+    <string name="main_copyright_1" translatable="false">"KanCalc v."</string>
     <string name="main_copyright_2" translatable="false">" by ZONT_ ©2017"</string>
     <string name="lib_warning">Some stats are unknown.  Because it\'s not easy to fill that huge list</string>
     <string name="slots">Slots:</string>
@@ -63,4 +63,9 @@
     <string name="ds_s_type">Select type</string>
     <string name="lib_type">Type</string>
     <string name="initializing_core" translatable="false">Initializing core...</string>
+    <string name="iinpt">Invalid input</string>
+    <string name="se_create">Create new setup..</string>
+    <string name="se_name">Name</string>
+    <string name="se_add_rules">DO NOT use: \\ \| / . , \' \" : ;</string>
+    <string name="se_delete">Delete setups</string>
 </resources>

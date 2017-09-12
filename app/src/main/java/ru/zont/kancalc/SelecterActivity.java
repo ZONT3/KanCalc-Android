@@ -5,16 +5,20 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 
 public class SelecterActivity extends AppCompatActivity {
-
     private String DD;
     private String CL;
     private String CA;
@@ -30,8 +34,8 @@ public class SelecterActivity extends AppCompatActivity {
     private String AUX;
     private String DE;
     
-    private enum Menu {types, classes, ships, models}
-    private Menu menu;
+    private enum MenuList {types, classes, ships, models}
+    private MenuList menu;
 
     ArrayList<LinearLayout> louts = new ArrayList<>();
 
@@ -64,7 +68,7 @@ public class SelecterActivity extends AppCompatActivity {
 
     private void showTypes() {
         clearActivity();
-        menu = Menu.types;
+        menu = MenuList.types;
         ActionBar ab = getSupportActionBar();
         if (ab != null) ab.setTitle(R.string.ds_s_type);
 
@@ -169,7 +173,7 @@ public class SelecterActivity extends AppCompatActivity {
     @SuppressWarnings("ConstantConditions")
     private void showClasses(String type) {
         clearActivity();
-        menu = Menu.classes;
+        menu = MenuList.classes;
         ActionBar ab = getSupportActionBar();
         if (ab != null) ab.setTitle(R.string.ds_s_class);
 
@@ -256,7 +260,7 @@ public class SelecterActivity extends AppCompatActivity {
 
     private void showShips(String cls) {
         clearActivity();
-        menu = Menu.ships;
+        menu = MenuList.ships;
         ActionBar ab = getSupportActionBar();
         if (ab != null) ab.setTitle(R.string.ds_s_ship);
 
@@ -306,7 +310,7 @@ public class SelecterActivity extends AppCompatActivity {
 
     private void showModels(String kmStr) {
         clearActivity();
-        menu = Menu.models;
+        menu = MenuList.models;
         ActionBar ab = getSupportActionBar();
         if (ab != null) ab.setTitle(R.string.ds_s_model);
 
