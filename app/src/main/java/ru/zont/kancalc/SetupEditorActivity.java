@@ -298,8 +298,8 @@ public class SetupEditorActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.se_add: return createSetup();
-            case R.id.se_delete: return deleteSetup();
+            case R.id.se_add: onCreateOptionsMenu(optionsMenu); return createSetup();
+            case R.id.se_delete: onCreateOptionsMenu(optionsMenu); return deleteSetup();
             default: return super.onOptionsItemSelected(item);
         }
     }
