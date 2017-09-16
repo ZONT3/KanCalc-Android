@@ -80,7 +80,7 @@ public class DropChanceActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 Kanmusu.Map.Node node = (Kanmusu.Map.Node) nodes.getSelectedItem();
-                singleChance.setText(node.chance+"%");
+                singleChance.setText(node.chance+"% | "+node.ents+getString(R.string.entries));
             }
 
             @Override

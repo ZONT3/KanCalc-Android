@@ -87,6 +87,7 @@ public class CraftActivity extends AppCompatActivity {
 
         private Kanmusu kanmusu;
         private String craft;
+        private int ents;
         private double chance = -1;
         private String time = "";
 
@@ -107,6 +108,7 @@ public class CraftActivity extends AppCompatActivity {
             try {
                 craft = kanmusu.craft;
                 chance = KCDB.getCC(kanmusu, craft);
+                ents = KCDB.getCraftEnts();
                 time = KMParser.getConstTime(kanmusu);
             } catch (IOException e) {e.printStackTrace();}
             return contexts[0];
@@ -130,7 +132,7 @@ public class CraftActivity extends AppCompatActivity {
                 return;
             }
 
-            single.setText(craft+" - "+chance+"%");
+            single.setText(craft+" - "+chance+"% | "+ents+getString(R.string.entries));
             timeV.setText(time);
             kanmusu.chance = chance;
         }

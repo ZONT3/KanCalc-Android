@@ -131,6 +131,7 @@ class Kanmusu implements Serializable {
 		static class Node {
 			String name;
 			double chance;
+			int ents;
 
 			@Override
 			public String toString() {return name;}

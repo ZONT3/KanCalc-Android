@@ -1,39 +1,54 @@
 package ru.zont.kancalc;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 
 @SuppressWarnings("unused")
 class KCDB {
-	@SuppressLint("StaticFieldLeak")
-	private static Context act;
 
-	public static void init(Context act) {KCDB.act = act;}
+	private static org.jsoup.nodes.Document inf;
+	private static String craft;
+	private static Kanmusu kanmusu;
 
 	static double getCC(Kanmusu kanmusu, String craft) throws IOException {
+		KCDB.craft = craft;
+		KCDB.kanmusu = kanmusu;
 		double res = -1;
 		System.out.println("Getting CC for "+kanmusu+"\tID:"+kanmusu.id+"\tC:"+craft);
-		org.jsoup.nodes.Document inf = Jsoup.connect("http://kancolle-db.net/ship/"+kanmusu.id+".html").get();
+		inf = Jsoup.connect("http://kancolle-db.net/ship/"+kanmusu.id+".html").get();
 		org.jsoup.select.Elements tr = inf.getElementsByTag("tr");
 		for (int i=0; i<tr.size(); i++) {
 			if (tr.get(i).getElementsByAttributeValue("class", "ship").size()>0) {
-				if (tr.get(i).getElementsByAttributeValue("class", "ship").get(0).text().equals(craft)) {
+				if (tr.get(i).getElementsByAttributeValue("class", "ship").get(0).text().equals(craft))
 					for (int j=0; j<tr.get(i).childNodeSize(); j++)
 						if (tr.get(i).getElementsContainingText("%").size()>0)
 							res = Double.valueOf(tr.get(i).getElementsContainingText("%").get(1).text().substring
 									(0, tr.get(i).getElementsContainingText("%").get(1).text().length()-1));
-				}
 			} else if (craft.equals("unbuildable")) {
-				res = 0;
+				return 0;
+			}
+		}
+
+		System.out.println(res+"%\n");
+		return res;
+	}
+
+	static int getCraftEnts() {
+		int res = -1;
+		System.out.println("Getting CE for "+kanmusu+"\tID:"+kanmusu.id+"\tC:"+craft);
+		if (inf==null) return -1;
+		org.jsoup.select.Elements tr = inf.getElementsByTag("tr");
+		for (int i=0; i<tr.size(); i++) {
+			if (tr.get(i).getElementsByAttributeValue("class", "ship").size()>0) {
+				if (tr.get(i).getElementsByAttributeValue("class", "ship").get(0).text().equals(craft))
+					res = Integer.valueOf(tr.get(i).getElementsByTag("td").get(1).text());
+			} else if (craft.equals("unbuildable")) {
+				return 0;
 			}
 		}
 
@@ -59,7 +74,8 @@ class KCDB {
 				if (tr.get(i).getElementsContainingText("%").size()>0)
 					node.chance = Double.valueOf(tr.get(i).getElementsContainingText("%").get(1).text().substring
 							(0, tr.get(i).getElementsContainingText("%").get(1).text().length()-1));
-				System.out.println("MID:"+drop.id+"\tM:\""+drop.name+"\"\tN:\""+node.name+"\"\tC:"+node.chance);
+				node.ents = Integer.valueOf(tr.get(i).getElementsByTag("td").get(2).text());
+				System.out.println("MID:"+drop.id+"\tM:\""+drop.name+"\"\tN:\""+node.name+"\"\tC:"+node.chance+"\tE:"+node.ents);
 				res.get(Core.mapPresent(drop, res)).nodes.add(node);
 			}
 		}

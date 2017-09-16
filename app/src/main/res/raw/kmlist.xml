@@ -9681,19 +9681,19 @@
 		<nid>233</nid>
 		<name>Saratoga</name>
 		<nameJP original="Saratoga">サラトーガ</nameJP>
-		<craft>unbuildable</craft>
+		<craft>4000/2000/5000/7000</craft>
 		<stats>
-			<hp></hp><hpM></hpM>
-			<fp></fp><fpB></fpB>
-			<tp></tp><tpB></tpB>
-			<aa></aa><aaB></aaB>
-			<ar></ar><arB></arB>
-			<eva></eva><evaB></evaB>
-			<asw></asw><aswB></aswB>
-			<los></los><losB></losB>
-			<luk></luk><lukM></lukM>
-			<rng></rng>
-			<speed></speed>
+			<hp>83</hp><hpM>91</hpM>
+			<fp>45</fp><fpB>30</fpB>
+			<tp>0</tp><tpB>0</tpB>
+			<aa>73</aa><aaB>36</aaB>
+			<ar>63</ar><arB>40</arB>
+			<eva>42</eva><evaB>21</evaB>
+			<asw>0</asw><aswB>0</aswB>
+			<los>60</los><losB>40</losB>
+			<luk>25</luk><lukM>75</lukM>
+			<rng>Medium</rng>
+			<speed>Fast</speed>
 			<slots count="4">
 				<slot id="0">27</slot>
 				<slot id="1">19</slot>
@@ -9705,17 +9705,17 @@
 		</stats>
 		<remodel index="1" lvl="40">
 			<id>438</id>
-			<hp></hp><hpM></hpM>
-			<fp></fp><fpB></fpB>
-			<tp></tp><tpB></tpB>
-			<aa></aa><aaB></aaB>
-			<ar></ar><arB></arB>
-			<eva></eva><evaB></evaB>
-			<asw></asw><aswB></aswB>
-			<los></los><losB></losB>
-			<luk></luk><lukM></lukM>
-			<rng></rng>
-			<speed></speed>
+			<hp>88</hp><hpM>96</hpM>
+			<fp>53</fp><fpB>0</fpB>
+			<tp>0</tp><tpB>0</tpB>
+			<aa>93</aa><aaB>52</aaB>
+			<ar>83</ar><arB>48</arB>
+			<eva>53</eva><evaB>23</evaB>
+			<asw>0</asw><aswB>0</aswB>
+			<los>80</los><losB>48</losB>
+			<luk>35</luk><lukM>85</lukM>
+			<rng>Short</rng>
+			<speed>Fast</speed>
 			<slots count="4">
 				<slot id="0">36</slot>
 				<slot id="1">18</slot>
@@ -9726,6 +9726,54 @@
 			<ammo>90</ammo>
 			<suffix>Kai</suffix>
 			<suffixJP>改</suffixJP>
+		</remodel>
+		<remodel index="2" lvl="85">
+			<id>545</id>
+			<hp>89</hp><hpM>97</hpM>
+			<fp>68</fp><fpB>0</fpB>
+			<tp>0</tp><tpB>0</tpB>
+			<aa>94</aa><aaB>60</aaB>
+			<ar>85</ar><arB>48</arB>
+			<eva>60</eva><evaB>23</evaB>
+			<asw>0</asw><aswB>0</aswB>
+			<los>93</los><losB>48</losB>
+			<luk>40</luk><lukM>93</lukM>
+			<rng>Medium</rng>
+			<speed>Fast</speed>
+			<slots count="4">
+				<slot id="0">32</slot>
+				<slot id="1">24</slot>
+				<slot id="2">18</slot>
+				<slot id="3">6</slot>
+			</slots>
+			<fuel>90</fuel>
+			<ammo>95</ammo>
+			<suffix>Mk.II</suffix>
+			<suffixJP>ﾏｰｸﾆ</suffixJP>
+		</remodel>
+		<remodel index="3" lvl="85" type="CVB">
+			<id>545</id>
+			<hp>89</hp><hpM>97</hpM>
+			<fp>58</fp><fpB>0</fpB>
+			<tp>0</tp><tpB>0</tpB>
+			<aa>94</aa><aaB>60</aaB>
+			<ar>88</ar><arB>50</arB>
+			<eva>56</eva><evaB>23</evaB>
+			<asw>0</asw><aswB>0</aswB>
+			<los>95</los><losB>48</losB>
+			<luk>40</luk><lukM>93</lukM>
+			<rng>Medium</rng>
+			<speed>Fast</speed>
+			<slots count="4">
+				<slot id="0">37</slot>
+				<slot id="1">24</slot>
+				<slot id="2">19</slot>
+				<slot id="3">13</slot>
+			</slots>
+			<fuel>100</fuel>
+			<ammo>100</ammo>
+			<suffix>Mk.II Mod.2</suffix>
+			<suffixJP>ﾏｰｸﾆﾓｰﾄﾞﾆ</suffixJP>
 		</remodel>
 	</ship>
 	<ship type="BB" class="Queen Elizabeth">
@@ -11909,7 +11957,7 @@
 		<nid>162</nid>
 		<name>Kamoi</name>
 		<nameJP>神威</nameJP>
-		<craft>unbuildable</craft>
+		<craft>4000/2000/5000/7000</craft>
 		<stats>
 			<hp></hp><hpM></hpM>
 			<fp></fp><fpB></fpB>

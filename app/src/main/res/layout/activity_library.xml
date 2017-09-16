@@ -60,7 +60,8 @@
                     android:layout_weight="1"
                     android:gravity="right"
                     android:text="ID: "
-                    android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+                    android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/lib_id"
@@ -69,7 +70,8 @@
                     android:layout_weight="1"
                     android:gravity="left"
                     android:text="30"
-                    android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+                    android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -77,7 +79,8 @@
                     android:layout_weight="1"
                     android:gravity="right"
                     android:text="NID: "
-                    android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+                    android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/lib_nid"
@@ -86,7 +89,8 @@
                     android:layout_weight="1"
                     android:gravity="left"
                     android:text="30"
-                    android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+                    android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
@@ -102,7 +106,8 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:text="DD Yuudachi Kai Ni"
-                android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/lib_jpname"
@@ -110,7 +115,8 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:text="駆逐艦夕立改二"
-                android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+                android:textSize="20sp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -125,7 +131,8 @@
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
                     android:text="@string/best_craft"
-                    android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+                    android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/lib_craft"
@@ -134,7 +141,8 @@
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
                     android:text="30/30/30/30"
-                    android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+                    android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
@@ -164,7 +172,8 @@
                             android:layout_weight="1"
                             android:gravity="center_horizontal"
                             android:text="@string/fuel_cons"
-                            android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+                            android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+                            android:textSize="20sp" />
 
                         <TextView
                             android:id="@+id/lib_fuel"
@@ -173,7 +182,8 @@
                             android:layout_weight="1"
                             android:gravity="center_horizontal"
                             android:text="15"
-                            android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+                            android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+                            android:textSize="20sp" />
 
                     </LinearLayout>
 
@@ -190,7 +200,8 @@
                             android:layout_weight="1"
                             android:gravity="center_horizontal"
                             android:text="HP: "
-                            android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+                            android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+                            android:textSize="20sp" />
 
                         <TextView
                             android:id="@+id/lib_hp"
@@ -199,7 +210,8 @@
                             android:layout_weight="1"
                             android:gravity="center_horizontal"
                             android:text="15"
-                            android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+                            android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+                            android:textSize="20sp" />
 
                     </LinearLayout>
 
@@ -216,7 +228,8 @@
                             android:layout_weight="1"
                             android:gravity="center_horizontal"
                             android:text="TP: "
-                            android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+                            android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+                            android:textSize="20sp" />
 
                         <TextView
                             android:id="@+id/lib_TP"
@@ -225,7 +238,8 @@
                             android:layout_weight="1"
                             android:gravity="center_horizontal"
                             android:text="15"
-                            android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+                            android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+                            android:textSize="20sp" />
 
                     </LinearLayout>
 
@@ -242,7 +256,8 @@
                             android:layout_weight="1"
                             android:gravity="center_horizontal"
                             android:text="AR: "
-                            android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+                            android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+                            android:textSize="20sp" />
 
                         <TextView
                             android:id="@+id/lib_ar"
@@ -251,7 +266,8 @@
                             android:layout_weight="1"
                             android:gravity="center_horizontal"
                             android:text="15"
-                            android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+                            android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+                            android:textSize="20sp" />
 
                     </LinearLayout>
 
@@ -268,7 +284,8 @@
                             android:layout_weight="1"
                             android:gravity="center_horizontal"
                             android:text="ASW: "
-                            android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+                            android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+                            android:textSize="20sp" />
 
                         <TextView
                             android:id="@+id/lib_asw"
@@ -277,7 +294,8 @@
                             android:layout_weight="1"
                             android:gravity="center_horizontal"
                             android:text="15"
-                            android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+                            android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+                            android:textSize="20sp" />
 
                     </LinearLayout>
 
@@ -294,7 +312,8 @@
                             android:layout_weight="1"
                             android:gravity="center_horizontal"
                             android:text="LUK: "
-                            android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+                            android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+                            android:textSize="20sp" />
 
                         <TextView
                             android:id="@+id/lib_luk"
@@ -303,7 +322,8 @@
                             android:layout_weight="1"
                             android:gravity="center_horizontal"
                             android:text="15"
-                            android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+                            android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+                            android:textSize="20sp" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -332,7 +352,8 @@
                             android:layout_weight="1"
                             android:gravity="center_horizontal"
                             android:text="@string/ammo_cons"
-                            android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+                            android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+                            android:textSize="20sp" />
 
                         <TextView
                             android:id="@+id/lib_ammo"
@@ -341,7 +362,8 @@
                             android:layout_weight="1"
                             android:gravity="center_horizontal"
                             android:text="15"
-                            android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+                            android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+                            android:textSize="20sp" />
 
                     </LinearLayout>
 
@@ -358,7 +380,8 @@
                             android:layout_weight="1"
                             android:gravity="center_horizontal"
                             android:text="FP: "
-                            android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+                            android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+                            android:textSize="20sp" />
 
                         <TextView
                             android:id="@+id/lib_fp"
@@ -367,7 +390,8 @@
                             android:layout_weight="1"
                             android:gravity="center_horizontal"
                             android:text="15"
-                            android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+                            android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+                            android:textSize="20sp" />
 
                     </LinearLayout>
 
@@ -384,7 +408,8 @@
                             android:layout_weight="1"
                             android:gravity="center_horizontal"
                             android:text="AA: "
-                            android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+                            android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+                            android:textSize="20sp" />
 
                         <TextView
                             android:id="@+id/lib_aa"
@@ -393,7 +418,8 @@
                             android:layout_weight="1"
                             android:gravity="center_horizontal"
                             android:text="15"
-                            android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+                            android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+                            android:textSize="20sp" />
 
                     </LinearLayout>
 
@@ -410,7 +436,8 @@
                             android:layout_weight="1"
                             android:gravity="center_horizontal"
                             android:text="EVA: "
-                            android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+                            android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+                            android:textSize="20sp" />
 
                         <TextView
                             android:id="@+id/lib_eva"
@@ -419,7 +446,8 @@
                             android:layout_weight="1"
                             android:gravity="center_horizontal"
                             android:text="15"
-                            android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+                            android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+                            android:textSize="20sp" />
 
                     </LinearLayout>
 
@@ -436,7 +464,8 @@
                             android:layout_weight="1"
                             android:gravity="center_horizontal"
                             android:text="LoS: "
-                            android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+                            android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+                            android:textSize="20sp" />
 
                         <TextView
                             android:id="@+id/lib_los"
@@ -445,7 +474,8 @@
                             android:layout_weight="1"
                             android:gravity="center_horizontal"
                             android:text="15"
-                            android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+                            android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+                            android:textSize="20sp" />
 
                     </LinearLayout>
 
@@ -462,7 +492,8 @@
                             android:layout_weight="1"
                             android:gravity="center_horizontal"
                             android:text="RNG: "
-                            android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+                            android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+                            android:textSize="20sp" />
 
                         <TextView
                             android:id="@+id/lib_rng"
@@ -471,7 +502,8 @@
                             android:layout_weight="1"
                             android:gravity="center_horizontal"
                             android:text="Short"
-                            android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+                            android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+                            android:textSize="20sp" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -491,7 +523,8 @@
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
                     android:text="@string/speed"
-                    android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+                    android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/lib_speed"
@@ -500,7 +533,8 @@
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
                     android:text="Fast"
-                    android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+                    android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
@@ -517,7 +551,8 @@
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
                     android:text="@string/slots"
-                    android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+                    android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/lib_slots"
@@ -526,7 +561,8 @@
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
                     android:text="0 0 0"
-                    android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+                    android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+                    android:textSize="20sp" />
 
             </LinearLayout>
 

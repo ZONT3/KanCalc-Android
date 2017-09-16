@@ -33,11 +33,11 @@
     <string name="craft">Крафт</string>
     <string name="drop">Дроп</string>
     <string name="lib_unbuildable">Эта канмусу не крафтится!</string>
-    <string name="show_chance">Показать шанс...</string>
+    <string name="show_chance">Показать шанс…</string>
     <string name="type_dd">Эсминец [DD]</string>
     <string name="ds_s_class">Выберите класс</string>
     <string name="ds_s_model">Выберите модель</string>
-    <string name="ds_s_ship">Выберите корабь</string>
+    <string name="ds_s_ship">Выберите корабль</string>
     <string name="ds_s_type">Выберите тип</string>
     <string name="chance">"Шанс: "</string>
     <string name="t_craft">Шанс крафта</string>
@@ -60,7 +60,8 @@
     <string name="type_ss">Субмарина [SS]</string>
     <string name="lib_type">Тип</string>
     <string name="se_add_rules">НЕ использ.: \\ | / . , \' \" : ;</string>
-    <string name="se_create">Новый сетап...</string>
+    <string name="se_create">Новый сетап…</string>
     <string name="se_delete">Удалить сетапы</string>
     <string name="se_name">Название</string>
+    <string name="entries">" реп-в"</string>
 </resources>
