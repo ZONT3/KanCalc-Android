@@ -196,6 +196,13 @@ class Kanmusu implements Serializable {
 //		return res;
 //	}
 
+	public boolean haveClass(String cls) {
+		for (Kanmusu k : remodels)
+			if (k.cls.equals(cls))
+				return true;
+		return false;
+	}
+
 	public ArrayList<String> getNodes(String map) {
 		ArrayList<String> res = new ArrayList<>();
 		for (int i=0; i<drops.size(); i++)

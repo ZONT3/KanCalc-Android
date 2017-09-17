@@ -324,7 +324,7 @@ class Core {
 		ArrayList<Kanmusu> res = new ArrayList<>();
 
 		for (Kanmusu kanmusu : list)
-			if (kanmusu.cls.equals(cls))
+			if (kanmusu.haveClass(cls))
 				if (!res.contains(kanmusu))
 					res.add(kanmusu);
 
@@ -333,11 +333,9 @@ class Core {
 	}
 
 	static int findKmPos(int id, Spinner spinner) {
-		for (int i=0; i<spinner.getCount(); i++) {
+		for (int i=0; i<spinner.getCount(); i++)
 			if (id == ((Kanmusu) spinner.getItemAtPosition(i)).id)
 				return i;
-			Log.d("findKmPos", spinner.getItemAtPosition(i) +" is not id"+id);
-		}
 		return -1;
 	}
 

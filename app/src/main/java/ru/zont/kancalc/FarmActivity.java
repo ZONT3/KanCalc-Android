@@ -57,6 +57,7 @@ public class FarmActivity extends AppCompatActivity {
             ois.close();
         } catch (Exception e) {e.printStackTrace();}
 
+        if (setup == null) return;
         Kanmusu kekan = setup[0];
         Kanmusu remodel = kekan.getRemodel();
         if (remodel!=null) lvle.setText(remodel.level+"");

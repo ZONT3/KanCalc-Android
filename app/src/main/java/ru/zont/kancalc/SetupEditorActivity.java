@@ -234,7 +234,8 @@ public class SetupEditorActivity extends AppCompatActivity {
                             oout.writeObject(setup);
                             oout.flush();
                             oout.close();
-                            addSetup(file, optionsMenu);
+                            optionsMenu.clear();
+                            onCreateOptionsMenu(optionsMenu);
                         } catch (Exception e) {e.printStackTrace();}
                     }});
 
@@ -265,9 +266,8 @@ public class SetupEditorActivity extends AppCompatActivity {
                             if (checkStates[j]) {
                                 File file = new File(getFilesDir(), setupsDirStr+"/"+setupStrs[j]+".setup");
                                 file.delete();
-                                for (int k=0; k<optionsMenu.size(); k++)
-                                    if (optionsMenu.getItem(k)==setupItems.get(j))
-                                        optionsMenu.removeItem(k);
+                                optionsMenu.clear();
+                                onCreateOptionsMenu(optionsMenu);
                             }
                         }
                     }
@@ -298,8 +298,8 @@ public class SetupEditorActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.se_add: onCreateOptionsMenu(optionsMenu); return createSetup();
-            case R.id.se_delete: onCreateOptionsMenu(optionsMenu); return deleteSetup();
+            case R.id.se_add: return createSetup();
+            case R.id.se_delete: return deleteSetup();
             default: return super.onOptionsItemSelected(item);
         }
     }

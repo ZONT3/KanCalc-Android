@@ -11687,7 +11687,7 @@
 			<fuel>25</fuel>
 			<ammo>25</ammo>
 		</stats>
-		<remodel index="1" lvl="30">
+		<remodel index="1" lvl="30" class="Taiyou">
 			<id>526</id>
 			<name>Taiyou</name>
 			<nameJP>太陽</nameJP>
@@ -11710,7 +11710,7 @@
 			<fuel>30</fuel>
 			<ammo>25</ammo>
 		</remodel>
-		<remodel index="2" lvl="60">
+		<remodel index="2" lvl="60" class="Taiyou">
 			<id>380</id>
 			<name>Taiyou</name>
 			<nameJP>太陽</nameJP>
@@ -11736,7 +11736,7 @@
 			<suffix>Kai</suffix>
 			<suffixJP>改</suffixJP>
 		</remodel>
-		<remodel index="3" lvl="85">
+		<remodel index="3" lvl="85" class="Taiyou">
 			<id>529</id>
 			<name>Taiyou</name>
 			<nameJP>太陽</nameJP>

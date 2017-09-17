@@ -209,6 +209,10 @@ public class SelecterActivity extends AppCompatActivity {
                 classes = Core.getClasses("SS", Core.kmlistAM);
                 classes.addAll(Core.getClasses("SSV", Core.kmlistAM));
                 break;
+            case "CL":
+                classes = Core.getClasses("CL", Core.kmlistAM);
+                classes.addAll(Core.getClasses("CT", Core.kmlistAM));
+                break;
             default:
                 classes = Core.getClasses(type, Core.kmlistAM);
                 break;
