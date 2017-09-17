@@ -235,6 +235,7 @@ public class SetupEditorActivity extends AppCompatActivity {
                             oout.flush();
                             oout.close();
                             optionsMenu.clear();
+                            setupItems.clear();
                             onCreateOptionsMenu(optionsMenu);
                         } catch (Exception e) {e.printStackTrace();}
                     }});
@@ -267,6 +268,7 @@ public class SetupEditorActivity extends AppCompatActivity {
                                 File file = new File(getFilesDir(), setupsDirStr+"/"+setupStrs[j]+".setup");
                                 file.delete();
                                 optionsMenu.clear();
+                                setupItems.clear();
                                 onCreateOptionsMenu(optionsMenu);
                             }
                         }
