@@ -7,8 +7,8 @@ android {
         applicationId "ru.zont.kancalc"
         minSdkVersion 16
         targetSdkVersion 26
-        versionCode 13
-        versionName "1.5.4"
+        versionCode 14
+        versionName "1.5.4-data1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

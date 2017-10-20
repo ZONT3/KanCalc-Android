@@ -64,5 +64,5 @@
     <string name="se_delete">Удалить сетапы</string>
     <string name="se_name">Название</string>
     <string name="entries">" реп-в"</string>
-    <string name="initializing_core">Загрузга базы данных…</string>
+    <string name="initializing_core">Загрузка базы данных…</string>
 </resources>

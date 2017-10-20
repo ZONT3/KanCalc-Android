@@ -10183,6 +10183,30 @@
 			<suffix>Kai</suffix>
 			<suffixJP>改</suffixJP>
 		</remodel>
+		<remodel index="2" lvl="88">
+			<id>358</id>
+			<hp>62</hp><hpM>69</hpM>
+			<fp>87</fp><fpB>57</fpB>
+			<tp>48</tp><tpB>0</tpB>
+			<aa>90</aa><aaB>35</aaB>
+			<ar>88</ar><arB>55</arB>
+			<eva>73</eva><evaB>38</evaB>
+			<asw>0</asw><aswB>0</aswB>
+			<los>64</los><losB>19</losB>
+			<luk>17</luk><lukM>70</lukM>
+			<rng>Long</rng>
+			<speed>Fast</speed>
+			<slots count="4">
+				<slot id="0">2</slot>
+				<slot id="1">2</slot>
+				<slot id="2">2</slot>
+				<slot id="3">2</slot>
+			</slots>
+			<fuel>45</fuel>
+			<ammo>65</ammo>
+			<suffix>Kai</suffix>
+			<suffixJP>改</suffixJP>
+		</remodel>
 	</ship>
 	<ship type="CA" class="Zara">
 		<id>449</id>
